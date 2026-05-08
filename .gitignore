@@ -1,0 +1,40 @@
+# Claude Code local session files
+.claude/
+
+# Server runtime artifacts
+server.log
+server_error.log
+.server_pid
+
+# Logs
+*.log
+
+# Environment / secrets
+.env
+.env.*
+*.env
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Windows temp / cache
+Temp/
+temp/
+tmp/
+cache/
+Cache/
+*.tmp
+*.temp
+
+# Node (future-proofing)
+node_modules/
+
+# PowerShell session artifacts
+*_history.xml
+ConsoleHost_history.txt
+
+# Browser local data
+LocalStorage/
+IndexedDB/

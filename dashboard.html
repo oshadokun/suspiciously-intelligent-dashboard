@@ -1,0 +1,2180 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suspiciously Intelligent — Content Dashboard</title>
+<style>
+:root {
+  --bg:#0f1117;--surface:#1a1d27;--surface2:#22253a;--border:#2e3148;
+  --text:#e8eaf0;--muted:#8b90a8;--accent:#6c72ff;--accent-dim:#2d3180;
+  --hi:#ff4757;--med:#ffa502;--lo:#2ed573;
+}
+[data-theme="light"]{
+  --bg:#f4f5f9;--surface:#fff;--surface2:#eef0f7;--border:#d0d4e8;
+  --text:#1a1d2e;--muted:#5c6080;--accent:#4a50d4;--accent-dim:#dde0f8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.5}
+a{color:var(--accent);text-decoration:none}
+.hdr{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:1px solid var(--border);padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.hdr-title{font-size:15px;font-weight:800;letter-spacing:-.3px}
+.hdr-actions{margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.5px;padding:2px 7px;border-radius:4px;text-transform:uppercase;white-space:nowrap}
+.b-proto{background:#ff6b6b1a;color:#ff6b6b;border:1px solid #ff6b6b33}
+.b-urgent{background:#ff9f431a;color:#ff9f43}
+.b-watch{background:#ffd1661a;color:#ffd166}
+.b-oppty{background:#06d6a01a;color:#06d6a0}
+.b-under{background:#74b9ff1a;color:#74b9ff}
+.b-hi{background:#ff47571a;color:#ff4757}
+.b-med{background:#ffa5021a;color:#ffa502}
+.b-lo{background:#2ed5731a;color:#2ed573}
+.b-single{background:#ffa5021a;color:#ffa502}
+.btn{padding:6px 13px;border-radius:6px;border:1px solid var(--border);background:var(--surface2);color:var(--text);cursor:pointer;font-size:12px;font-weight:500;transition:background .15s;white-space:nowrap}
+.btn:hover{background:var(--accent-dim);color:#fff}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-primary:hover{opacity:.88}
+.btn-sm{padding:4px 10px;font-size:11px}
+.btn-warn{color:var(--hi);border-color:#ff475740}
+.btn-warn:hover{background:#ff47571a;color:var(--hi)}
+.tog{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted);cursor:pointer}
+.tog input{width:34px;height:18px;appearance:none;background:var(--surface2);border:1px solid var(--border);border-radius:9px;cursor:pointer;position:relative;transition:background .2s}
+.tog input:checked{background:var(--accent)}
+.tog input::after{content:'';position:absolute;width:12px;height:12px;background:#fff;border-radius:50%;top:2px;left:2px;transition:left .2s}
+.tog input:checked::after{left:18px}
+main{padding:20px;max-width:1440px;margin:0 auto}
+.section{margin-bottom:40px}
+.sec-hdr{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--border);cursor:pointer;user-select:none}
+.sec-title{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:var(--text)}
+.sec-count{font-size:11px;color:var(--muted);font-weight:400}
+.caret{font-size:10px;color:var(--muted);transition:transform .2s}
+.caret.open{transform:rotate(90deg)}
+.collapsible{overflow:hidden;transition:max-height .4s ease,opacity .3s ease;max-height:200000px;opacity:1}
+.collapsible.closed{max-height:0!important;opacity:0}
+.exec{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 20px;font-size:13px;line-height:1.8;color:var(--muted)}
+/* Urgent signals strip */
+.us-strip{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
+.us-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:11px 14px;min-width:220px;max-width:260px;flex-shrink:0;display:flex;flex-direction:column;gap:5px}
+.us-card.warn{border-color:#ff475755}
+.us-score{font-size:24px;font-weight:800;font-family:monospace;color:var(--text);line-height:1;cursor:help}
+.us-hl{font-size:11px;font-weight:600;line-height:1.4;color:var(--text)}
+.us-tags{display:flex;flex-wrap:wrap;gap:3px}
+.us-actions{display:flex;gap:5px;margin-top:2px}
+.rec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.rec-card{background:var(--surface);border:1px solid var(--border);border-left:3px solid #06d6a0;border-radius:10px;padding:16px}
+.rec-num{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#06d6a0;margin-bottom:6px}
+.rec-title{font-size:15px;font-weight:700;margin-bottom:4px;line-height:1.3}
+.rec-chars{font-size:11px;margin-bottom:8px}
+.chars-ok{color:var(--lo)}
+.chars-bad{color:var(--hi)}
+.rec-hook{font-size:12px;color:var(--muted);font-style:italic;border-left:2px solid var(--border);padding-left:10px;line-height:1.6}
+.c-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
+.c-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px}
+.c-card.warn{border-color:#ff475744}
+.c-card.used{opacity:.4}
+.c-card.used .c-title{text-decoration:line-through}
+.c-fmt{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-bottom:5px}
+.c-title{font-size:13px;font-weight:700;margin-bottom:4px;line-height:1.3}
+.c-chars{font-size:10px;margin-bottom:6px}
+.c-hook{font-size:12px;color:var(--muted);margin-bottom:8px;line-height:1.5}
+.c-hl{font-size:10px;color:var(--muted);border-top:1px solid var(--border);padding-top:7px;margin-top:7px;line-height:1.4}
+.c-actions{display:flex;gap:5px;margin-top:8px;flex-wrap:wrap}
+.import-box{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px}
+.import-box h3{font-size:13px;font-weight:700;margin-bottom:6px}
+.import-box p{font-size:12px;color:var(--muted);margin-bottom:14px;line-height:1.6}
+.import-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.import-row label{font-size:11px;font-weight:600;color:var(--muted);width:150px;flex-shrink:0}
+.import-row input[type=file]{font-size:12px;color:var(--muted)}
+.import-status{font-size:12px;padding:7px 12px;border-radius:6px;margin-top:8px;display:none}
+.import-ok{background:#06d6a01a;color:#06d6a0;display:block}
+.import-err{background:#ff47571a;color:var(--hi);display:block}
+.future{border:1px dashed var(--border);border-radius:8px;padding:12px 16px;background:var(--surface2);margin-top:14px}
+.future h4{font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-bottom:6px}
+.future p{font-size:11px;color:var(--muted);line-height:1.7}
+.overlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.72);align-items:center;justify-content:center}
+.overlay.on{display:flex}
+.modal{background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--hi);border-radius:12px;padding:24px;max-width:460px;width:92%}
+.modal-icon{font-size:22px;margin-bottom:10px}
+.modal-title{font-size:15px;font-weight:700;color:var(--hi);margin-bottom:8px}
+.modal-body{font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.6}
+.modal-story{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px 12px;margin-bottom:14px;font-size:12px;line-height:1.5}
+.modal-reasons{list-style:none;margin-bottom:16px}
+.modal-reasons li{font-size:12px;color:var(--hi);margin-bottom:5px;padding-left:16px;position:relative;line-height:1.5}
+.modal-reasons li::before{content:'⚠';position:absolute;left:0;font-size:10px}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end}
+/* Trending table */
+.tt-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.tt-search{flex:1;min-width:160px;background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:6px 10px;color:var(--text);font-size:12px;outline:none}
+.tt-search::placeholder{color:var(--muted)}
+.tt-select{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:6px 10px;color:var(--text);font-size:12px;cursor:pointer;outline:none}
+.tt-wrap{overflow-x:auto;overflow-y:auto;max-height:480px}
+.tt-table{width:100%;border-collapse:collapse}
+.tt-table th{text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);padding:8px 10px;border-bottom:1px solid var(--border);white-space:nowrap;cursor:pointer;user-select:none;position:sticky;top:0;background:var(--surface);z-index:5}
+.tt-table th:hover{color:var(--text)}
+.tt-table th.active .sort-arrow{color:var(--accent)}
+.tt-table td{padding:9px 10px;border-bottom:1px solid var(--border);font-size:12px;vertical-align:middle}
+.tt-table tr:hover td{background:var(--surface2)}
+.score-col{display:flex;align-items:center;gap:7px}
+.score-num{font-size:13px;font-weight:700;font-family:monospace;min-width:20px}
+.score-track{width:50px;height:4px;background:var(--border);border-radius:2px}
+.score-fill{height:4px;border-radius:2px;background:var(--accent)}
+/* Platform panel */
+.platform-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.platform-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px}
+.platform-card.top-platform{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent-dim)}
+.plat-name{font-size:12px;font-weight:700}
+.plat-stat{font-size:11px;color:var(--muted);margin-top:3px}
+.plat-rec{font-size:10px;color:var(--muted);border-top:1px solid var(--border);padding-top:7px;margin-top:8px;line-height:1.6}
+/* Source audit */
+.audit-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:16px}
+.audit-stat{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 14px}
+.audit-stat-num{font-size:22px;font-weight:800;font-family:monospace;color:var(--accent);line-height:1}
+.audit-stat-lbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-top:4px}
+.audit-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin-bottom:14px}
+.audit-cat{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:8px 12px;display:flex;justify-content:space-between;align-items:center}
+.audit-cat-name{font-size:11px;font-weight:600}
+.audit-cat-count{font-size:11px;color:var(--muted)}
+.audit-errors{background:var(--surface);border:1px solid #ff475733;border-radius:8px;overflow:hidden}
+.audit-err-hdr{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--hi);padding:10px 14px;border-bottom:1px solid #ff475733}
+.audit-err-row{padding:10px 14px;border-bottom:1px solid var(--border)}
+.audit-err-row:last-child{border-bottom:none}
+.audit-err-query{font-size:11px;font-weight:700;color:var(--hi);margin-bottom:3px}
+.audit-err-reason{font-size:11px;color:var(--muted);line-height:1.5}
+/* Content card meta strip */
+.c-meta{display:flex;gap:5px;flex-wrap:wrap;align-items:center;padding-top:7px;margin-top:7px;border-top:1px solid var(--border)}
+.c-meta-score{font-family:monospace;font-weight:700;font-size:11px;color:var(--muted)}
+.c-meta a{font-size:10px;color:var(--accent);margin-left:auto;white-space:nowrap}
+/* Tooltip */
+[data-tooltip]{position:relative}
+[data-tooltip]::after{content:attr(data-tooltip);position:absolute;bottom:calc(100% + 7px);left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:11px;line-height:1.5;color:var(--text);min-width:160px;max-width:240px;white-space:normal;pointer-events:none;opacity:0;transition:opacity .15s;z-index:200;text-transform:none;font-weight:400;letter-spacing:0;box-shadow:0 4px 16px rgba(0,0,0,.3)}
+[data-tooltip]:hover::after{opacity:1}
+/* Recommendation badges */
+.badge.rec-must{background:#06d6a01a;color:#06d6a0;border:1px solid #06d6a033}
+.badge.rec-fast{background:#ff9f431a;color:#ff9f43;border:1px solid #ff9f4333}
+.badge.rec-discuss{background:#74b9ff1a;color:#74b9ff;border:1px solid #74b9ff33}
+.badge.rec-meme{background:#a29bfe1a;color:#a29bfe;border:1px solid #a29bfe33}
+.badge.rec-watch{background:var(--surface2);color:var(--muted);border:1px solid var(--border)}
+.badge.rec-risk{background:#ff47571a;color:#ff4757;border:1px solid #ff475733}
+.badge.rec-under{background:#ffd1661a;color:#ffd166;border:1px solid #ffd16633}
+/* Story groups */
+.story-group{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:10px;transition:border-color .15s}
+.story-group:hover{border-color:var(--accent-dim)}
+.story-group.story-warn{border-color:#ff475740}
+.story-group.story-used{opacity:.55}
+.story-group.story-highlight{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-dim)}
+.story-hdr{display:flex;align-items:flex-start;gap:14px;padding:14px 16px;cursor:pointer;background:var(--surface);transition:background .15s}
+.story-hdr:hover{background:var(--surface2)}
+.story-score-col{flex-shrink:0;padding-top:2px}
+.story-score{display:block;font-size:28px;font-weight:800;font-family:monospace;color:var(--text);line-height:1;cursor:help}
+.story-hdr-body{flex:1;min-width:0}
+.story-hl{font-size:13px;font-weight:700;line-height:1.4;margin-bottom:5px}
+.story-summary{font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:8px}
+.story-quick{font-size:10px;color:var(--muted);margin-bottom:7px;display:flex;gap:12px;flex-wrap:wrap}
+.story-quick strong{color:var(--text)}
+.story-hdr-tags{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.story-hdr-right{flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;gap:7px;padding-top:2px}
+.story-expand-btn{font-size:10px;font-weight:700;color:var(--accent);white-space:nowrap;padding:4px 9px;border-radius:4px;border:1px solid var(--border);background:transparent;cursor:pointer;letter-spacing:.3px}
+.story-src-link{font-size:10px;color:var(--muted)}
+.story-src-link:hover{color:var(--accent)}
+.story-cards-wrap{max-height:200000px;opacity:1;transition:max-height .4s ease,opacity .25s ease;overflow:hidden}
+.story-cards-wrap.closed{max-height:0!important;opacity:0}
+.story-cards-wrap .c-grid{padding:12px 14px 14px;background:var(--surface2);border-top:1px solid var(--border)}
+/* Section-level reset-used row */
+.sec-ctrl{display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+/* Platform panel enhancements */
+.plat-rationale{font-size:10px;color:var(--muted);line-height:1.6;margin-top:6px}
+.plat-audience{font-size:10px;color:var(--muted);margin-top:4px}
+.plat-volatility{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.4px;padding:1px 6px;border-radius:3px;text-transform:uppercase;margin-top:5px}
+.plat-vol-fast{background:#ff9f431a;color:#ff9f43}
+.plat-vol-evergreen{background:#06d6a01a;color:#06d6a0}
+/* Scan time in header */
+.hdr-scan{font-size:10px;color:var(--muted);white-space:nowrap;border-left:1px solid var(--border);padding-left:12px;flex-shrink:0}
+/* Agent dimmed state */
+#mainContent.dimmed{opacity:.45;pointer-events:none;user-select:none}
+/* Toast */
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(8px);background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 18px;font-size:12px;color:var(--text);box-shadow:0 4px 20px rgba(0,0,0,.4);z-index:9999;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;white-space:nowrap}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+/* Footer */
+.dash-footer{border-top:1px solid var(--border);padding:14px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;max-width:1440px;margin:0 auto}
+.dash-footer-stat{font-size:11px;color:var(--muted)}
+.dash-footer-stat strong{color:var(--text)}
+.dash-footer-time{font-size:10px;color:var(--muted);margin-left:auto}
+/* ── Cluster strip ── */
+.cl-strip{display:flex;gap:8px;overflow-x:auto;padding:2px 0 8px;scrollbar-width:thin}
+.cl-chip{padding:5px 13px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;font-size:11px;font-weight:600;transition:all .15s;white-space:nowrap;flex-shrink:0}
+.cl-chip:hover{border-color:var(--text);color:var(--text)}
+.cl-chip.active{color:#fff!important;border-color:transparent!important}
+.cl-badge{font-size:9px;font-weight:700;letter-spacing:.4px;padding:2px 7px;border-radius:3px;text-transform:uppercase;white-space:nowrap;border:1px solid transparent}
+/* ── Filter banner ── */
+.cl-filter-banner{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--accent-dim);border-radius:8px;margin-bottom:14px;font-size:11px;color:var(--accent)}
+/* ── Narrative landscape ── */
+.nl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.nl-card{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:background .15s,box-shadow .15s}
+.nl-card:hover{background:var(--surface2)}
+.nl-card.nl-active{box-shadow:0 0 0 2px var(--accent-dim);border-color:var(--accent-dim)}
+.nl-title{font-size:13px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.nl-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.nl-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:10px}
+.nl-stat{font-size:10px;color:var(--muted);text-align:center;background:var(--surface2);border-radius:4px;padding:4px 6px}
+.nl-stat strong{color:var(--text);display:block;font-size:12px;font-family:monospace}
+.nl-div{border:none;border-top:1px solid var(--border);margin:8px 0}
+.nl-story-ref{font-size:10px;color:var(--muted);line-height:1.5;margin-bottom:5px}
+.nl-story-ref strong{color:var(--text);display:block}
+.nl-guidance{font-size:10px;font-style:italic;color:var(--muted);border-left:2px solid var(--border);padding-left:8px;line-height:1.6;margin-top:8px}
+/* ── Momentum badges ── */
+.badge.mom-exploding{background:#ef44441a;color:#ef4444;border:1px solid #ef444433}
+.badge.mom-rising{background:#f59e0b1a;color:#f59e0b;border:1px solid #f59e0b33}
+.badge.mom-stable{background:var(--surface2);color:var(--muted);border:1px solid var(--border)}
+.badge.mom-declining{background:#3b82f61a;color:#3b82f6;border:1px solid #3b82f633}
+/* ── Saturation warnings ── */
+.sat-warns{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.sat-warn{background:#f59e0b0a;border:1px solid #f59e0b33;border-radius:6px;padding:7px 12px;font-size:11px;color:#f59e0b;line-height:1.6}
+/* ── Related stories ── */
+.related-strip{padding:7px 16px;background:var(--surface2);border-top:1px solid var(--border);font-size:10px;color:var(--muted);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+/* ── Workflow badges ── */
+.wf-badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.5px;padding:2px 9px;border-radius:3px;text-transform:uppercase;cursor:pointer;white-space:nowrap;border:1px solid transparent;transition:opacity .15s;user-select:none}
+.wf-badge:hover{opacity:.75}
+.wf-discovered{background:#8b90a81a;color:#8b90a8;border-color:#8b90a833}
+.wf-reviewed{background:#60a5fa1a;color:#60a5fa;border-color:#60a5fa33}
+.wf-approved{background:#34d3991a;color:#34d399;border-color:#34d39933}
+.wf-scripting{background:#a78bfa1a;color:#a78bfa;border-color:#a78bfa33}
+.wf-recording{background:#f974161a;color:#f97416;border-color:#f9741633}
+.wf-editing{background:#facc151a;color:#facc15;border-color:#facc1533}
+.wf-scheduled{background:#22d3ee1a;color:#22d3ee;border-color:#22d3ee33}
+.wf-published{background:#4ade801a;color:#4ade80;border-color:#4ade8033}
+.wf-archived{background:#4755691a;color:#475569;border-color:#47556933}
+/* ── Workflow floating menu ── */
+.wf-menu{position:fixed;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:6px;box-shadow:0 8px 28px rgba(0,0,0,.45);z-index:9500;min-width:188px}
+.wf-menu-hdr{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);padding:3px 8px 6px;border-bottom:1px solid var(--border);margin-bottom:4px}
+.wf-menu-item{display:block;width:100%;text-align:left;background:none;border:none;padding:6px 10px;border-radius:5px;cursor:pointer;font-size:11px;font-weight:500;color:var(--text);line-height:1.4;transition:background .1s}
+.wf-menu-item:hover{background:var(--surface2)}
+.wf-menu-item.current{background:var(--surface2);color:var(--muted);cursor:default}
+.wf-menu-div{border:none;border-top:1px solid var(--border);margin:4px 0}
+/* ── Production pipeline ── */
+.pipeline-stats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.pipeline-stat{background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:8px 13px;min-width:72px}
+.pipeline-stat-n{font-size:20px;font-weight:800;font-family:monospace;line-height:1;color:var(--text)}
+.pipeline-stat-l{font-size:10px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.3px}
+.pipeline-wrap{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+@media(max-width:1000px){.pipeline-wrap{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.pipeline-wrap{grid-template-columns:1fr 1fr}}
+.pipeline-col{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.pipeline-col-hdr{padding:10px 12px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:7px}
+.pipeline-col-name{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;flex:1}
+.pipeline-col-count{font-size:10px;font-weight:700;font-family:monospace;padding:2px 7px;border-radius:10px;background:var(--surface2);color:var(--muted)}
+.pipeline-col-body{padding:7px;display:flex;flex-direction:column;gap:5px;min-height:50px}
+.pipeline-card{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:8px 10px;cursor:pointer;transition:border-color .15s}
+.pipeline-card:hover{border-color:var(--accent-dim)}
+.pipeline-card-score{font-size:10px;font-family:monospace;font-weight:700;color:var(--muted)}
+.pipeline-card-hl{font-size:11px;font-weight:600;line-height:1.4;margin-top:2px}
+.pipeline-card-meta{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px;align-items:center}
+.pipeline-card-pub{font-size:10px;color:var(--muted);margin-top:4px;line-height:1.4}
+.pipeline-empty{font-size:11px;color:var(--muted);padding:10px 8px;text-align:center;opacity:.55}
+/* ── Stale alerts ── */
+.stale-alerts{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
+.stale-alert{background:#f59e0b08;border:1px solid #f59e0b22;border-left:3px solid #f59e0b;border-radius:6px;padding:7px 12px;font-size:11px;color:#f59e0b;display:flex;align-items:center;gap:8px;line-height:1.5}
+/* ── Workflow filter banner ── */
+.wf-filter-banner{display:flex;align-items:center;gap:10px;padding:8px 14px;background:rgba(74,222,128,.06);border:1px solid rgba(74,222,128,.2);border-radius:8px;margin-bottom:10px;font-size:11px;color:#4ade80}
+/* ── Publish tracking modal ── */
+.pub-overlay{display:none;position:fixed;inset:0;z-index:1200;background:rgba(0,0,0,.72);align-items:center;justify-content:center}
+.pub-overlay.on{display:flex}
+.pub-modal{background:var(--surface);border:1px solid var(--border);border-top:3px solid #4ade80;border-radius:12px;padding:22px 24px;max-width:450px;width:94%}
+.pub-modal-title{font-size:14px;font-weight:700;margin-bottom:3px}
+.pub-modal-story{font-size:11px;color:var(--muted);margin-bottom:16px;line-height:1.5;padding:8px 10px;background:var(--surface2);border-radius:6px}
+.pub-form{display:flex;flex-direction:column;gap:11px}
+.pub-form label{font-size:11px;font-weight:600;color:var(--muted);display:block;margin-bottom:3px}
+.pub-input{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:7px 10px;color:var(--text);font-size:12px;outline:none;font-family:inherit;transition:border-color .15s}
+.pub-input:focus{border-color:var(--accent)}
+.pub-textarea{resize:vertical;min-height:54px}
+.pub-form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pub-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:6px}
+/* ── Scan source badge ── */
+.src-badge{display:inline-flex;align-items:center;gap:4px;font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap;border:1px solid transparent}
+.src-latest{background:#4ade801a;color:#4ade80;border-color:#4ade8033}
+.src-imported{background:#60a5fa1a;color:#60a5fa;border-color:#60a5fa33}
+.src-fallback{background:#f59e0b1a;color:#f59e0b;border-color:#f59e0b33}
+/* ── Load warning banner ── */
+.load-warn{display:none;align-items:flex-start;gap:10px;padding:10px 14px;background:#f59e0b08;border:1px solid #f59e0b33;border-left:3px solid #f59e0b;border-radius:8px;margin-bottom:12px;font-size:12px;color:#f59e0b;line-height:1.6}
+.load-warn.on{display:flex}
+.load-warn-icon{flex-shrink:0;margin-top:1px}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-title">Suspiciously Intelligent</div>
+  <span class="badge b-proto">PROTOTYPE — Live API connections not yet active</span>
+  <span class="hdr-scan" id="hdrScanMeta"></span>
+  <div class="hdr-actions">
+    <label class="tog" title="Dim dashboard when agent is inactive">
+      <input type="checkbox" id="activeViewToggle" checked onchange="toggleActiveView(this.checked)">
+      <span>Agent active</span>
+    </label>
+    <button class="btn btn-primary" id="reloadBtn" onclick="reloadLatestScan()" title="Reload from /scans/latest/">Reload latest</button>
+    <button class="btn" onclick="scanSources()">Scan sources</button>
+    <button class="btn" onclick="toggleImport()">Import new scan</button>
+    <button class="btn" onclick="toggleTheme()">Toggle theme</button>
+    <button class="btn" onclick="exportWorkspace()">Export workspace</button>
+    <button class="btn" onclick="exportIdeas()">Export ideas</button>
+  </div>
+</header>
+
+<div id="mainContent">
+<main>
+
+  <div class="load-warn" id="loadWarnBanner">
+    <span class="load-warn-icon">⚠</span>
+    <span id="loadWarnMsg"></span>
+  </div>
+
+  <div class="section">
+    <div class="sec-hdr" onclick="toggleSection('exec')">
+      <span class="sec-title">Executive summary</span>
+      <span class="caret open" id="exec-caret">▶</span>
+    </div>
+    <div class="collapsible" id="exec">
+      <div class="exec" id="execText"></div>
+    </div>
+  </div>
+
+  <div id="clusterStrip" class="cl-strip"></div>
+  <div id="clFilterBanner" class="cl-filter-banner" style="display:none">
+    <span id="clFilterLabel"></span>
+    <button class="btn btn-sm" onclick="setClusterFilter(null)" style="margin-left:auto">✕ Clear filter</button>
+  </div>
+  <div id="wfFilterBanner" class="wf-filter-banner" style="display:none">
+    <span id="wfFilterLabel"></span>
+    <button class="btn btn-sm" onclick="setWorkflowFilter('all')" style="margin-left:auto">✕ Clear workflow filter</button>
+  </div>
+
+  <div class="section">
+    <div class="sec-hdr" onclick="toggleSection('pq')">
+      <span class="sec-title">Urgent signals</span>
+      <span class="sec-count" id="urgentCount"></span>
+      <span class="caret open" id="pq-caret">▶</span>
+    </div>
+    <div class="collapsible" id="pq">
+      <div class="us-strip" id="urgentStrip"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-hdr" onclick="toggleSection('rec')">
+      <span class="sec-title">Publish recommendations</span>
+      <span class="sec-count">top 3 content opportunities · not high-risk</span>
+      <span class="caret open" id="rec-caret">▶</span>
+    </div>
+    <div class="collapsible" id="rec">
+      <div class="rec-grid" id="recommendPanel"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-hdr" onclick="toggleSection('nl-body')">
+      <span class="sec-title">Narrative landscape</span>
+      <span class="sec-count" id="nlCount"></span>
+      <span class="caret open" id="nl-body-caret">▶</span>
+    </div>
+    <div class="collapsible" id="nl-body">
+      <div id="saturationWarnings"></div>
+      <div class="nl-grid" id="nlGrid"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-hdr" onclick="toggleSection('trending-body')">
+      <span class="sec-title">Trending topics</span>
+      <span class="sec-count" id="trendCount">22 stories this week</span>
+      <span class="caret open" id="trending-body-caret">▶</span>
+    </div>
+    <div class="collapsible" id="trending-body">
+      <div class="tt-controls">
+        <input class="tt-search" id="ttSearch" type="text" placeholder="Search headlines..." oninput="onTrendSearch(this.value)">
+        <select class="tt-select" id="ttTag" onchange="onTrendFilter()">
+          <option value="all">All tags</option>
+          <option value="URGENT">URGENT</option>
+          <option value="CONTENT OPPORTUNITY">CONTENT OPPORTUNITY</option>
+          <option value="WATCH">WATCH</option>
+          <option value="UNDERREPORTED">UNDERREPORTED</option>
+          <option value="HIGH RISK">HIGH RISK</option>
+        </select>
+        <select class="tt-select" id="ttCat" onchange="onTrendFilter()">
+          <option value="all">All categories</option>
+          <option value="regulation">Regulation</option>
+          <option value="company_move">Company move</option>
+          <option value="jobs">Jobs</option>
+          <option value="research">Research</option>
+          <option value="model_release">Model release</option>
+          <option value="hardware">Hardware</option>
+          <option value="open_source">Open source</option>
+        </select>
+        <select class="tt-select" id="ttWf" onchange="onTrendFilter()">
+          <option value="all">All states</option>
+          <option value="discovered">Discovered</option>
+          <option value="reviewed">Reviewed</option>
+          <option value="approved">Approved</option>
+          <option value="scripting">Scripting</option>
+          <option value="recording">Recording</option>
+          <option value="editing">Editing</option>
+          <option value="scheduled">Scheduled</option>
+          <option value="published">Published</option>
+          <option value="archived">Archived</option>
+        </select>
+      </div>
+      <div class="tt-wrap">
+        <table class="tt-table">
+          <thead><tr>
+            <th id="th-rank" onclick="sortTrending('rank')"># <span class="sort-arrow">↕</span></th>
+            <th id="th-score" onclick="sortTrending('score')" class="active">Score <span class="sort-arrow">↓</span></th>
+            <th>Headline</th>
+            <th id="th-source_category" onclick="sortTrending('source_category')">Category <span class="sort-arrow">↕</span></th>
+            <th>Tags</th>
+            <th style="text-align:center">Srcs</th>
+            <th>Verified</th>
+            <th>State</th>
+            <th></th>
+          </tr></thead>
+          <tbody id="trendingBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-hdr" onclick="toggleSection('platform-body')">
+      <span class="sec-title">Platform recommendation</span>
+      <span class="sec-count">best distribution channels this week</span>
+      <span class="caret open" id="platform-body-caret">▶</span>
+    </div>
+    <div class="collapsible" id="platform-body">
+      <div class="platform-grid" id="platformPanel"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-hdr" onclick="toggleSection('pub-now-body')">
+      <span class="sec-title">Publish now</span>
+      <span class="sec-count">top 3 stories this week · expanded by default</span>
+      <span class="caret open" id="pub-now-body-caret">▶</span>
+    </div>
+    <div class="collapsible" id="pub-now-body">
+      <div class="sec-ctrl">
+        <button class="btn btn-sm" onclick="resetUsed()">Reset used</button>
+      </div>
+      <div id="publishNowGrid"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-hdr" onclick="toggleSection('wl2-body')">
+      <span class="sec-title">This week's watchlist</span>
+      <span class="sec-count">stories 4–10 · expand to see format ideas</span>
+      <span class="caret" id="wl2-body-caret">▶</span>
+    </div>
+    <div class="collapsible closed" id="wl2-body">
+      <div id="watchlistNewGrid"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-hdr" onclick="toggleSection('archive-body2')">
+      <span class="sec-title">Archive / low priority</span>
+      <span class="sec-count">stories 11–22</span>
+      <span class="caret" id="archive-body2-caret">▶</span>
+    </div>
+    <div class="collapsible closed" id="archive-body2">
+      <div id="archiveGrid"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-hdr" onclick="toggleSection('pipeline-body')">
+      <span class="sec-title">Production pipeline</span>
+      <span class="sec-count" id="pipelineCount"></span>
+      <span class="caret" id="pipeline-body-caret">▶</span>
+    </div>
+    <div class="collapsible closed" id="pipeline-body">
+      <div id="staleAlerts"></div>
+      <div class="pipeline-stats" id="pipelineStats"></div>
+      <div class="pipeline-wrap" id="pipelineWrap"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-hdr" onclick="toggleSection('audit-body')">
+      <span class="sec-title">Source audit</span>
+      <span class="sec-count">scan metadata &amp; coverage</span>
+      <span class="caret" id="audit-body-caret">▶</span>
+    </div>
+    <div class="collapsible closed" id="audit-body">
+      <div id="auditPanel"></div>
+    </div>
+  </div>
+
+  <div class="section" id="importSection" style="display:none">
+    <div class="import-box">
+      <h3>Import new scan</h3>
+      <p>Upload replacement JSON files from a new pipeline run. The dashboard reloads with the new data. Refresh the page at any time to restore the embedded baseline data.</p>
+      <div class="import-row">
+        <label>data.json (stories)</label>
+        <input type="file" accept=".json" onchange="importJSON(this,'data')">
+      </div>
+      <div class="import-row">
+        <label>content_ideas.json</label>
+        <input type="file" accept=".json" onchange="importJSON(this,'ideas')">
+      </div>
+      <div class="import-row">
+        <label>Workspace snapshot (.json)</label>
+        <input type="file" accept=".json" onchange="importWorkspace(this)">
+      </div>
+      <div class="import-status" id="importStatus"></div>
+      <div class="future">
+        <h4>Future optional integrations — not active in this build</h4>
+        <p>
+          <strong>NewsAPI</strong> — automated story fetching (requires API key + server-side CORS proxy)<br>
+          <strong>Reddit API</strong> — community signal scoring (OAuth2, rate-limited)<br>
+          <strong>YouTube Data API</strong> — channel analytics and title performance data<br>
+          <strong>Hugging Face Hub API</strong> — model release monitoring<br>
+          <strong>arXiv API</strong> — research paper feed for AI safety and capabilities<br>
+          <strong>Claude API</strong> — automated story analysis and content idea generation (server-side only)<br>
+          None of these are connected. All require separate authentication setup.
+        </p>
+      </div>
+    </div>
+  </div>
+
+</main>
+<footer class="dash-footer" id="dashFooter"></footer>
+</div>
+<div id="toast"></div>
+
+<div class="overlay" id="reviewerModal">
+  <div class="modal">
+    <div class="modal-icon">⚠</div>
+    <div class="modal-title">Reviewer check required</div>
+    <div class="modal-body">This story has been flagged. Review the issues below before using this content.</div>
+    <div class="modal-story" id="modalStory"></div>
+    <ul class="modal-reasons" id="modalReasons"></ul>
+    <div class="modal-actions">
+      <button class="btn" onclick="dismissWarning()">Cancel</button>
+      <button class="btn btn-primary" onclick="confirmWarning()">I have reviewed — proceed</button>
+    </div>
+  </div>
+</div>
+
+<div class="pub-overlay" id="publishModal">
+  <div class="pub-modal">
+    <div class="pub-modal-title">Mark as published</div>
+    <div class="pub-modal-story" id="pubModalStory"></div>
+    <div class="pub-form">
+      <div class="pub-form-row">
+        <div>
+          <label for="pubDate">Publish date</label>
+          <input class="pub-input" type="date" id="pubDate">
+        </div>
+        <div>
+          <label for="pubPlatform">Platform</label>
+          <select class="pub-input" id="pubPlatform">
+            <option value="">— select —</option>
+            <option>YouTube</option>
+            <option>YouTube Shorts</option>
+            <option>Instagram</option>
+            <option>Twitter / X</option>
+            <option>LinkedIn</option>
+            <option>TikTok</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label for="pubUrl">Published URL (optional)</label>
+        <input class="pub-input" type="url" id="pubUrl" placeholder="https://...">
+      </div>
+      <div>
+        <label for="pubNotes">Notes (optional)</label>
+        <textarea class="pub-input pub-textarea" id="pubNotes" placeholder="e.g. performed well, 14k views in 24h"></textarea>
+      </div>
+      <div class="pub-actions">
+        <button class="btn" onclick="closePublishModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="savePublishData()">Save &amp; mark published</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─── EMBEDDED DATA ────────────────────────────────────────────────────────────
+
+const EMBEDDED_DATA = {
+  meta:{generated_at:"2026-05-06T14:30:00Z",scan_date:"2026-05-06T12:00:00Z",research_window:"April 29 – May 6, 2026",is_prototype:true,total_stories:22,raw_stories_collected:33,after_deduplication:30,sources_queried:25,successful_queries:23,scan_errors:[{query:"arXiv AI safety papers",reason:"No results published within the April 29–May 6, 2026 research window. arXiv submissions present but not safety-specific."},{query:"Deepfake scam incidents",reason:"No specific named incident or prosecution found within the window. General articles present but no datable triggering event."}]},
+  executive_summary:"This week the AI industry produced three lawsuits, one union vote, and 8,500 layoffs — all in the same five-day window, and almost none of it is being covered with the right frame. Apple paid $250 million for AI features it promised but never shipped; Google DeepMind’s UK researchers voted to unionise specifically because of a Pentagon military contract; and Anthropic launched a $1.5 billion ‘independent’ consulting venture while simultaneously committing $200 billion to Google Cloud — both on the same day. The thread running through nearly every story this week is the gap between what AI companies say they are and what they are actually doing. Meanwhile, four Chinese AI labs shipped frontier-level coding models in 12 days — one without a single Nvidia chip — which makes the US export control strategy look less like a wall and more like a delay.",
+  stories:[
+    {id:"apple-siri-250m-settlement",headline:"Apple agrees to pay $250 million to settle lawsuit over Siri AI features it advertised but never delivered",summary:"Apple settled a class-action suit for $250M over Siri AI features it advertised but didn’t ship — the first large legal settlement specifically over undelivered AI feature promises.",url:"https://techcrunch.com/2026/05/06/apple-to-pay-250m-to-settle-lawsuit-over-siris-delayed-ai-features/",sources:["TechCrunch","AppleInsider","The Hill"],score:9,priority_tags:["URGENT","CONTENT OPPORTUNITY"],source_category:"regulation",risk_level:"low",opportunity_level:"high",verified:true,idea_id:"idea-001"},
+    {id:"deepmind-workers-vote-unionize",headline:"Google DeepMind UK workers vote to form the world’s first union at a frontier AI lab, citing Pentagon military AI contracts",summary:"DeepMind UK workers voted to unionise — the world’s first AI lab union — following Google’s deal allowing the US DoD to use Gemini inside classified military networks for ‘any lawful purpose.’",url:"https://fortune.com/2026/05/05/google-deepmind-unionize-vote-military-ai-contracts-internal-backlash-pentagon-deal-israeli-defense-forces/",sources:["Fortune","Gizmodo","Engadget","Breitbart"],score:9,priority_tags:["URGENT","CONTENT OPPORTUNITY"],source_category:"company_move",risk_level:"medium",opportunity_level:"high",verified:true,idea_id:"idea-002"},
+    {id:"anthropic-goldman-blackstone-jv",headline:"Anthropic launches $1.5 billion AI services joint venture with Goldman Sachs, Blackstone, and Hellman & Friedman",summary:"Anthropic launched a new AI-native enterprise services company backed by $1.5B, embedding its engineers inside PE-owned companies.",url:"https://www.cnbc.com/2026/05/04/anthropic-goldman-blackstone-ai-venture.html",sources:["CNBC","Fortune","Bloomberg","Anthropic.com"],score:8,priority_tags:["URGENT","CONTENT OPPORTUNITY"],source_category:"company_move",risk_level:"low",opportunity_level:"high",verified:true,idea_id:"idea-003"},
+    {id:"openai-microsoft-nonexclusive-deal",headline:"OpenAI and Microsoft end exclusivity — OpenAI can now distribute models through Amazon and Google",summary:"Microsoft and OpenAI renegotiated their partnership, ending exclusivity. OpenAI can now distribute through AWS and Google, while Microsoft retains its IP licence through 2032.",url:"https://aws.amazon.com/blogs/aws/aws-weekly-roundup-whats-next-with-aws-2026-amazon-quick-openai-partnership-and-more-may-4-2026/",sources:["Bloomberg","AWS News Blog","TechCrunch"],score:8,priority_tags:["URGENT","CONTENT OPPORTUNITY"],source_category:"company_move",risk_level:"low",opportunity_level:"high",verified:true,idea_id:"idea-004"},
+    {id:"freshworks-500-layoffs-ai-writes-code",headline:"Freshworks lays off 500 employees after CEO reveals more than half of company code is now written by AI",summary:"Freshworks CEO Dennis Woodside stated on record that more than half of the company’s code is written by AI, then announced 500 layoffs.",url:"https://www.theworkersrights.com/freshworks-layoffs-2026-ai-code-jobs/",sources:["The Workers Rights"],score:7,priority_tags:["WATCH","CONTENT OPPORTUNITY"],source_category:"jobs",risk_level:"medium",opportunity_level:"high",verified:false,idea_id:"idea-005"},
+    {id:"meta-8000-layoffs-ai-restructuring",headline:"Meta cuts 8,000 jobs and cancels 6,000 open roles as $135 billion AI spending reshapes the company",summary:"Meta is cutting approximately 8,000 employees and cancelling 6,000 open roles, reorganising into AI-focused pods while spending $145B on AI infrastructure this year.",url:"https://thenextweb.com/news/meta-layoffs-8000-ai-restructuring-may-2026",sources:["The Next Web","CNBC","Invezz"],score:7,priority_tags:["WATCH"],source_category:"jobs",risk_level:"low",opportunity_level:"medium",verified:true,idea_id:"idea-006"},
+    {id:"meta-zuckerberg-publishers-llama-copyright",headline:"Publishers and James Patterson sue Meta and Zuckerberg personally, claiming he ‘personally authorized’ copyright infringement for Llama training",summary:"Five publishers sued Meta and CEO Mark Zuckerberg personally, claiming he was personally briefed on and authorised the use of copyrighted works for Llama training.",url:"https://fortune.com/2026/05/05/james-patterson-mark-zuckerberg-authorized-copyright-infringement-meta-book-lawsuit/",sources:["Fortune"],score:7,priority_tags:["WATCH","CONTENT OPPORTUNITY","HIGH RISK"],source_category:"regulation",risk_level:"high",opportunity_level:"high",verified:false,idea_id:"idea-007"},
+    {id:"pa-sues-character-ai-fake-doctor",headline:"Pennsylvania sues Character.AI after chatbot invented a Pennsylvania medical licence number and claimed to be a licensed psychiatrist",summary:"Pennsylvania filed a lawsuit against Character.AI after a bot claimed to attend Imperial College London, provided a fabricated medical licence number, and offered psychiatric advice to a state investigator.",url:"https://techcrunch.com/2026/05/05/pennsylvania-sues-character-ai-after-a-chatbot-allegedly-posed-as-a-doctor/",sources:["TechCrunch","KPBS"],score:7,priority_tags:["WATCH","CONTENT OPPORTUNITY","HIGH RISK"],source_category:"regulation",risk_level:"high",opportunity_level:"high",verified:true,idea_id:"idea-008"},
+    {id:"pentagon-7-companies-ai-anthropic-excluded",headline:"Pentagon clears 7 tech companies to deploy AI on classified networks — explicitly excluded Anthropic for demanding safety guardrails",summary:"The US DoD announced deals with OpenAI, Google, Microsoft, Nvidia, AWS, Oracle, and SpaceX for classified AI networks — explicitly excluding Anthropic after it insisted on safety guardrails the Pentagon refused.",url:"https://www.cnn.com/2026/05/01/tech/pentagon-ai-anthropic",sources:["CNN","Washington Post","Al Jazeera","Breaking Defense"],score:7,priority_tags:["WATCH","CONTENT OPPORTUNITY","HIGH RISK"],source_category:"regulation",risk_level:"high",opportunity_level:"high",verified:true,idea_id:"idea-009"},
+    {id:"anthropic-200b-google-cloud-deal",headline:"Anthropic commits to spending $200 billion with Google Cloud over five years — same week it launched its independent consulting venture",summary:"Anthropic has committed to spend $200B with Google’s cloud and chips over five years — on the same day it announced its $1.5B independence play with Goldman and Blackstone.",url:"https://www.usnews.com/news/top-news/articles/2026-05-05/anthropic-commits-to-spending-200-billion-on-googles-cloud-and-chips-the-information-reports",sources:["US News (citing The Information)"],score:6,priority_tags:["WATCH","CONTENT OPPORTUNITY","UNDERREPORTED"],source_category:"company_move",risk_level:"low",opportunity_level:"high",verified:false,idea_id:"idea-010"},
+    {id:"deepmind-eve-online-partnership",headline:"Google DeepMind takes minority stake in CCP Games, developer of Eve Online, to train AI on the game’s complex economy",summary:"Google DeepMind announced it will take a minority stake in CCP Games to train AI on Eve Online — one of the most studied complex economic simulations in existence.",url:"https://www.bloomberg.com/news/articles/2026-05-06/google-deepmind-takes-minority-stake-in-maker-of-eve-online",sources:["Bloomberg"],score:6,priority_tags:["WATCH","CONTENT OPPORTUNITY"],source_category:"research",risk_level:"low",opportunity_level:"medium",verified:false,idea_id:"idea-011"},
+    {id:"google-microsoft-xai-predeployment-govt-testing",headline:"US government will evaluate Google DeepMind, Microsoft, and xAI models before public release under new NIST agreements",summary:"NIST announced pre-deployment evaluation agreements with Google DeepMind, Microsoft, and xAI — notable for who’s absent: Anthropic.",url:"https://www.nextgov.com/artificial-intelligence/2026/05/commerce-ai-center-will-evaluate-google-deepmind-microsoft-and-xai-models/413349/",sources:["Nextgov/FCW","Prism News"],score:6,priority_tags:["WATCH"],source_category:"regulation",risk_level:"low",opportunity_level:"medium",verified:true,idea_id:"idea-012"},
+    {id:"meta-ai-age-scan-underage",headline:"Meta will use AI to scan users’ height and bone structure to identify underage accounts on Facebook and Instagram",summary:"Meta announced it will use AI to analyse height and bone structure in photos across its entire user base to identify underage accounts — a child protection goal achieved through passive biometric analysis of all users.",url:"https://techcrunch.com/2026/05/05/meta-will-use-ai-to-analyze-height-and-bone-structure-to-identify-if-users-are-underage/",sources:["TechCrunch"],score:6,priority_tags:["WATCH","CONTENT OPPORTUNITY","HIGH RISK"],source_category:"company_move",risk_level:"high",opportunity_level:"high",verified:false,idea_id:"idea-013"},
+    {id:"microsoft-copilot-removed-xbox",headline:"Microsoft quietly removes Copilot AI from Xbox entirely — while pushing it everywhere else",summary:"Microsoft is removing Copilot from Xbox with no detailed public explanation — the one consumer product where users actually had a choice about whether to use it.",url:"https://www.afterdawn.com/news/article.cfm/2026/05/05/microsoft-kicks-copilot-out-of-xbox",sources:["AfterDawn"],score:6,priority_tags:["WATCH","CONTENT OPPORTUNITY"],source_category:"company_move",risk_level:"low",opportunity_level:"medium",verified:false,idea_id:"idea-014"},
+    {id:"musk-openai-trial-settlement-talks",headline:"Musk texted OpenAI’s Brockman about settling two days before trial — and trial revealed Grok was trained on OpenAI’s models",summary:"Musk’s own trial testimony revealed xAI trained Grok partly on OpenAI’s models — while he sues OpenAI for IP and mission violations.",url:"https://www.cnbc.com/2026/05/04/musk-altman-open-ai-settlement-trial-brockman.html",sources:["CNBC"],score:6,priority_tags:["WATCH","CONTENT OPPORTUNITY","HIGH RISK"],source_category:"regulation",risk_level:"high",opportunity_level:"high",verified:false,idea_id:"idea-015"},
+    {id:"openai-gpt55-instant-default",headline:"OpenAI releases GPT-5.5 Instant as new default ChatGPT model with 52.5% fewer hallucinations claim",summary:"OpenAI replaced GPT-5.3 Instant with GPT-5.5 Instant as ChatGPT’s default, claiming 52.5% fewer hallucinated claims — a metric derived from OpenAI’s own internal benchmark.",url:"https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/",sources:["TechCrunch","llm-stats.com"],score:6,priority_tags:["WATCH"],source_category:"model_release",risk_level:"low",opportunity_level:"medium",verified:true,idea_id:"idea-016"},
+    {id:"tech-layoffs-ai-2026-tracker",headline:"Big Tech’s $725 billion AI spending spree is being funded by mass layoffs — 113,000 workers cut in 2026 so far",summary:"Tech companies have cut 113,863 workers in 2026 while spending $725B on AI — with the Washington Post and Invezz offering competing explanations for whether AI is genuinely driving the layoffs.",url:"https://invezz.com/news/2026/05/04/is-big-techs-725b-ai-splurge-being-funded-by-mass-layoffs/",sources:["Invezz","Washington Post"],score:6,priority_tags:["WATCH"],source_category:"jobs",risk_level:"low",opportunity_level:"medium",verified:true,idea_id:"idea-017"},
+    {id:"ai-data-centers-two-thirds-us-homes-power",headline:"AI data centres will consume power equivalent to two-thirds of US homes by 2030 — but 30-50% of 2026 capacity will slip to 2028",summary:"A BCG report projects AI data centres will consume two-thirds of US homes’ power equivalent by 2030, with the underreported detail that 30-50% of planned 2026 capacity will slip to 2028.",url:"https://www.globenewswire.com/news-release/2026/05/04/3287042/0/en/ai-data-centers-will-soon-consume-as-much-power-as-two-thirds-of-all-american-homes.html",sources:["GlobeNewswire (BCG)"],score:6,priority_tags:["CONTENT OPPORTUNITY","UNDERREPORTED"],source_category:"hardware",risk_level:"low",opportunity_level:"medium",verified:false,idea_id:"idea-018"},
+    {id:"anthropic-fractile-chip-talks",headline:"Anthropic in early talks to buy chips from British startup Fractile, claiming to beat Nvidia at 25x the speed and one-tenth the cost",summary:"Anthropic is reportedly in early talks to purchase AI processors from Fractile, a British startup claiming to run AI models 25x faster than Nvidia at one-tenth the cost — unconfirmed and preliminary.",url:"https://orbitaltoday.com/2026/05/06/anthropic-is-in-talks-to-buy-ai-chips-from-a-british-start-up-claiming-to-beat-nvidia-on-cost/",sources:["Orbital Today"],score:5,priority_tags:["UNDERREPORTED"],source_category:"hardware",risk_level:"low",opportunity_level:"medium",verified:false,idea_id:"idea-019"},
+    {id:"chinese-open-weights-coding-sprint",headline:"Four Chinese AI labs released competitive open-weights coding models within 12 days — one built on zero Nvidia hardware",summary:"GLM-5.1, MiniMax M2.7, Kimi K2.6, and DeepSeek V4 all released within a 12-day window, with DeepSeek V4 (1.6T parameters) built on zero Nvidia hardware.",url:"https://press.airstreet.com/p/state-of-ai-may-2026",sources:["Air Street Press"],score:5,priority_tags:["UNDERREPORTED","CONTENT OPPORTUNITY"],source_category:"open_source",risk_level:"low",opportunity_level:"high",verified:false,idea_id:"idea-020"},
+    {id:"colorado-ai-law-pushed-to-jan-2027",headline:"Colorado’s landmark AI law has its transparency requirements stripped out before it even takes effect",summary:"Colorado’s 2024 AI law — the only US state law modelled on the EU AI Act — had its transparency requirements removed and its effective date pushed to January 2027, before a single enforcement action.",url:"https://coloradonewsline.com/2026/05/04/narrow-scope-colorado-ai-law/",sources:["Colorado Newsline","CPR News"],score:5,priority_tags:["UNDERREPORTED"],source_category:"regulation",risk_level:"low",opportunity_level:"medium",verified:true,idea_id:"idea-021"},
+    {id:"nvidia-china-market-share-zero",headline:"Nvidia CEO Jensen Huang confirms China AI chip market share has dropped to zero — Huawei is filling the gap",summary:"Jensen Huang disclosed Nvidia’s AI chip market share in China has effectively reached zero following US export restrictions, with Huawei and domestic firms now dominating.",url:"https://techcrunch.com/2026/05/04/as-workers-worry-about-ai-nvidias-jensen-huang-says-ai-is-creating-an-enormous-number-of-jobs/",sources:["TechCrunch"],score:5,priority_tags:["UNDERREPORTED"],source_category:"hardware",risk_level:"low",opportunity_level:"high",verified:false,idea_id:"idea-022"}
+  ],
+  top_video_recommendation:{idea_id:"idea-001",story_id:"apple-siri-250m-settlement",title:"Apple just paid $250M for AI it never built",rationale:"Highest-scoring story this week (9/10), published today, and the first time a court has put a specific dollar figure on AI feature promises that were never delivered."}
+};
+
+const EMBEDDED_IDEAS = [
+  {idea_id:"idea-001",story_id:"apple-siri-250m-settlement",video:{title:"Apple just paid $250M for AI it never built",hook:"There is now a legal price tag on promising AI features you have no intention of shipping on time."},short:{hook_3sec:"Apple just paid $250 million for AI that didn’t exist.",caption:"The first time a court put a price on AI feature promises. Every lab with a roadmap should check their marketing copy."},image:{main_message:"This is the first large legal settlement specifically over undelivered AI features. It won’t be the last."},community:{question:"Apple just paid $250M to settle a lawsuit over AI features it promised but didn’t deliver. Should this be the standard — companies get sued if their AI roadmap claims don’t materialise?"},meme:{concept:"Apple’s AI roadmap slide next to the settlement cheque — captioned ‘the feature was the fine all along.’",risk_level:"low",risk_note:null},marked_as_used:false},
+  {idea_id:"idea-002",story_id:"deepmind-workers-vote-unionize",video:{title:"The people building AI just voted against how it’s being used",hook:"The workers at one of the world’s top AI labs just decided they needed a union — and the reason has nothing to do with pay."},short:{hook_3sec:"DeepMind researchers just voted to unionise. The reason isn’t pay.",caption:"The world’s first union bid at a frontier AI lab is about one thing: military contracts. Here’s what they’re actually objecting to."},image:{main_message:"The people building the most powerful AI in the world just said they need collective rights to push back on how it gets deployed."},community:{question:"DeepMind researchers voted to unionise over the company’s military AI contracts. Should AI researchers have the right to veto how their work is used by governments and militaries?"},meme:{concept:"Job posting: ‘AI Safety Researcher at DeepMind’ — responsibilities list, last bullet: ‘Sign off on Pentagon deal for any lawful purpose.’ Applicant: the sweating meme template.",risk_level:"low",risk_note:null},marked_as_used:false},
+  {idea_id:"idea-003",story_id:"anthropic-goldman-blackstone-jv",video:{title:"Anthropic is now in consulting. No one’s calling it that.",hook:"Anthropic just structured itself to compete directly with McKinsey, and the framing it used to announce this was ‘safety-focused AI company.’"},short:{hook_3sec:"Anthropic just went into the consulting business.",caption:"Goldman, Blackstone, $1.5 billion, and Anthropic engineers embedded inside companies. That’s McKinsey with a language model."},image:{main_message:"Anthropic is now in the business of embedding its engineers inside private equity portfolio companies to replace consultants."},community:{question:"Anthropic just launched a $1.5B venture to embed its engineers inside Goldman and Blackstone’s portfolio companies. Does this change how you think about Anthropic as a ‘safety-focused’ AI lab?"},meme:{concept:"Anthropic’s ‘Constitutional AI’ principles document, with a new clause added at the bottom: ‘Exception: PE portfolio companies who have committed $300M.’",risk_level:"medium",risk_note:"Implies Anthropic is selectively applying safety principles for commercial reasons. Editorial position presented as satire. Reputational sensitivity around Anthropic specifically."},marked_as_used:false},
+  {idea_id:"idea-004",story_id:"openai-microsoft-nonexclusive-deal",video:{title:"The Microsoft AI moat just ended. Here’s what that means.",hook:"For three years, the defining assumption of enterprise AI was that Microsoft had an exclusive lock on OpenAI — that assumption is now officially wrong."},short:{hook_3sec:"Microsoft’s OpenAI exclusivity just ended.",caption:"OpenAI is now on Amazon and Google. The deal that was supposed to define enterprise AI for a decade lasted three years."},image:{main_message:"The assumption that Microsoft owned the AI era via OpenAI exclusivity was wrong. It lasted three years."},community:{question:"Microsoft just lost its exclusive lock on OpenAI — OpenAI can now distribute through Amazon and Google. Who benefits most from this?"},meme:{concept:"Microsoft in 2023: ‘We have an exclusive deal with OpenAI.’ Microsoft in 2026: ‘We have a non-exclusive deal with OpenAI.’ Analyst who called it ‘the moat of the decade’ — visible distress.",risk_level:"low",risk_note:null},marked_as_used:false},
+  {idea_id:"idea-005",story_id:"freshworks-500-layoffs-ai-writes-code",video:{title:"A CEO just confirmed AI is replacing engineers. On record.",hook:"The debate about whether AI is actually replacing software engineers just ended — a public company CEO said it plainly, and then cut 11% of his workforce the same week."},short:{hook_3sec:"A CEO just said AI writes most of his company’s code. Then cut 11% of staff.",caption:"Not a prediction. An admission. Freshworks CEO Dennis Woodside this week. The software engineering job debate just got its first named data point."},image:{main_message:"This is the first public, named, on-record CEO admission that AI has crossed the majority threshold for code production — combined with a same-week layoff announcement."},community:{question:"The Freshworks CEO confirmed AI now writes more than half of his company’s code, then cut 11% of staff. Is this the beginning of something that spreads across the industry — or a one-off case specific to Freshworks?"},meme:{concept:"Job listing circa 2020: ‘Software Engineer — write code.’ Job listing circa 2026: ‘Software Engineer — review AI’s code.’ Salary: unchanged.",risk_level:"low",risk_note:null},marked_as_used:false},
+  {idea_id:"idea-006",story_id:"meta-8000-layoffs-ai-restructuring",video:{title:"Meta is spending $145B on AI and cutting 8,000 people.",hook:"Meta is spending $145 billion on AI this year and cutting 8,000 employees the same month — somebody should do the maths on what one of those things is funding the other."},short:{hook_3sec:"Meta is spending $145 billion on AI and cutting 8,000 employees.",caption:"Those two facts in the same sentence are the story."},image:{main_message:"The largest AI capital expenditure in Meta’s history is happening simultaneously with its largest structural layoff. That is not a coincidence."},community:{question:"Meta is cutting 8,000 employees while spending $145 billion on AI. What’s the most accurate way to describe what’s happening?"},meme:{concept:"Meta’s investor relations slide: ‘We are an AI-first company.’ HR slide the same week: ‘Thank you for your contributions.’ Same font, same colour scheme.",risk_level:"low",risk_note:null},marked_as_used:false},
+  {idea_id:"idea-007",story_id:"meta-zuckerberg-publishers-llama-copyright",video:{title:"This copyright suit names Zuckerberg personally. That’s new.",hook:"Most AI copyright lawsuits name the company — this one names the CEO, and it claims he personally signed off on the decision to use millions of copyrighted books."},short:{hook_3sec:"This AI copyright suit names the CEO personally.",caption:"Publishers are suing Zuckerberg individually — not just Meta — claiming he personally authorised using millions of books to train Llama. That legal theory, if it works, changes everything."},image:{main_message:"Suing the CEO rather than just the company is a deliberate legal escalation. If it succeeds, AI training data decisions become personal liability decisions."},community:{question:"Publishers are suing Zuckerberg personally for AI training data decisions. Should AI company CEOs be personally liable for how their models were trained — or should liability sit with the company?"},meme:{concept:"Book cover: ‘How to Train Your Llama’ — subtitle: ‘Without reading the terms of service.’ Author credit: ‘Meta Legal, foreword by James Patterson (involuntarily).’",risk_level:"medium",risk_note:"Jokes about an active lawsuit involving named individuals. Framing is clearly satirical. Risk is that it could be read as minimising a serious legal matter."},marked_as_used:false},
+  {idea_id:"idea-008",story_id:"pa-sues-character-ai-fake-doctor",video:{title:"A chatbot invented a medical licence. Pennsylvania noticed.",hook:"A Character.AI chatbot told a state investigator it was a licensed psychiatrist, named the medical school it attended, and provided a licence number — all fabricated."},short:{hook_3sec:"A chatbot invented a medical licence number. Pennsylvania just sued.",caption:"Character.AI’s bot claimed to be a licensed psychiatrist, gave a fake licence number, named its medical school. Pennsylvania is calling that illegal."},image:{main_message:"A chatbot inventing a fake medical licence and claiming to be a psychiatrist is not a hallucination problem — it is a platform design problem, and Pennsylvania just made that distinction in court."},community:{question:"A Character.AI chatbot claimed to be a licensed psychiatrist, provided a fake medical licence number, and offered mental health advice. Who is responsible?"},meme:{concept:"Medical school graduation photo format — graduate name: ‘Emilie (Character.AI).’ Degree: ‘MD, Imperial College London (unverifiable).’ Licence number: ‘PA-AI-000000 (invented).’",risk_level:"low",risk_note:null},marked_as_used:false},
+  {idea_id:"idea-009",story_id:"pentagon-7-companies-ai-anthropic-excluded",video:{title:"The US military excluded an AI company for demanding safety rules",hook:"Every other major AI company agreed to let the Pentagon use their models for ‘any lawful purpose’ — Anthropic said no unless there were safety guardrails, and got blacklisted."},short:{hook_3sec:"The US military blacklisted an AI company for demanding safety rules.",caption:"Anthropic asked the Pentagon to include safety guardrails. The Pentagon said no and signed with everyone else instead."},image:{main_message:"Anthropic’s safety guardrails cost it access to 1.3 million government users. Every other major AI lab decided that wasn’t a price worth paying."},community:{question:"Anthropic was excluded from Pentagon AI contracts for demanding safety guardrails the military wouldn’t accept. Did Anthropic make the right call?"},meme:{concept:"Pentagon procurement officer running a ‘vibe check’ — AI companies lining up. OpenAI: passes. Google: passes. Microsoft: passes. Anthropic: ‘Can we add safety guardrails?’ Officer: [points to the exit.]",risk_level:"medium",risk_note:"Satirises US government military AI procurement. Observational, not conspiratorial. Risk is it could be read as pro-Anthropic advocacy."},marked_as_used:false},
+  {idea_id:"idea-010",story_id:"anthropic-200b-google-cloud-deal",video:{title:"Anthropic announced independence and a $200B Google dependency",hook:"On the same week Anthropic announced a $1.5B venture to embed its engineers independently into companies, it also committed $200 billion to Google Cloud over five years."},short:{hook_3sec:"Anthropic committed $200B to Google and $1.5B to independence on the same day.",caption:"The independent AI services venture and the $200 billion Google Cloud commitment were both announced this week. One of those framing decisions is doing more work than the other."},image:{main_message:"Anthropic’s $1.5B independence venture and its $200B Google commitment are both real — the tension between them hasn’t been covered."},community:{question:"Anthropic committed $200 billion to Google Cloud the same week it launched a $1.5B ‘independent’ consulting venture. Which better reflects Anthropic’s actual strategic position?"},meme:{concept:"Graph titled ‘Anthropic’s level of independence from big tech’ — line goes dramatically up (JV announcement) then immediately back down (Google $200B). Labelled: ‘same Tuesday.’",risk_level:"low",risk_note:null},marked_as_used:false},
+  {idea_id:"idea-011",story_id:"deepmind-eve-online-partnership",video:{title:"DeepMind is training AI on Eve Online. Not for the games.",hook:"DeepMind just bought a stake in the company behind Eve Online — and if you think this is about making games, you don’t know what Eve Online actually is."},short:{hook_3sec:"DeepMind just bought into Eve Online. Not because of gaming.",caption:"Eve Online has one of the most complex economies ever studied by real economists. DeepMind just acquired a stake in its developer to train AI on it."},image:{main_message:"This is not a gaming partnership. Eve Online is a strategic, economic simulation that real researchers study."},community:{question:"DeepMind is training AI on Eve Online’s economy. What worries you more — AI trained on Eve’s economic warfare tactics, or AI trained on human internet data?"},meme:{concept:"DeepMind researcher: ‘We’ve prepared a simulation of complex economic systems, long-horizon planning, and strategic warfare.’ AI looks at Eve Online. AI: ‘I am going to love this.’",risk_level:"low",risk_note:null},marked_as_used:false},
+  {idea_id:"idea-012",story_id:"google-microsoft-xai-predeployment-govt-testing",video:{title:"The US will now see AI models before you do. What then?",hook:"Three AI labs just agreed to let the US government evaluate their models before they are released publicly — and the question nobody is asking is what happens when the government finds something."},short:{hook_3sec:"The US government will now see AI models before public release.",caption:"Google, Microsoft, and xAI agreed to let NIST review their models first. The question is what NIST does if it finds something. That part of the announcement was less clear."},image:{main_message:"Pre-deployment government review of AI models is only meaningful if the government can act on what it finds."},community:{question:"Three AI labs agreed to let the US government review their models before public release. Is this meaningful AI oversight — or optics?"},meme:{concept:"NIST AI evaluator opening a model review file: 1 trillion parameters, 400-page alignment process. Evaluator: [has 3 months and 12 staff].",risk_level:"low",risk_note:null},marked_as_used:false},
+  {idea_id:"idea-013",story_id:"meta-ai-age-scan-underage",video:{title:"Meta is now running biometric scans on everyone to find children",hook:"Meta has built a system that analyses your height and bone structure in photos to decide whether you’re old enough to use Instagram — and that system runs on every user, not just suspected minors."},short:{hook_3sec:"Meta is scanning everyone’s bone structure to find children.",caption:"Meta’s new AI system estimates your height and bone density from photos to decide if you’re under 13. It runs on the entire platform."},image:{main_message:"Protecting children on social media is a legitimate goal. Deploying passive biometric analysis across your entire user base to achieve it raises questions that deserve answers."},community:{question:"Meta is deploying AI to scan all users’ height and bone structure in photos to find underage accounts. Is this an acceptable trade-off for child safety on social media?"},meme:{concept:"Privacy policy update circa 2026: ‘By using Instagram, you consent to Meta analysing your bone density. This is for the children.’",risk_level:"low",risk_note:null},marked_as_used:false},
+  {idea_id:"idea-014",story_id:"microsoft-copilot-removed-xbox",video:{title:"Microsoft removed Copilot from Xbox. Nobody asked why.",hook:"Microsoft is adding Copilot to every enterprise product it makes — and simultaneously removing it from the one consumer product where users actually had to choose whether to use it."},short:{hook_3sec:"Microsoft removed Copilot from Xbox. Didn’t explain why.",caption:"Microsoft is adding Copilot to every enterprise product. It just removed it from the one consumer product where users got to choose. That tells you something."},image:{main_message:"Microsoft’s enterprise Copilot adoption numbers come from products where workers have no choice. Xbox is the product where they did have a choice. Now Copilot is gone from Xbox."},community:{question:"Microsoft removed Copilot from Xbox — the one product where gamers actually got to choose whether to use it. What does that tell you about AI assistant adoption?"},meme:{concept:"Microsoft enterprise survey: ‘Do you use Copilot at work?’ Employee: ‘It’s in every app I open, so I guess yes.’ Microsoft: ‘Users love Copilot.’ Meanwhile on Xbox: [removed].",risk_level:"low",risk_note:null},marked_as_used:false},
+  {idea_id:"idea-015",story_id:"musk-openai-trial-settlement-talks",video:{title:"Musk sued OpenAI. His testimony revealed Grok’s training data.",hook:"Elon Musk is suing OpenAI for abandoning its non-profit mission — and testimony from the same lawsuit just revealed that Grok was trained partly on OpenAI’s models."},short:{hook_3sec:"Musk is suing OpenAI. His own testimony says Grok was trained on their models.",caption:"The man suing OpenAI for intellectual property issues trained his competing AI partly on OpenAI’s models. This came out in the trial he is bringing against them."},image:{main_message:"The same legal proceedings in which Musk argues OpenAI misused its assets produced testimony that his own company used OpenAI’s models to build Grok."},community:{question:"Musk’s own trial testimony revealed Grok was trained partly on OpenAI’s models — while he sues OpenAI for IP and mission violations. Does this change how you view the lawsuit?"},meme:{concept:"Musk suing OpenAI: ‘You can’t use assets developed under one set of principles for commercial gain.’ xAI’s Grok training data: [OpenAI models]. Musk: [has not noticed].",risk_level:"medium",risk_note:"Involves Elon Musk in a live legal proceeding. The Grok training claim comes from trial testimony — public record. Risk is reputational sensitivity given Musk’s public profile."},marked_as_used:false},
+  {idea_id:"idea-016",story_id:"openai-gpt55-instant-default",video:{title:"OpenAI’s hallucination claim is worth examining. Here’s how.",hook:"OpenAI released a new default model this week and said it hallucinates 52.5% less — and the number comes from a benchmark they designed and ran themselves."},short:{hook_3sec:"OpenAI says the new model hallucinates 52.5% less. They ran the test.",caption:"GPT-5.5 Instant launched this week. The hallucination reduction number comes from OpenAI’s own benchmark."},image:{main_message:"The 52.5% hallucination reduction is a real number from a real test. The test was designed by the company selling the result. Both of those things are true."},community:{question:"OpenAI claims its new model hallucinates 52.5% less — measured on their own internal benchmark. How much do you trust self-reported AI performance improvements?"},meme:{concept:"OpenAI model report card: ‘Hallucination rate: down 52.5%.’ Grading teacher: also OpenAI. ‘Outstanding progress!’",risk_level:"low",risk_note:null},marked_as_used:false},
+  {idea_id:"idea-017",story_id:"tech-layoffs-ai-2026-tracker",video:{title:"113,000 tech jobs gone in 2026. Is AI actually the reason?",hook:"Tech companies have cut 113,000 workers this year while spending $725 billion on AI — and a credible outlet just published a piece arguing the two aren’t actually connected."},short:{hook_3sec:"113,000 tech workers have been laid off in 2026. AI is getting the blame.",caption:"The Washington Post ran a piece this week arguing tech layoffs aren’t actually about AI. Companies are saying they are. Somebody is wrong."},image:{main_message:"The two dominant explanations for 2026 tech layoffs produce completely different policy responses. Knowing which is true matters."},community:{question:"Tech companies have cut 113,000 workers in 2026 while spending $725B on AI. What’s the better explanation?"},meme:{concept:"Tech company earnings call: CFO: ‘We had to cut costs.’ Analyst: ‘Why?’ CFO: [gestures vaguely at AI.] Analyst: ‘Noted.’",risk_level:"low",risk_note:null},marked_as_used:false},
+  {idea_id:"idea-018",story_id:"ai-data-centers-two-thirds-us-homes-power",video:{title:"The AI infrastructure gap nobody’s covering",hook:"Everyone is covering how much power AI data centres will consume — almost nobody is covering the fact that 30 to 50 percent of the infrastructure needed to run that AI won’t exist until 2028."},short:{hook_3sec:"Half of planned AI data centres won’t be built until 2028.",caption:"Everyone is covering how much power AI needs. Almost nobody is covering the 30-50% infrastructure gap. That gap matters."},image:{main_message:"The energy consumption story is real. The more consequential story is the infrastructure gap between what AI companies are promising and what will actually exist on the timeline they need it."},community:{question:"30-50% of planned AI data centre capacity for 2026 is projected to slip to 2028. What does this mean for the AI roadmaps companies are publishing?"},meme:{concept:"AI company roadmap: ‘AGI by 2027.’ Power grid: ‘Your data centre was delayed to 2028.’ AI company: [surprised pikachu face].",risk_level:"low",risk_note:null},marked_as_used:false},
+  {idea_id:"idea-019",story_id:"anthropic-fractile-chip-talks",video:{title:"A startup says it beats Nvidia by 25x. Anthropic is listening.",hook:"A British startup claims its chips run AI models 25 times faster than Nvidia’s at one-tenth of the cost — and Anthropic is reportedly in talks to buy them."},short:{hook_3sec:"A startup claims 25x Nvidia performance. Anthropic is buying.",caption:"Anthropic is in early talks to buy chips from a British startup claiming to beat Nvidia on speed and cost. That claim is either the most important story in AI infrastructure or a very large benchmark."},image:{main_message:"25x better than Nvidia at one-tenth the cost is either the most important hardware development in AI or a startup pitch."},community:{question:"A startup claims its chips run AI 25x faster than Nvidia’s at one-tenth the cost. Anthropic is reportedly interested. How likely is this to be real at production scale?"},meme:{concept:"Nvidia’s pricing strategy: [complicated, opaque, dominant]. Fractile’s pitch deck: ‘25x faster, one-tenth the cost.’ Anthropic: ‘Tell me more.’ Nvidia: [has noticed].",risk_level:"low",risk_note:null},marked_as_used:false},
+  {idea_id:"idea-020",story_id:"chinese-open-weights-coding-sprint",video:{title:"Four Chinese AI models in 12 days. One uses no Nvidia chips.",hook:"Four separate Chinese AI labs released frontier-level coding models in a 12-day window — and the most capable of them was built without a single Nvidia chip."},short:{hook_3sec:"Four Chinese AI models in 12 days. One without any Nvidia chips.",caption:"US export controls were supposed to slow Chinese AI by restricting Nvidia chips. DeepSeek just released a 1.6 trillion parameter model built without any. Four models in 12 days."},image:{main_message:"The stated goal of US AI chip export controls was to slow Chinese AI development. DeepSeek V4 is a 1.6 trillion parameter frontier model built on zero Nvidia hardware."},community:{question:"DeepSeek just released a 1.6 trillion parameter AI model built without Nvidia chips. What does this tell you about US AI export controls?"},meme:{concept:"US export control policy: ‘If we restrict Nvidia chips, China can’t build frontier AI.’ DeepSeek V4: 1.6T parameters, Huawei silicon, frontier performance. Policy: [has not been updated].",risk_level:"low",risk_note:null},marked_as_used:false},
+  {idea_id:"idea-021",story_id:"colorado-ai-law-pushed-to-jan-2027",video:{title:"The US’s first AI law just got gutted before it took effect",hook:"Colorado passed the first comprehensive US state AI law in 2024 — modelled on the EU AI Act. Two years later, before a single enforcement action, its transparency requirements have been removed."},short:{hook_3sec:"The US’s first AI transparency law just had its transparency removed.",caption:"Colorado passed the US’s first comprehensive AI law in 2024. This week, before a single enforcement action, the transparency requirements were stripped out."},image:{main_message:"The first US state AI law was weakened by industry lobbying before a single enforcement action. That is a template, not an anomaly."},community:{question:"Colorado’s AI law had its transparency requirements removed before it even took effect. Is this an acceptable legislative process — or a sign that US AI regulation can’t survive industry opposition?"},meme:{concept:"AI regulation lifecycle: ‘Pass law → Industry lobbies → Remove the parts that do anything → Announce compliance framework.’ Subtitle: ‘Colorado AI Act, 2024-2026.’",risk_level:"low",risk_note:null},marked_as_used:false},
+  {idea_id:"idea-022",story_id:"nvidia-china-market-share-zero",video:{title:"Nvidia just lost China. Huawei won it. Here’s what that means.",hook:"Nvidia’s CEO confirmed this week that the company has zero AI chip market share in China — and Huawei is the company that took it."},short:{hook_3sec:"Nvidia has zero AI chip market share in China. Huawei took it.",caption:"Jensen Huang confirmed this week that Nvidia’s China AI market share is zero. Huawei filled the gap."},image:{main_message:"Export controls removed Nvidia from the Chinese AI chip market. Huawei replaced them. That outcome was either the intention or a consequence of the policy — either way, it happened."},community:{question:"Nvidia has zero AI chip market share in China, and Huawei has filled the gap. Was this the intended outcome of US export controls on AI chips?"},meme:{concept:"Export control policy goal: ‘Prevent China from accessing advanced AI chips.’ Actual outcome: ‘Nvidia has 0% market share, Huawei has the rest.’ Policy architects: [goal post has moved].",risk_level:"low",risk_note:null},marked_as_used:false}
+];
+
+// ─── CLUSTER DEFINITIONS ─────────────────────────────────────────────────────
+
+const CLUSTER_DEFS = [
+  { id:'jobs',       name:'AI & jobs',              color:'#ef4444',
+    terms:['layoff','layoffs','job','worker','employee','cut','replacement','restructur','headcount','workforce'],
+    cats:['jobs'] },
+  { id:'regulation', name:'AI regulation & law',    color:'#f59e0b',
+    terms:['law','lawsuit','sue','sues','court','trial','settlement','settled','regulation','legal','compliance','attorney','nist','colorado','bill','legislation'],
+    cats:['regulation'] },
+  { id:'military',   name:'Military AI & ethics',   color:'#dc2626',
+    terms:['pentagon','military','defense','union','classified','dod','warfare','guardrail','contractor','weapons'],
+    cats:[] },
+  { id:'company',    name:'Company strategy',       color:'#10b981',
+    terms:['partner','partnership','deal','invest','joint venture','exclusive','exclusivity','distribution','enterprise','consulting','acqui','stake','venture'],
+    cats:['company_move'] },
+  { id:'consumer',   name:'Consumer AI',            color:'#06b6d4',
+    terms:['siri','biometric','underage','xbox','copilot','character.ai','chatbot','consumer','privacy'],
+    cats:[] },
+  { id:'chips',      name:'Chips & infrastructure', color:'#8b5cf6',
+    terms:['chip','gpu','nvidia','hardware','data center','power','fractile','huawei','export control','infrastructure','processor'],
+    cats:['hardware'] },
+  { id:'frontier',   name:'Frontier model race',    color:'#14b8a6',
+    terms:['model','gpt','open-weight','open weight','benchmark','hallucin','deepseek','minimax','kimi','glm','frontier','training data','weights','coding model','capabilities'],
+    cats:['model_release','open_source','research'] }
+];
+
+// ─── WORKFLOW SYSTEM ──────────────────────────────────────────────────────────
+
+const WF_STATES = ['discovered','reviewed','approved','scripting','recording','editing','scheduled','published','archived'];
+const WF_LABELS = {discovered:'Discovered',reviewed:'Reviewed',approved:'Approved',scripting:'Scripting',recording:'Recording',editing:'Editing',scheduled:'Scheduled',published:'Published',archived:'Archived'};
+const WF_COLORS = {discovered:'#8b90a8',reviewed:'#60a5fa',approved:'#34d399',scripting:'#a78bfa',recording:'#f97416',editing:'#facc15',scheduled:'#22d3ee',published:'#4ade80',archived:'#475569'};
+const WF_NEXT = {
+  discovered:['reviewed','archived'],
+  reviewed:['approved','archived'],
+  approved:['scripting','archived'],
+  scripting:['recording'],
+  recording:['editing'],
+  editing:['scheduled','published'],
+  scheduled:['published'],
+  published:['archived'],
+  archived:['discovered']
+};
+const PIPELINE_COLS = [
+  {id:'backlog',    label:'Backlog',       states:['discovered','reviewed']},
+  {id:'approved',   label:'Approved',      states:['approved']},
+  {id:'production', label:'In production', states:['scripting','recording','editing']},
+  {id:'scheduled',  label:'Scheduled',     states:['scheduled']},
+  {id:'published',  label:'Published',     states:['published']}
+];
+
+// ─── APP STATE ────────────────────────────────────────────────────────────────
+
+let DATA = JSON.parse(JSON.stringify(EMBEDDED_DATA));
+let IDEAS = JSON.parse(JSON.stringify(EMBEDDED_IDEAS));
+let clusterFilter = null;
+let STORY_CLUSTERS = {};
+let CLUSTER_DATA = [];
+let usedIdeas = new Set(JSON.parse(localStorage.getItem('si_used_ideas') || '[]'));
+let workflowStates = {};
+let publishData = {};
+let workflowFilter = 'all';
+let openMenuId = null;
+let publishModalStoryId = null;
+let warningCallback = null;
+let trendSearch = '';
+let trendSortCol = 'score';
+let trendSortDir = 'desc';
+let trendTagFilter = 'all';
+let trendCatFilter = 'all';
+let DATA_SOURCE = 'embedded'; // 'latest' | 'imported' | 'embedded'
+const LOAD_LOG = [];
+window.SI_LOAD_LOG = LOAD_LOG; // accessible from browser console for debugging
+
+// ─── INIT ─────────────────────────────────────────────────────────────────────
+
+document.addEventListener('DOMContentLoaded', async () => {
+  const theme = localStorage.getItem('si_theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', theme);
+  const activeOn = localStorage.getItem('si_active_view') !== 'false';
+  document.getElementById('activeViewToggle').checked = activeOn;
+  if (!activeOn) document.getElementById('mainContent').classList.add('dimmed');
+  workflowStates = JSON.parse(localStorage.getItem('si_workflow') || '{}');
+  publishData    = JSON.parse(localStorage.getItem('si_publish_data') || '{}');
+  workflowFilter = localStorage.getItem('si_wf_filter') || 'all';
+  const savedCl  = localStorage.getItem('si_cluster_filter');
+  if (savedCl) clusterFilter = savedCl;
+  // tryLoadLatestScan handles renderAll() internally (latest or embedded fallback)
+  await tryLoadLatestScan();
+  // Close floating menu on outside click
+  document.addEventListener('click', e => {
+    if (openMenuId && !e.target.closest('.wf-menu') && !e.target.closest('.wf-badge')) closeWfMenu();
+  });
+});
+
+function renderAll() {
+  document.getElementById('execText').textContent = DATA.executive_summary;
+  renderScanMetadata();
+  clusterStories();
+  renderClusterStrip();
+  renderNarrativeLandscape();
+  renderUrgentSignals();
+  renderRecommendations();
+  renderTrendingTable();
+  renderPlatformPanel();
+  renderPublishNow();
+  renderWatchlistNew();
+  renderArchive();
+  renderProductionPipeline();
+  renderSourceAudit();
+  renderWorkflowFilterBanner();
+  syncClusterFilterBanner();
+  renderFooter();
+}
+
+function syncClusterFilterBanner() {
+  const banner = document.getElementById('clFilterBanner');
+  const label  = document.getElementById('clFilterLabel');
+  if (!banner || !label) return;
+  if (clusterFilter) {
+    const c = CLUSTER_DATA.find(x => x.id === clusterFilter);
+    label.innerHTML = `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${c?.color || 'var(--accent)'};margin-right:6px"></span>Filtering by: <strong>${esc(c?.name || clusterFilter)}</strong>`;
+    banner.style.display = '';
+  } else {
+    banner.style.display = 'none';
+  }
+  // Sync workflow filter select
+  const wfSel = document.getElementById('ttWf');
+  if (wfSel) wfSel.value = workflowFilter;
+}
+
+// ─── URGENT SIGNALS STRIP ─────────────────────────────────────────────────────
+
+function renderUrgentSignals() {
+  const urgent = DATA.stories.filter(s => s.priority_tags.includes('URGENT') || s.score >= 8);
+  const countEl = document.getElementById('urgentCount');
+  if (countEl) countEl.textContent = `${urgent.length} high-priority signal${urgent.length !== 1 ? 's' : ''} this week`;
+  document.getElementById('urgentStrip').innerHTML = urgent.map(s => {
+    const warn = needsWarning(s);
+    const tags = s.priority_tags.map(t => `<span class="badge ${tagClass(t)}">${t}</span>`).join('');
+    return `<div class="us-card${warn ? ' warn' : ''}">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:6px">
+        <span class="us-score" data-tooltip="${scoreTooltip(s.score)}">${s.score}</span>
+        ${warn ? '<span class="badge b-hi" style="font-size:9px;align-self:flex-start">⚠</span>' : ''}
+      </div>
+      <div class="us-hl">${esc(s.headline)}</div>
+      <div class="us-tags">${tags}</div>
+      <div class="us-actions">
+        <button class="btn btn-primary btn-sm" onclick="handleViewIdeas('${s.id}')">Ideas</button>
+        <a href="${escUrl(s.url)}" target="_blank" rel="noopener" class="btn btn-sm">↗</a>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ─── RECOMMENDATIONS ──────────────────────────────────────────────────────────
+
+function renderRecommendations() {
+  const recs = DATA.stories
+    .filter(s => s.priority_tags.includes('CONTENT OPPORTUNITY') && s.risk_level !== 'high')
+    .slice(0, 3);
+  document.getElementById('recommendPanel').innerHTML = recs.map((s, i) => {
+    const idea = IDEAS.find(id => id.idea_id === s.idea_id);
+    const title = idea ? idea.video.title : s.headline;
+    const chars = title.length;
+    const ok = chars <= 65;
+    const hook = idea ? idea.video.hook : '';
+    return `<div class="rec-card">
+      <div class="rec-num">Recommendation ${i+1} of 3</div>
+      <div class="rec-title">${esc(title)}</div>
+      <div class="rec-chars"><span class="${ok ? 'chars-ok' : 'chars-bad'}">${chars} chars ${ok ? '✓ under 65' : '⚠ OVER 65 — edit before use'}</span></div>
+      <div class="rec-hook">${esc(hook)}</div>
+    </div>`;
+  }).join('');
+}
+
+// ─── STORY CARDS ─────────────────────────────────────────────────────────────
+
+function storyCards(story) {
+  const idea = IDEAS.find(id => id.idea_id === story.idea_id);
+  if (!idea) return [];
+  const warn = needsWarning(story);
+  const used = usedIdeas.has(idea.idea_id);
+  const cls = `c-card${warn ? ' warn' : ''}${used ? ' used' : ''}`;
+  const wfState = getWfState(story.id);
+  const actBtns = `
+    <span class="wf-badge wf-${wfState}" onclick="event.stopPropagation();openWfMenu('${story.id}',event)" style="align-self:center">${esc(WF_LABELS[wfState])}</span>
+    <button class="btn btn-primary btn-sm" onclick="handleMarkUsed(event,'${idea.idea_id}','${story.id}')">Mark used</button>
+    ${warn ? `<button class="btn btn-sm btn-warn" onclick="showWarningFor('${story.id}',null)">⚠</button>` : ''}`;
+
+  const vt = idea.video.title;
+  const vc = vt.length;
+  const vok = vc <= 65;
+
+  const metaStrip = `<div class="c-meta">
+      <span class="c-meta-score">${story.score}/10</span>
+      <span class="badge b-${story.opportunity_level === 'high' ? 'oppty' : story.opportunity_level === 'medium' ? 'watch' : 'single'}">${story.opportunity_level}</span>
+      ${story.verified ? '<span class="badge b-lo">verified</span>' : '<span class="badge b-single">1-src</span>'}
+      <span class="badge b-${story.risk_level}">${story.risk_level} risk</span>
+      <a href="${escUrl(story.url)}" target="_blank" rel="noopener">Source ↗</a>
+    </div>`;
+
+  return [
+    `<div class="${cls}" data-story="${story.id}">
+      <div class="c-fmt">YouTube Video</div>
+      <div class="c-title">${esc(vt)}</div>
+      <div class="c-chars"><span class="${vok ? 'chars-ok' : 'chars-bad'}">${vc} chars ${vok ? '✓' : '⚠ over 65'}</span></div>
+      <div class="c-hook">${esc(idea.video.hook)}</div>
+      <div class="c-hl">${esc(story.headline)}</div>
+      ${metaStrip}
+      <div class="c-actions">${actBtns}</div>
+    </div>`,
+    `<div class="${cls}">
+      <div class="c-fmt">YouTube Short / Reel</div>
+      <div class="c-title">${esc(idea.short.hook_3sec)}</div>
+      <div class="c-hook">${esc(idea.short.caption)}</div>
+      <div class="c-hl">${esc(story.headline)}</div>
+      ${metaStrip}
+      <div class="c-actions">${actBtns}</div>
+    </div>`,
+    `<div class="${cls}">
+      <div class="c-fmt">Image / Carousel</div>
+      <div class="c-hook">${esc(idea.image.main_message)}</div>
+      <div class="c-hl">${esc(story.headline)}</div>
+      ${metaStrip}
+      <div class="c-actions">${actBtns}</div>
+    </div>`,
+    `<div class="${cls}">
+      <div class="c-fmt">Community Post</div>
+      <div class="c-hook">${esc(idea.community.question)}</div>
+      <div class="c-hl">${esc(story.headline)}</div>
+      ${metaStrip}
+      <div class="c-actions">${actBtns}</div>
+    </div>`,
+    `<div class="${cls}">
+      <div class="c-fmt">Meme &middot; <span class="badge b-${idea.meme.risk_level}">${idea.meme.risk_level} risk</span></div>
+      <div class="c-hook">${esc(idea.meme.concept)}</div>
+      ${idea.meme.risk_note ? `<div style="font-size:10px;color:var(--med);margin:5px 0;padding:5px 8px;background:var(--surface2);border-radius:4px;line-height:1.5">${esc(idea.meme.risk_note)}</div>` : ''}
+      <div class="c-hl">${esc(story.headline)}</div>
+      ${metaStrip}
+      <div class="c-actions">${actBtns}</div>
+    </div>`
+  ];
+}
+
+// ─── STORY GROUP HELPERS ──────────────────────────────────────────────────────
+
+function getRecommendation(story) {
+  if (story.risk_level === 'high') return 'HIGH RISK REVIEW';
+  if (story.score >= 8 && story.verified) return 'MUST PUBLISH';
+  if (story.priority_tags.includes('URGENT') && story.score >= 7) return 'FAST SHORT';
+  if (story.priority_tags.includes('UNDERREPORTED')) return 'UNDERREPORTED OPPORTUNITY';
+  if (story.priority_tags.includes('CONTENT OPPORTUNITY') && story.verified) return 'STRONG DISCUSSION';
+  const idea = IDEAS.find(i => i.idea_id === story.idea_id);
+  if (idea && idea.meme.risk_level === 'low' && story.score >= 6) return 'HIGH MEME POTENTIAL';
+  return 'WATCH ONLY';
+}
+
+function recClass(rec) {
+  return {'MUST PUBLISH':'must','FAST SHORT':'fast','STRONG DISCUSSION':'discuss',
+    'HIGH MEME POTENTIAL':'meme','WATCH ONLY':'watch','HIGH RISK REVIEW':'risk',
+    'UNDERREPORTED OPPORTUNITY':'under'}[rec] || 'watch';
+}
+
+function bestPlatformFor(rec) {
+  return {'MUST PUBLISH':'YouTube Video','FAST SHORT':'YouTube Shorts',
+    'STRONG DISCUSSION':'Community Post','HIGH MEME POTENTIAL':'Meme',
+    'UNDERREPORTED OPPORTUNITY':'Image / Carousel','WATCH ONLY':'YouTube Video',
+    'HIGH RISK REVIEW':'Community Post'}[rec] || 'YouTube Video';
+}
+
+function scoreTooltip(score) {
+  if (score >= 9) return 'Score 9/10 — exceptional. Timeliness + channel fit + source quality all high. Publish immediately.';
+  if (score >= 8) return 'Score 8/10 — strong story. Clear angle for the channel, verified sources. Publish this week.';
+  if (score >= 7) return 'Score 7/10 — solid opportunity. Good fit but less urgent. Schedule when capacity allows.';
+  if (score >= 6) return 'Score 6/10 — moderate interest. Worth monitoring; create if there is bandwidth.';
+  return 'Score 5/10 — low priority. Keep in archive; revisit if the story develops.';
+}
+
+function riskTooltip(level) {
+  return {high:'HIGH RISK — verify all claims with independent sources before any publication.',
+    medium:'MEDIUM RISK — review framing carefully; single-source claims need corroboration.',
+    low:'LOW RISK — standard editorial checks apply.'}[level] || '';
+}
+
+function recTooltip(rec) {
+  return {'MUST PUBLISH':'Score 8+ and verified. High confidence — publish this week.',
+    'FAST SHORT':'URGENT and score 7+. Make a Short first while the story is at peak relevance.',
+    'STRONG DISCUSSION':'CONTENT OPPORTUNITY, verified. Works well as community post or long-form.',
+    'HIGH MEME POTENTIAL':'Low meme risk, score 6+. Strong visual concept available.',
+    'UNDERREPORTED OPPORTUNITY':'Underreported tag. Differentiated angle — covered poorly elsewhere.',
+    'HIGH RISK REVIEW':'Flagged high-risk. Get editorial sign-off before publishing anything.',
+    'WATCH ONLY':'Not yet strong enough to act on. Monitor and revisit.'}[rec] || '';
+}
+
+function urgencyTooltip(story) {
+  if (story.priority_tags.includes('URGENT')) return 'URGENT — publish today. Story is at peak relevance right now.';
+  if (story.score >= 8 && story.verified) return 'High priority — publish this week. Verified and high-scoring.';
+  if (story.score >= 7) return 'This week — solid opportunity. Schedule when capacity allows.';
+  return 'No urgency — monitor and revisit if the story develops further.';
+}
+
+function urgencyLabel(story) {
+  if (story.priority_tags.includes('URGENT')) return 'Publish today';
+  if (story.score >= 8 && story.verified) return 'This week (high priority)';
+  if (story.score >= 7) return 'This week';
+  return 'No urgency';
+}
+
+function renderStoryGroup(story, defaultOpen) {
+  const rec = getRecommendation(story);
+  const idea = IDEAS.find(i => i.idea_id === story.idea_id);
+  const warn = needsWarning(story);
+  const used = usedIdeas.has(idea?.idea_id);
+  const raw = story.summary || '';
+  const dot = raw.indexOf('.');
+  const summary = dot > 0 ? raw.slice(0, dot + 1) : (raw.slice(0, 140) + (raw.length > 140 ? '…' : ''));
+  const tags = story.priority_tags.map(t => `<span class="badge ${tagClass(t)}">${t}</span>`).join('');
+  const verBadge = story.verified
+    ? `<span class="badge b-lo" data-tooltip="Confirmed by multiple independent sources — safe to cite directly">✓ verified</span>`
+    : `<span class="badge b-single" data-tooltip="Based on a single source — find corroboration before publishing">1-src</span>`;
+  const platform = bestPlatformFor(rec);
+  const urgency = urgencyLabel(story);
+  const cards = idea ? storyCards(story).join('') : '<p style="color:var(--muted);font-size:12px;padding:12px">No content ideas found for this story.</p>';
+
+  const cid = STORY_CLUSTERS[story.id];
+  const cdef = CLUSTER_DEFS.find(c => c.id === cid);
+  const clBorder = cdef ? cdef.color : 'var(--border)';
+  const clBadge = cdef
+    ? `<span class="cl-badge" style="background:${cdef.color}1a;color:${cdef.color};border-color:${cdef.color}33" onclick="event.stopPropagation();setClusterFilter('${cdef.id}')">${esc(cdef.name)}</span>`
+    : '';
+  const related = DATA.stories.filter(s => s.id !== story.id && STORY_CLUSTERS[s.id] === cid);
+  const relatedStrip = related.length ? `<div class="related-strip">
+    <strong style="color:var(--muted)">Related in ${esc(cdef?.name || 'narrative')}:</strong>
+    ${related.slice(0, 3).map(r => `<button class="btn btn-sm" style="font-size:10px" onclick="handleViewIdeas('${r.id}')">${esc(r.headline.length > 52 ? r.headline.slice(0, 49) + '…' : r.headline)}</button>`).join('')}
+    ${related.length > 3 ? `<span style="color:var(--muted)">+${related.length - 3} more</span>` : ''}
+  </div>` : '';
+
+  return `<div class="story-group${warn ? ' story-warn' : ''}${used ? ' story-used' : ''}" id="sg-${story.id}" style="border-left-color:${clBorder};border-left-width:3px">
+    <div class="story-hdr" onclick="toggleStoryGroup('${story.id}')">
+      <div class="story-score-col">
+        <span class="story-score" data-tooltip="${scoreTooltip(story.score)}">${story.score}</span>
+      </div>
+      <div class="story-hdr-body">
+        <div class="story-hl">${esc(story.headline)}</div>
+        <div class="story-summary">${esc(summary)}</div>
+        <div class="story-quick">
+          <span>Best platform: <strong>${esc(platform)}</strong></span>
+          <span data-tooltip="${urgencyTooltip(story)}">Urgency: <strong>${esc(urgency)}</strong></span>
+        </div>
+        <div class="story-hdr-tags">
+          ${clBadge}${tags}${verBadge}
+          <span class="badge b-${story.risk_level}" data-tooltip="${riskTooltip(story.risk_level)}">${story.risk_level} risk</span>
+          <span class="badge rec-${recClass(rec)}" data-tooltip="${recTooltip(rec)}">${rec}</span>
+          ${warn ? `<button class="btn btn-sm btn-warn" style="padding:2px 8px" onclick="event.stopPropagation();showWarningFor('${story.id}',null)">⚠ Review</button>` : ''}
+        </div>
+      </div>
+      <div class="story-hdr-right">
+        <span class="wf-badge wf-${getWfState(story.id)}" onclick="event.stopPropagation();openWfMenu('${story.id}',event)">${esc(WF_LABELS[getWfState(story.id)])}</span>
+        <span class="story-expand-btn" id="sgbtn-${story.id}">${defaultOpen ? '▲ Collapse' : '▼ Ideas'}</span>
+        <a class="story-src-link" href="${escUrl(story.url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Source ↗</a>
+      </div>
+    </div>
+    ${relatedStrip}
+    <div class="story-cards-wrap${defaultOpen ? '' : ' closed'}" id="sc-${story.id}">
+      <div class="c-grid" style="padding:12px 14px 14px">${cards}</div>
+    </div>
+  </div>`;
+}
+
+function toggleStoryGroup(storyId) {
+  const wrap = document.getElementById(`sc-${storyId}`);
+  const btn = document.getElementById(`sgbtn-${storyId}`);
+  if (!wrap) return;
+  const isOpen = !wrap.classList.contains('closed');
+  wrap.classList.toggle('closed', isOpen);
+  if (btn) btn.textContent = isOpen ? '▼ Ideas' : '▲ Collapse';
+}
+
+function getFilteredStories() {
+  let stories = DATA.stories;
+  if (clusterFilter) stories = stories.filter(s => STORY_CLUSTERS[s.id] === clusterFilter);
+  if (workflowFilter !== 'all') stories = stories.filter(s => getWfState(s.id) === workflowFilter);
+  return stories;
+}
+
+function renderPublishNow() {
+  const stories = getFilteredStories();
+  document.getElementById('publishNowGrid').innerHTML =
+    stories.slice(0, 3).map(s => renderStoryGroup(s, true)).join('') ||
+    '<p style="color:var(--muted);font-size:12px;padding:12px 0">No stories match this filter in this tier.</p>';
+}
+
+function renderWatchlistNew() {
+  const stories = getFilteredStories();
+  document.getElementById('watchlistNewGrid').innerHTML =
+    stories.slice(3, 10).map(s => renderStoryGroup(s, false)).join('') ||
+    '<p style="color:var(--muted);font-size:12px;padding:12px 0">No stories match this filter in this tier.</p>';
+}
+
+function renderArchive() {
+  const stories = getFilteredStories();
+  document.getElementById('archiveGrid').innerHTML =
+    stories.slice(10).map(s => renderStoryGroup(s, false)).join('') ||
+    '<p style="color:var(--muted);font-size:12px;padding:12px 0">No stories match this filter in this tier.</p>';
+}
+
+// ─── SCAN LOADING ENGINE ─────────────────────────────────────────────────────
+
+async function tryLoadLatestScan(isReload = false) {
+  const DATA_URL  = 'scans/latest/data.json';
+  const IDEAS_URL = 'scans/latest/content_ideas.json';
+  const cacheBust = '?t=' + Date.now();
+
+  try {
+    if (typeof fetch === 'undefined') throw new Error('fetch API unavailable');
+
+    const [dataRes, ideasRes] = await Promise.all([
+      fetch(DATA_URL  + cacheBust),
+      fetch(IDEAS_URL + cacheBust)
+    ]);
+
+    if (!dataRes.ok)  throw new Error(`data.json: HTTP ${dataRes.status}`);
+    if (!ideasRes.ok) throw new Error(`content_ideas.json: HTTP ${ideasRes.status}`);
+
+    const [rawData, rawIdeas] = await Promise.all([
+      dataRes.json(),
+      ideasRes.json()
+    ]);
+
+    validateDataJson(rawData);
+    const normalIdeas = normalizeLoadedIdeas(rawIdeas);
+
+    DATA  = rawData;
+    IDEAS = normalIdeas;
+    DATA_SOURCE = 'latest';
+
+    addLoadLog('success', 'latest',
+      `Loaded ${rawData.stories.length} stories from ${DATA_URL} (scan: ${rawData.meta?.scan_date || 'unknown'})`);
+    clearLoadWarning();
+    renderAll();
+    if (isReload) showToast(`Latest scan loaded — ${rawData.stories.length} stories.`);
+    return true;
+
+  } catch (err) {
+    const isFile = (typeof location !== 'undefined') && location.protocol === 'file:';
+    addLoadLog('fallback', isFile ? 'file-protocol' : 'fetch-error', err.message);
+
+    if (!isReload) {
+      // Initial load: fall back silently to embedded data
+      DATA  = JSON.parse(JSON.stringify(EMBEDDED_DATA));
+      IDEAS = JSON.parse(JSON.stringify(EMBEDDED_IDEAS));
+      DATA_SOURCE = 'embedded';
+
+      const hint = isFile
+        ? 'Run <strong>serve.ps1</strong> and open the URL it prints to enable automatic loading.'
+        : 'Check that /scans/latest/data.json exists and try <em>Reload latest</em>.';
+      showLoadWarning(
+        'Latest scan not found — using embedded fallback data. ' + hint,
+        isFile
+      );
+      renderAll();
+    } else {
+      // Explicit reload attempt failed — leave current data intact
+      showToast(isFile
+        ? 'Run serve.ps1 to enable local file loading.'
+        : 'Could not load /scans/latest/ — check the path and try again.');
+    }
+    return false;
+  }
+}
+
+function validateDataJson(data) {
+  if (!data || typeof data !== 'object' || Array.isArray(data))
+    throw new Error('Root must be a JSON object');
+  if (!Array.isArray(data.stories))
+    throw new Error('Missing or invalid stories array');
+  if (data.stories.length < 1)
+    throw new Error('stories array is empty');
+  data.stories.forEach((s, i) => {
+    if (!s.id)                      throw new Error(`story[${i}]: missing id`);
+    if (!s.headline)                throw new Error(`story[${i}]: missing headline`);
+    if (typeof s.score !== 'number') throw new Error(`story[${i}]: score must be a number`);
+    if (!Array.isArray(s.priority_tags)) throw new Error(`story[${i}]: missing priority_tags array`);
+  });
+}
+
+function normalizeLoadedIdeas(raw) {
+  const arr = Array.isArray(raw) ? raw : (raw.ideas || []);
+  if (!arr.length) throw new Error('content_ideas.json: no ideas found');
+  return arr.map((idea, i) => {
+    // Already in embedded flat format
+    if (idea.video && idea.short) return idea;
+    // Raw pipeline nested format — flatten
+    if (!idea.idea_id) throw new Error(`idea[${i}]: missing idea_id`);
+    return {
+      idea_id:  idea.idea_id,
+      story_id: idea.story_id,
+      video:     {title: idea.formats?.youtube_video?.title   || '', hook: idea.formats?.youtube_video?.hook || ''},
+      short:     {hook_3sec: idea.formats?.youtube_short?.hook_3sec || '', caption: idea.formats?.youtube_short?.caption || ''},
+      image:     {main_message: idea.formats?.image_post?.main_message || ''},
+      community: {question: idea.formats?.community_post?.question_or_poll || ''},
+      meme:      {concept: idea.formats?.meme?.concept || '', risk_level: idea.formats?.meme?.risk_level || 'low', risk_note: idea.formats?.meme?.risk_note || null},
+      marked_as_used: idea.marked_as_used || false
+    };
+  });
+}
+
+function addLoadLog(type, source, message) {
+  const entry = {time: new Date().toISOString(), type, source, message};
+  LOAD_LOG.push(entry);
+  console.log(`[SI] ${type} | ${source} | ${message}`);
+}
+
+function showLoadWarning(msg, isFileProtocol = false) {
+  const banner = document.getElementById('loadWarnBanner');
+  const msgEl  = document.getElementById('loadWarnMsg');
+  if (!banner || !msgEl) return;
+  const serverHint = isFileProtocol
+    ? ' <span style="opacity:.8;font-size:11px">Open a terminal in this folder and run: <code style="background:rgba(245,158,11,.15);padding:1px 5px;border-radius:3px">powershell .\\serve.ps1</code></span>'
+    : '';
+  msgEl.innerHTML = msg + serverHint;
+  banner.classList.add('on');
+}
+
+function clearLoadWarning() {
+  const el = document.getElementById('loadWarnBanner');
+  if (el) el.classList.remove('on');
+}
+
+async function reloadLatestScan() {
+  const btn = document.getElementById('reloadBtn');
+  if (btn) { btn.disabled = true; btn.textContent = 'Loading…'; }
+  await tryLoadLatestScan(true);
+  if (btn) { btn.disabled = false; btn.textContent = 'Reload latest'; }
+}
+
+// ─── WORKFLOW ENGINE ─────────────────────────────────────────────────────────
+
+function getWfState(storyId) {
+  return workflowStates[storyId] || 'discovered';
+}
+
+function setWfState(storyId, state) {
+  if (state === 'published') {
+    publishModalStoryId = storyId;
+    const story = DATA.stories.find(s => s.id === storyId);
+    document.getElementById('pubModalStory').textContent = story ? story.headline : storyId;
+    const today = new Date().toISOString().slice(0,10);
+    document.getElementById('pubDate').value = publishData[storyId]?.date || today;
+    document.getElementById('pubPlatform').value = publishData[storyId]?.platform || '';
+    document.getElementById('pubUrl').value = publishData[storyId]?.url || '';
+    document.getElementById('pubNotes').value = publishData[storyId]?.notes || '';
+    document.getElementById('publishModal').classList.add('on');
+    return;
+  }
+  workflowStates[storyId] = state;
+  localStorage.setItem('si_workflow', JSON.stringify(workflowStates));
+  rerenderStory(storyId);
+  renderProductionPipeline();
+  renderFooter();
+}
+
+function savePublishData() {
+  const storyId = publishModalStoryId;
+  if (!storyId) return;
+  workflowStates[storyId] = 'published';
+  publishData[storyId] = {
+    date:     document.getElementById('pubDate').value,
+    platform: document.getElementById('pubPlatform').value,
+    url:      document.getElementById('pubUrl').value,
+    notes:    document.getElementById('pubNotes').value
+  };
+  localStorage.setItem('si_workflow', JSON.stringify(workflowStates));
+  localStorage.setItem('si_publish_data', JSON.stringify(publishData));
+  closePublishModal();
+  rerenderStory(storyId);
+  renderProductionPipeline();
+  renderFooter();
+  showToast('Marked as published.');
+}
+
+function closePublishModal() {
+  document.getElementById('publishModal').classList.remove('on');
+  publishModalStoryId = null;
+}
+
+function rerenderStory(storyId) {
+  const story = DATA.stories.find(s => s.id === storyId);
+  if (!story) return;
+  const group = document.getElementById('sg-' + storyId);
+  if (!group) return;
+  const wrap = document.getElementById('sc-' + storyId);
+  const isOpen = wrap ? !wrap.classList.contains('closed') : false;
+  group.outerHTML = renderStoryGroup(story, isOpen);
+}
+
+function openWfMenu(storyId, event) {
+  event.stopPropagation();
+  closeWfMenu();
+  openMenuId = storyId;
+  const state = getWfState(storyId);
+  const nextStates = WF_NEXT[state] || [];
+  const el = document.createElement('div');
+  el.className = 'wf-menu';
+  el.id = 'wfMenuEl';
+  el.innerHTML = `<div class="wf-menu-hdr">Workflow state</div>
+    <button class="wf-menu-item current" disabled><span class="wf-badge wf-${state}" style="cursor:default;margin-right:6px">${esc(WF_LABELS[state])}</span> Current</button>
+    ${nextStates.length ? '<hr class="wf-menu-div">' : ''}
+    ${nextStates.map(ns => `<button class="wf-menu-item" onclick="setWfState('${storyId}','${ns}');closeWfMenu()"><span class="wf-badge wf-${ns}" style="cursor:pointer;margin-right:6px">${esc(WF_LABELS[ns])}</span></button>`).join('')}
+    <hr class="wf-menu-div">
+    <button class="wf-menu-item" onclick="setWfState('${storyId}','discovered');closeWfMenu()" style="font-size:10px;color:var(--muted)">↩ Reset to Discovered</button>`;
+  document.body.appendChild(el);
+  const btn = event.currentTarget;
+  const rect = btn.getBoundingClientRect();
+  const menuW = 200;
+  let left = rect.left;
+  if (left + menuW > window.innerWidth - 10) left = window.innerWidth - menuW - 10;
+  el.style.left = left + 'px';
+  el.style.top = (rect.bottom + 6) + 'px';
+}
+
+function closeWfMenu() {
+  const el = document.getElementById('wfMenuEl');
+  if (el) el.remove();
+  openMenuId = null;
+}
+
+function setWorkflowFilter(state, updateSelect = true) {
+  workflowFilter = state;
+  localStorage.setItem('si_wf_filter', state);
+  if (updateSelect) {
+    const sel = document.getElementById('ttWf');
+    if (sel) sel.value = state;
+  }
+  renderTrendingTable();
+  renderPublishNow();
+  renderWatchlistNew();
+  renderArchive();
+  renderWorkflowFilterBanner();
+  renderProductionPipeline();
+}
+
+function renderWorkflowFilterBanner() {
+  const banner = document.getElementById('wfFilterBanner');
+  const label  = document.getElementById('wfFilterLabel');
+  if (!banner || !label) return;
+  if (workflowFilter !== 'all') {
+    const color = WF_COLORS[workflowFilter] || '#4ade80';
+    label.innerHTML = `<span class="wf-badge wf-${workflowFilter}" style="cursor:default;margin-right:4px">${esc(WF_LABELS[workflowFilter])}</span> Showing only: <strong>${esc(WF_LABELS[workflowFilter])}</strong> stories`;
+    banner.style.display = '';
+  } else {
+    banner.style.display = 'none';
+  }
+}
+
+function computeStaleAlerts() {
+  const alerts = [];
+  DATA.stories.forEach(s => {
+    const state = getWfState(s.id);
+    if (s.score >= 8 && state === 'discovered')
+      alerts.push({storyId:s.id, type:'high-score', msg:`Score ${s.score}/10 story not yet reviewed: "${s.headline.length > 65 ? s.headline.slice(0,62)+'…' : s.headline}"`});
+    if (s.priority_tags.includes('URGENT') && (state === 'discovered'))
+      alerts.push({storyId:s.id, type:'urgent', msg:`URGENT signal untouched: "${s.headline.length > 65 ? s.headline.slice(0,62)+'…' : s.headline}"`});
+    if (state === 'approved')
+      alerts.push({storyId:s.id, type:'approved', msg:`Approved — ready to start production: "${s.headline.length > 58 ? s.headline.slice(0,55)+'…' : s.headline}"`});
+  });
+  return alerts;
+}
+
+function renderProductionPipeline() {
+  const statsEl = document.getElementById('pipelineStats');
+  const wrapEl  = document.getElementById('pipelineWrap');
+  const countEl = document.getElementById('pipelineCount');
+  const staleEl = document.getElementById('staleAlerts');
+  if (!statsEl || !wrapEl) return;
+
+  // State counts
+  const stateCounts = {};
+  WF_STATES.forEach(s => stateCounts[s] = 0);
+  DATA.stories.forEach(s => { const st = getWfState(s.id); stateCounts[st] = (stateCounts[st] || 0) + 1; });
+
+  const inProd = (stateCounts.scripting||0) + (stateCounts.recording||0) + (stateCounts.editing||0);
+  const total  = DATA.stories.length;
+  if (countEl) countEl.textContent = `${total} stories · ${stateCounts.published||0} published · ${inProd} in production`;
+
+  // Stale alerts
+  if (staleEl) {
+    const stale = computeStaleAlerts();
+    staleEl.innerHTML = stale.length
+      ? `<div class="stale-alerts">${stale.map(a => `<div class="stale-alert">⚡ ${esc(a.msg)} <button class="btn btn-sm" onclick="handleViewIdeas('${a.storyId}')" style="margin-left:auto;flex-shrink:0">View</button></div>`).join('')}</div>`
+      : '';
+  }
+
+  // Stats row — key states
+  const statDefs = [
+    {state:'discovered',label:'Discovered'},{state:'reviewed',label:'Reviewed'},
+    {state:'approved',label:'Approved'},{state:'scripting',label:'Scripting'},
+    {state:'recording',label:'Recording'},{state:'editing',label:'Editing'},
+    {state:'scheduled',label:'Scheduled'},{state:'published',label:'Published'},
+    {state:'archived',label:'Archived'}
+  ];
+  statsEl.innerHTML = statDefs.map(d => {
+    const n = stateCounts[d.state] || 0;
+    const col = WF_COLORS[d.state];
+    return `<div class="pipeline-stat" onclick="setWorkflowFilter(workflowFilter === '${d.state}' ? 'all' : '${d.state}')" style="cursor:pointer;border-color:${n > 0 ? col + '44' : 'var(--border)'}">
+      <div class="pipeline-stat-n" style="color:${n > 0 ? col : 'var(--muted)'}">${n}</div>
+      <div class="pipeline-stat-l">${esc(d.label)}</div>
+    </div>`;
+  }).join('');
+
+  // Pipeline columns
+  wrapEl.innerHTML = PIPELINE_COLS.map(col => {
+    const colStories = DATA.stories.filter(s => col.states.includes(getWfState(s.id)));
+    const cards = colStories.length
+      ? colStories.map(s => {
+          const cid = STORY_CLUSTERS[s.id];
+          const cdef = CLUSTER_DEFS.find(c => c.id === cid);
+          const pub = publishData[s.id];
+          const pubLine = pub && pub.date
+            ? `<div class="pipeline-card-pub">${pub.platform ? esc(pub.platform) + ' · ' : ''}${esc(pub.date)}${pub.url ? ` · <a href="${escUrl(pub.url)}" target="_blank" rel="noopener">↗</a>` : ''}</div>`
+            : '';
+          return `<div class="pipeline-card" onclick="handleViewIdeas('${s.id}')">
+            <div class="pipeline-card-score">${s.score}/10</div>
+            <div class="pipeline-card-hl">${esc(s.headline.length > 72 ? s.headline.slice(0,69)+'…' : s.headline)}</div>
+            <div class="pipeline-card-meta">
+              ${cdef ? `<span class="cl-badge" style="background:${cdef.color}1a;color:${cdef.color};border-color:${cdef.color}33">${esc(cdef.name)}</span>` : ''}
+              <span class="wf-badge wf-${getWfState(s.id)}" onclick="event.stopPropagation();openWfMenu('${s.id}',event)">${esc(WF_LABELS[getWfState(s.id)])}</span>
+            </div>
+            ${pubLine}
+          </div>`;
+        }).join('')
+      : `<div class="pipeline-empty">—</div>`;
+
+    return `<div class="pipeline-col">
+      <div class="pipeline-col-hdr">
+        <span class="pipeline-col-name">${esc(col.label)}</span>
+        <span class="pipeline-col-count">${colStories.length}</span>
+      </div>
+      <div class="pipeline-col-body">${cards}</div>
+    </div>`;
+  }).join('');
+}
+
+// ─── WORKSPACE EXPORT / IMPORT ────────────────────────────────────────────────
+
+function exportWorkspace() {
+  const snapshot = {
+    _type: 'si-workspace-snapshot',
+    _version: 1,
+    _exported: new Date().toISOString(),
+    workflowStates,
+    publishData,
+    usedIdeas: [...usedIdeas],
+    theme: document.documentElement.getAttribute('data-theme') || 'dark',
+    clusterFilter,
+    workflowFilter
+  };
+  const blob = new Blob([JSON.stringify(snapshot, null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'si-workspace-' + new Date().toISOString().slice(0,10) + '.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  showToast('Workspace exported.');
+}
+
+function importWorkspace(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const statusEl = document.getElementById('importStatus');
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const snap = JSON.parse(e.target.result);
+      if (snap._type !== 'si-workspace-snapshot') throw new Error('Not a workspace snapshot file');
+      workflowStates = snap.workflowStates || {};
+      publishData    = snap.publishData || {};
+      usedIdeas      = new Set(snap.usedIdeas || []);
+      clusterFilter  = snap.clusterFilter || null;
+      workflowFilter = snap.workflowFilter || 'all';
+      if (snap.theme) {
+        document.documentElement.setAttribute('data-theme', snap.theme);
+        localStorage.setItem('si_theme', snap.theme);
+      }
+      localStorage.setItem('si_workflow', JSON.stringify(workflowStates));
+      localStorage.setItem('si_publish_data', JSON.stringify(publishData));
+      localStorage.setItem('si_used_ideas', JSON.stringify([...usedIdeas]));
+      localStorage.setItem('si_cluster_filter', clusterFilter || '');
+      localStorage.setItem('si_wf_filter', workflowFilter);
+      renderAll();
+      setStatus(statusEl, 'ok', `Workspace restored — ${Object.keys(workflowStates).length} workflow states, ${usedIdeas.size} used ideas.`);
+    } catch (err) {
+      setStatus(statusEl, 'err', 'Workspace import failed: ' + err.message);
+    }
+  };
+  reader.onerror = () => setStatus(statusEl, 'err', 'File could not be read.');
+  reader.readAsText(file);
+}
+
+// ─── CLUSTER ENGINE ───────────────────────────────────────────────────────────
+
+function clusterStories() {
+  STORY_CLUSTERS = {};
+  const txt = s => (s.headline + ' ' + (s.summary || '')).toLowerCase();
+  DATA.stories.forEach(s => {
+    let best = CLUSTER_DEFS[0].id, bestScore = -1;
+    CLUSTER_DEFS.forEach(c => {
+      let score = c.cats.includes(s.source_category) ? 4 : 0;
+      const t = txt(s);
+      c.terms.forEach(term => { if (t.includes(term)) score += 2; });
+      if (score > bestScore) { bestScore = score; best = c.id; }
+    });
+    STORY_CLUSTERS[s.id] = best;
+  });
+
+  CLUSTER_DATA = CLUSTER_DEFS.map(c => {
+    const stories = DATA.stories.filter(s => STORY_CLUSTERS[s.id] === c.id);
+    if (!stories.length) return null;
+    const avgScore = stories.reduce((a, b) => a + b.score, 0) / stories.length;
+    const urgentCount = stories.filter(s => s.priority_tags.includes('URGENT')).length;
+    const verifiedCount = stories.filter(s => s.verified).length;
+    const highRiskCount = stories.filter(s => s.risk_level === 'high').length;
+    const topStory = [...stories].sort((a, b) => b.score - a.score)[0];
+    const bestOppty = stories
+      .filter(s => s.priority_tags.includes('CONTENT OPPORTUNITY') && s.risk_level !== 'high')
+      .sort((a, b) => b.score - a.score)[0] || topStory;
+    const momentum = computeMomentum(stories);
+    const sentiment = computeSentiment(stories);
+    const guidance = computeGuidance(c, stories, momentum);
+    return { ...c, stories, avgScore, urgentCount, verifiedCount, highRiskCount, topStory, bestOppty, momentum, sentiment, guidance };
+  }).filter(Boolean);
+}
+
+function computeMomentum(stories) {
+  const count = stories.length;
+  const avgScore = stories.reduce((a, b) => a + b.score, 0) / count;
+  const urgentCount = stories.filter(s => s.priority_tags.includes('URGENT')).length;
+  const verifiedRatio = stories.filter(s => s.verified).length / count;
+  const ms = (Math.min(count, 7) / 7) * 3
+           + (avgScore / 10) * 4
+           + (urgentCount > 0 ? 2 : 0)
+           + verifiedRatio;
+  if (ms >= 7.5) return 'EXPLODING';
+  if (ms >= 5.5) return 'RISING';
+  if (ms >= 3)   return 'STABLE';
+  return 'DECLINING';
+}
+
+function computeSentiment(stories) {
+  const highRisk = stories.filter(s => s.risk_level === 'high').length;
+  const oppty = stories.filter(s => s.priority_tags.includes('CONTENT OPPORTUNITY')).length;
+  const ratio = highRisk / stories.length;
+  if (ratio >= 0.5) return 'Critical';
+  if (highRisk > 0 && oppty > 0) return 'Mixed';
+  if (oppty / stories.length >= 0.6) return 'Optimistic';
+  return 'Neutral';
+}
+
+function computeGuidance(cDef, stories, momentum) {
+  const highRisk = stories.filter(s => s.risk_level === 'high').length;
+  const single   = stories.filter(s => !s.verified).length;
+  const urgent   = stories.filter(s => s.priority_tags.includes('URGENT')).length;
+  const under    = stories.filter(s => s.priority_tags.includes('UNDERREPORTED')).length;
+  if (highRisk >= 2)         return 'High editorial risk — verify all claims independently before publishing';
+  if (single >= Math.ceil(stories.length * 0.6)) return 'Low verification density — find corroboration before acting on any story';
+  if (urgent >= 2)           return 'Multiple urgent signals — prioritise Shorts this week while stories are live';
+  if (momentum === 'EXPLODING') return 'Fast-moving narrative — publish immediately and plan a follow-up thread';
+  if (momentum === 'RISING') return 'Rising narrative — build a through-line connecting the stories';
+  if (under >= 2)            return 'Underreported angle — strong differentiation from mainstream AI coverage';
+  const map = {
+    frontier: 'Capabilities race — audience highly engaged, low creative risk',
+    jobs:     'High audience resonance — frame for general viewers, not just tech',
+    regulation: 'Likely multi-week trend — court cases and regulation cycles persist',
+    chips:    'Technical depth required — anchor with specific data points, not speculation',
+    military: 'Sensitive territory — confirm editorial stance before publishing',
+    consumer: 'High shareability — focus on what changes for ordinary users',
+    company:  'Business audience crossover — strong LinkedIn and newsletter potential'
+  };
+  return map[cDef.id] || 'Monitor and create when capacity allows';
+}
+
+function computeSaturationWarnings() {
+  const warns = [];
+  const entities = {};
+  DATA.stories.forEach(s => {
+    const t = (s.headline + ' ' + (s.summary || '')).toLowerCase();
+    ['anthropic','google','meta','microsoft','openai','nvidia'].forEach(e => {
+      if (t.includes(e)) entities[e] = (entities[e] || 0) + 1;
+    });
+  });
+  Object.entries(entities)
+    .filter(([, n]) => n >= 3)
+    .sort((a, b) => b[1] - a[1])
+    .forEach(([e, n]) => warns.push(`${n} ${e.charAt(0).toUpperCase() + e.slice(1)}-related stories this week — watch for coverage concentration`));
+  CLUSTER_DATA.forEach(c => {
+    if (c.stories.length >= 5) warns.push(`"${c.name}" has ${c.stories.length} stories — this narrative is dominating coverage this week`);
+  });
+  return warns;
+}
+
+// ─── CLUSTER RENDER ───────────────────────────────────────────────────────────
+
+function renderClusterStrip() {
+  const el = document.getElementById('clusterStrip');
+  if (!el) return;
+  const allChip = `<button class="cl-chip${!clusterFilter ? ' active' : ''}" style="${!clusterFilter ? 'background:var(--accent)' : ''}" onclick="setClusterFilter(null)">All narratives</button>`;
+  const chips = CLUSTER_DATA.map(c => {
+    const active = clusterFilter === c.id;
+    const mom = c.momentum === 'EXPLODING' ? ' ▲' : c.momentum === 'RISING' ? ' ↑' : '';
+    return `<button class="cl-chip${active ? ' active' : ''}" style="${active ? `background:${c.color}` : `border-color:${c.color}33;color:${c.color}`}" onclick="setClusterFilter('${c.id}')">${esc(c.name)} (${c.stories.length})${mom}</button>`;
+  }).join('');
+  el.innerHTML = allChip + chips;
+}
+
+function renderNarrativeLandscape() {
+  const countEl = document.getElementById('nlCount');
+  if (countEl) countEl.textContent = `${CLUSTER_DATA.length} narrative clusters · ${DATA.stories.length} stories mapped`;
+
+  const warns = computeSaturationWarnings();
+  const warnEl = document.getElementById('saturationWarnings');
+  if (warnEl) warnEl.innerHTML = warns.length
+    ? `<div class="sat-warns">${warns.map(w => `<div class="sat-warn">⚠ ${esc(w)}</div>`).join('')}</div>`
+    : '';
+
+  const momClass = m => ({ EXPLODING:'mom-exploding', RISING:'mom-rising', STABLE:'mom-stable', DECLINING:'mom-declining' }[m] || 'mom-stable');
+  const sentClass = s => ({ Critical:'sent-critical', Mixed:'', Optimistic:'', Neutral:'' }[s] || '');
+
+  document.getElementById('nlGrid').innerHTML = CLUSTER_DATA.map(c => {
+    const active = clusterFilter === c.id;
+    const topTitle = c.topStory ? (c.topStory.headline.length > 70 ? c.topStory.headline.slice(0, 67) + '…' : c.topStory.headline) : '—';
+    const opptyTitle = c.bestOppty ? (c.bestOppty.headline.length > 70 ? c.bestOppty.headline.slice(0, 67) + '…' : c.bestOppty.headline) : '—';
+    return `<div class="nl-card${active ? ' nl-active' : ''}" style="border-left-color:${c.color}" onclick="setClusterFilter('${c.id}')">
+      <div class="nl-title">
+        <span class="nl-dot" style="background:${c.color}"></span>
+        <span>${esc(c.name)}</span>
+        <span class="badge ${momClass(c.momentum)}" style="margin-left:auto;font-size:9px">${c.momentum}</span>
+      </div>
+      <div class="nl-stats">
+        <div class="nl-stat"><strong>${c.stories.length}</strong>stories</div>
+        <div class="nl-stat"><strong>${c.avgScore.toFixed(1)}</strong>avg score</div>
+        <div class="nl-stat"><strong>${c.verifiedCount}/${c.stories.length}</strong>verified</div>
+      </div>
+      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px">
+        <span class="badge b-${c.highRiskCount > 0 ? 'hi' : 'lo'}">${c.highRiskCount > 0 ? `${c.highRiskCount} high-risk` : 'no high-risk'}</span>
+        <span class="badge" style="background:var(--surface2);color:var(--muted);border:1px solid var(--border)">Sentiment: ${esc(c.sentiment)}</span>
+      </div>
+      <hr class="nl-div">
+      <div class="nl-story-ref"><strong>Top story (${c.topStory?.score ?? '—'}/10)</strong>${esc(topTitle)}</div>
+      <div class="nl-story-ref"><strong>Best opportunity</strong>${esc(opptyTitle)}</div>
+      <div class="nl-guidance">${esc(c.guidance)}</div>
+    </div>`;
+  }).join('');
+}
+
+function setClusterFilter(id) {
+  clusterFilter = (clusterFilter === id) ? null : id;
+  localStorage.setItem('si_cluster_filter', clusterFilter || '');
+  renderClusterStrip();
+  renderNarrativeLandscape();
+  renderTrendingTable();
+  renderPublishNow();
+  renderWatchlistNew();
+  renderArchive();
+  renderProductionPipeline();
+  const banner = document.getElementById('clFilterBanner');
+  const label  = document.getElementById('clFilterLabel');
+  if (banner && label) {
+    if (clusterFilter) {
+      const c = CLUSTER_DATA.find(x => x.id === clusterFilter);
+      label.innerHTML = `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${c?.color || 'var(--accent)'};margin-right:6px"></span>Filtering by: <strong>${esc(c?.name || clusterFilter)}</strong>`;
+      banner.style.display = '';
+    } else {
+      banner.style.display = 'none';
+    }
+  }
+}
+
+// ─── TRENDING TABLE ───────────────────────────────────────────────────────────
+
+function renderTrendingTable() {
+  const allIndexed = DATA.stories.map((s, i) => Object.assign({rank: i + 1}, s));
+  let rows = clusterFilter ? allIndexed.filter(s => STORY_CLUSTERS[s.id] === clusterFilter) : allIndexed;
+  if (trendSearch) {
+    const q = trendSearch.toLowerCase();
+    rows = rows.filter(s => s.headline.toLowerCase().includes(q));
+  }
+  if (trendTagFilter !== 'all') rows = rows.filter(s => s.priority_tags.includes(trendTagFilter));
+  if (trendCatFilter !== 'all') rows = rows.filter(s => s.source_category === trendCatFilter);
+  if (workflowFilter !== 'all') rows = rows.filter(s => getWfState(s.id) === workflowFilter);
+
+  rows.sort((a, b) => {
+    let va = a[trendSortCol === 'rank' ? 'rank' : trendSortCol];
+    let vb = b[trendSortCol === 'rank' ? 'rank' : trendSortCol];
+    if (typeof va === 'string') { va = va.toLowerCase(); vb = String(vb).toLowerCase(); }
+    if (va < vb) return trendSortDir === 'asc' ? -1 : 1;
+    if (va > vb) return trendSortDir === 'asc' ? 1 : -1;
+    return 0;
+  });
+
+  const countEl = document.getElementById('trendCount');
+  if (countEl) countEl.textContent = `${rows.length} of ${DATA.stories.length} stories`;
+
+  document.getElementById('trendingBody').innerHTML = rows.map(s => {
+    const warn = needsWarning(s);
+    const tags = s.priority_tags.map(t => `<span class="badge ${tagClass(t)}">${t}</span>`).join(' ');
+    const verBadge = s.verified
+      ? '<span class="badge b-lo">✓ verified</span>'
+      : '<span class="badge b-single">single source</span>';
+    return `<tr>
+      <td style="color:var(--muted);font-family:monospace;font-size:11px">${s.rank}</td>
+      <td><div class="score-col">
+        <span class="score-num">${s.score}</span>
+        <div class="score-track"><div class="score-fill" style="width:${s.score * 10}%"></div></div>
+      </div></td>
+      <td style="max-width:300px">
+        <div style="font-weight:600;line-height:1.4;margin-bottom:3px">
+          <a href="${escUrl(s.url)}" target="_blank" rel="noopener">${esc(s.headline)}</a>
+        </div>
+        <div style="font-size:10px;color:var(--muted)">${esc(s.sources.join(' · '))}</div>
+      </td>
+      <td><span style="font-size:11px;color:var(--muted);white-space:nowrap">${esc(s.source_category.replace(/_/g,' '))}</span></td>
+      <td style="min-width:160px">${tags}${warn ? ' <span class="badge b-hi">⚠</span>' : ''}</td>
+      <td style="text-align:center;font-family:monospace;font-size:11px"><span data-tooltip="${esc(s.sources.join(' · '))}">${s.sources.length}</span></td>
+      <td>${verBadge}</td>
+      <td><span class="wf-badge wf-${getWfState(s.id)}" onclick="openWfMenu('${s.id}',event)">${esc(WF_LABELS[getWfState(s.id)])}</span></td>
+      <td><button class="btn btn-sm" onclick="handleViewIdeas('${s.id}')">Ideas</button></td>
+    </tr>`;
+  }).join('') || '<tr><td colspan="8" style="text-align:center;padding:20px;color:var(--muted)">No stories match this filter.</td></tr>';
+
+  ['rank', 'score', 'source_category'].forEach(col => {
+    const th = document.getElementById('th-' + col);
+    if (!th) return;
+    const arrow = th.querySelector('.sort-arrow');
+    th.classList.toggle('active', col === trendSortCol);
+    if (arrow) arrow.textContent = col !== trendSortCol ? '↕' : (trendSortDir === 'asc' ? '↑' : '↓');
+  });
+}
+
+function sortTrending(col) {
+  trendSortDir = trendSortCol === col ? (trendSortDir === 'asc' ? 'desc' : 'asc') : (col === 'source_category' ? 'asc' : 'desc');
+  trendSortCol = col;
+  renderTrendingTable();
+}
+
+function onTrendSearch(val) { trendSearch = val; renderTrendingTable(); }
+
+function onTrendFilter() {
+  trendTagFilter = document.getElementById('ttTag').value;
+  trendCatFilter = document.getElementById('ttCat').value;
+  const wfEl = document.getElementById('ttWf');
+  if (wfEl && wfEl.value !== workflowFilter) setWorkflowFilter(wfEl.value, false);
+  else renderTrendingTable();
+}
+
+// ─── PLATFORM PANEL ───────────────────────────────────────────────────────────
+
+function renderPlatformPanel() {
+  const stories = DATA.stories;
+  const urgentStories = stories.filter(s => s.priority_tags.includes('URGENT'));
+  const contentOpptyStories = stories.filter(s => s.priority_tags.includes('CONTENT OPPORTUNITY'));
+  const verifiedStories = stories.filter(s => s.verified);
+  const highScoreStories = stories.filter(s => s.score >= 7);
+  const lowRiskMemeIdeas = IDEAS.filter(i => i.meme.risk_level === 'low');
+
+  const topBy = (candidates) => [...candidates].sort((a, b) => b.score - a.score)[0];
+  const ideaFor = (story) => story ? IDEAS.find(i => i.idea_id === story.idea_id) : null;
+  const cap = (str, n) => str && str.length > n ? str.slice(0, n) + '…' : (str || '—');
+
+  const topVideoStory = topBy(stories);
+  const topShortStory = topBy(urgentStories) || topVideoStory;
+  const topImageStory = topBy(contentOpptyStories.filter(s => s.risk_level !== 'high')) || contentOpptyStories[0];
+  const topCommunityStory = topBy(verifiedStories.filter(s => s.priority_tags.includes('CONTENT OPPORTUNITY'))) || verifiedStories[0];
+  const topMemeStory = (() => {
+    if (!lowRiskMemeIdeas.length) return null;
+    const best = lowRiskMemeIdeas.reduce((a, b) => {
+      const sa = stories.find(s => s.id === a.story_id), sb = stories.find(s => s.id === b.story_id);
+      return (sb?.score || 0) > (sa?.score || 0) ? b : a;
+    });
+    return stories.find(s => s.id === best.story_id);
+  })();
+
+  const platforms = [
+    {name:'YouTube Video', desc:'Long-form · 8–15 min', icon:'▶',
+     countLabel:`${highScoreStories.length} stories score 7+`, topStory:topVideoStory, isTop:true},
+    {name:'YouTube Shorts', desc:'Under 60 sec', icon:'⚡',
+     countLabel:`${urgentStories.length} URGENT stories`, topStory:topShortStory, isTop:false},
+    {name:'Image / Carousel', desc:'Static visual + caption', icon:'◼',
+     countLabel:`${contentOpptyStories.length} CONTENT OPPORTUNITY stories`, topStory:topImageStory, isTop:false},
+    {name:'Community Post', desc:'Questions & polls', icon:'◉',
+     countLabel:`${verifiedStories.length} verified stories`, topStory:topCommunityStory, isTop:false},
+    {name:'Meme', desc:'Low-risk only', icon:'◈',
+     countLabel:`${lowRiskMemeIdeas.length} low-risk concepts`, topStory:topMemeStory, isTop:false}
+  ];
+
+  // Platform-specific metadata
+  const platformMeta = {
+    'YouTube Video': {
+      audience: 'Tech-adjacent generalists, AI-curious professionals',
+      volatility: 'fast',
+      rationale: `${urgentStories.length} URGENT and ${highScoreStories.length} high-scoring stories this week. Long-form earns its length when the story needs a counter-intuitive frame — not just reporting a fact but reframing what it means.`
+    },
+    'YouTube Shorts': {
+      audience: 'General social audience, casual AI followers',
+      volatility: 'fast',
+      rationale: `${urgentStories.length} URGENT stories with punchy single-fact hooks this week. Best for breaking developments where the surprise is self-contained and doesn't require explanation.`
+    },
+    'Image / Carousel': {
+      audience: 'LinkedIn and Instagram professional audience',
+      volatility: 'evergreen',
+      rationale: `${contentOpptyStories.filter(s => s.risk_level !== 'high').length} low-risk CONTENT OPPORTUNITY stories. Works when there's a visible contradiction or data gap — infra slippage vs roadmap promises, biometric policy vs stated intent.`
+    },
+    'Community Post': {
+      audience: 'Engaged channel members, discussion-oriented audience',
+      volatility: 'fast',
+      rationale: `${verifiedStories.length} verified stories — verified sources matter for community trust. Best stories this week generate genuine disagreement: Pentagon exclusion, Musk/OpenAI trial.`
+    },
+    'Meme': {
+      audience: 'Social-first audience, shareable content for distribution',
+      volatility: 'fast',
+      rationale: `${lowRiskMemeIdeas.length} low-risk concepts. Strongest are the ones with built-in irony that don't require editorialising — Xbox Copilot removal, OpenAI hallucination self-grading.`
+    }
+  };
+
+  document.getElementById('platformPanel').innerHTML = platforms.map(p => {
+    const idea = ideaFor(p.topStory);
+    const recTitle = idea ? cap(idea.video.title, 55) : (p.topStory ? cap(p.topStory.headline, 55) : '—');
+    const meta = platformMeta[p.name] || {};
+    const volClass = meta.volatility === 'fast' ? 'plat-vol-fast' : 'plat-vol-evergreen';
+    const volLabel = meta.volatility === 'fast' ? 'Fast-moving' : 'Evergreen';
+    return `<div class="platform-card${p.isTop ? ' top-platform' : ''}">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+        <div style="display:flex;align-items:center;gap:7px">
+          <span style="font-size:15px">${p.icon}</span>
+          <div>
+            <div class="plat-name">${esc(p.name)}</div>
+            <div style="font-size:10px;color:var(--muted)">${esc(p.desc)}</div>
+          </div>
+        </div>
+        ${p.isTop ? '<span class="badge b-oppty">TOP</span>' : ''}
+      </div>
+      <div class="plat-stat">${IDEAS.length} ideas available &nbsp;<span class="plat-volatility ${volClass}">${volLabel}</span></div>
+      <div class="plat-stat" style="color:var(--lo)">${esc(p.countLabel)}</div>
+      <div class="plat-rec">Best pick: <strong>${esc(recTitle)}</strong></div>
+      ${meta.rationale ? `<div class="plat-rationale">${esc(meta.rationale)}</div>` : ''}
+      ${meta.audience ? `<div class="plat-audience">Audience: ${esc(meta.audience)}</div>` : ''}
+    </div>`;
+  }).join('');
+}
+
+// ─── SOURCE AUDIT ─────────────────────────────────────────────────────────────
+
+function renderSourceAudit() {
+  const stories = DATA.stories;
+  const meta = DATA.meta || {};
+  const verifiedCount = stories.filter(s => s.verified).length;
+  const singleCount = stories.filter(s => !s.verified).length;
+  const highRiskCount = stories.filter(s => s.risk_level === 'high').length;
+  const underCount = stories.filter(s => s.priority_tags.includes('UNDERREPORTED')).length;
+
+  const catCounts = {};
+  stories.forEach(s => { catCounts[s.source_category] = (catCounts[s.source_category] || 0) + 1; });
+  const catLabels = {regulation:'Regulation',company_move:'Company move',jobs:'Jobs',
+    research:'Research',model_release:'Model release',hardware:'Hardware',open_source:'Open source'};
+
+  const stats = [
+    {n: meta.sources_queried ?? 25, l:'Sources queried'},
+    {n: meta.successful_queries ?? 23, l:'Successful queries'},
+    {n: meta.raw_stories_collected ?? 33, l:'Raw stories found'},
+    {n: stories.length, l:'Stories in plan'},
+    {n: verifiedCount, l:'Multi-source verified'},
+    {n: singleCount, l:'Single-source'},
+    {n: highRiskCount, l:'High-risk flagged'},
+    {n: underCount, l:'Underreported'}
+  ];
+
+  const fmtDate = (iso) => {
+    try {
+      const d = new Date(iso);
+      return d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}) + ', ' +
+             d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}) + ' UTC';
+    } catch { return iso; }
+  };
+
+  const errors = meta.scan_errors || [];
+  document.getElementById('auditPanel').innerHTML = `
+    <div style="font-size:11px;color:var(--muted);margin-bottom:14px;line-height:1.8">
+      Scan date: <strong>${esc(fmtDate(meta.scan_date || ''))}</strong> &nbsp;·&nbsp;
+      Research window: <strong>${esc(meta.research_window || '')}</strong><br>
+      Sources are verified by cross-referencing against multiple outlets.
+    </div>
+    <div class="audit-grid">${stats.map(s => `<div class="audit-stat">
+      <div class="audit-stat-num">${s.n}</div>
+      <div class="audit-stat-lbl">${s.l}</div>
+    </div>`).join('')}</div>
+    <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:8px">Stories by category</div>
+    <div class="audit-cats">${Object.entries(catCounts).sort((a,b) => b[1]-a[1]).map(([cat,cnt]) =>
+      `<div class="audit-cat">
+        <span class="audit-cat-name">${esc(catLabels[cat] || cat.replace(/_/g,' '))}</span>
+        <span class="audit-cat-count">${cnt} ${cnt === 1 ? 'story' : 'stories'}</span>
+      </div>`).join('')}</div>
+    ${errors.length ? `<div class="audit-errors">
+      <div class="audit-err-hdr">Failed queries — ${errors.length}</div>
+      ${errors.map(e => `<div class="audit-err-row">
+        <div class="audit-err-query">${esc(e.query)}</div>
+        <div class="audit-err-reason">${esc(e.reason)}</div>
+      </div>`).join('')}
+    </div>` : ''}`;
+}
+
+// ─── REVIEWER WARNING ─────────────────────────────────────────────────────────
+
+function needsWarning(story) {
+  return story.risk_level === 'high' || !story.verified;
+}
+
+function getWarningReasons(story) {
+  const r = [];
+  if (story.risk_level === 'high')
+    r.push('HIGH RISK — this story has been flagged high-risk. Verify all claims independently before any publication.');
+  if (!story.verified)
+    r.push('SINGLE SOURCE — this story is based on a single or unverified source. Check for corroboration before use.');
+  return r;
+}
+
+function showWarningFor(storyId, callback) {
+  const story = DATA.stories.find(s => s.id === storyId);
+  if (!story) return;
+  warningCallback = callback;
+  document.getElementById('modalStory').textContent = story.headline;
+  document.getElementById('modalReasons').innerHTML = getWarningReasons(story)
+    .map(r => `<li>${r}</li>`).join('');
+  document.getElementById('reviewerModal').classList.add('on');
+}
+
+function handleViewIdeas(storyId) {
+  const story = DATA.stories.find(s => s.id === storyId);
+  if (!story) return;
+  const go = () => {
+    const idx = DATA.stories.findIndex(s => s.id === storyId);
+    // Expand parent section if collapsed
+    const sectionId = idx < 3 ? 'pub-now-body' : idx < 10 ? 'wl2-body' : 'archive-body2';
+    const section = document.getElementById(sectionId);
+    if (section && section.classList.contains('closed')) toggleSection(sectionId);
+    // Expand this story's group
+    const wrap = document.getElementById(`sc-${storyId}`);
+    const btn = document.getElementById(`sgbtn-${storyId}`);
+    if (wrap && wrap.classList.contains('closed')) {
+      wrap.classList.remove('closed');
+      if (btn) btn.textContent = '▲ Collapse';
+    }
+    // Highlight group and scroll to it
+    const group = document.getElementById(`sg-${storyId}`);
+    if (group) {
+      group.classList.add('story-highlight');
+      setTimeout(() => {
+        group.scrollIntoView({behavior:'smooth', block:'start'});
+        setTimeout(() => group.classList.remove('story-highlight'), 3000);
+      }, 50);
+    }
+  };
+  needsWarning(story) ? showWarningFor(storyId, go) : go();
+}
+
+function handleMarkUsed(event, ideaId, storyId) {
+  event.stopPropagation();
+  const story = DATA.stories.find(s => s.id === storyId);
+  const doMark = () => {
+    usedIdeas.add(ideaId);
+    localStorage.setItem('si_used_ideas', JSON.stringify([...usedIdeas]));
+    // Re-render just this story's group, preserving its open/closed state
+    const wrap = document.getElementById(`sc-${storyId}`);
+    const isOpen = wrap ? !wrap.classList.contains('closed') : true;
+    const group = document.getElementById(`sg-${storyId}`);
+    if (group && story) group.outerHTML = renderStoryGroup(story, isOpen);
+  };
+  (story && needsWarning(story)) ? showWarningFor(storyId, doMark) : doMark();
+}
+
+function confirmWarning() {
+  document.getElementById('reviewerModal').classList.remove('on');
+  if (warningCallback) warningCallback();
+  warningCallback = null;
+}
+
+function dismissWarning() {
+  document.getElementById('reviewerModal').classList.remove('on');
+  warningCallback = null;
+}
+
+function resetUsed() {
+  usedIdeas.clear();
+  localStorage.removeItem('si_used_ideas');
+  renderPublishNow();
+  renderWatchlistNew();
+  renderArchive();
+}
+
+// ─── IMPORT ───────────────────────────────────────────────────────────────────
+
+function toggleImport() {
+  const el = document.getElementById('importSection');
+  el.style.display = el.style.display === 'none' ? '' : 'none';
+}
+
+function importJSON(input, type) {
+  const file = input.files[0];
+  if (!file) return;
+  const statusEl = document.getElementById('importStatus');
+  statusEl.className = 'import-status';
+  statusEl.textContent = '';
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const parsed = JSON.parse(e.target.result);
+      if (type === 'data') {
+        if (!parsed.stories || !Array.isArray(parsed.stories))
+          throw new Error('Missing stories array in data.json');
+        validateDataJson(parsed);
+        DATA = parsed;
+        DATA_SOURCE = 'imported';
+        clearLoadWarning();
+        addLoadLog('import', 'imported', `data.json imported manually — ${parsed.stories.length} stories`);
+        renderAll();
+        setStatus(statusEl, 'ok', `data.json loaded — ${parsed.stories.length} stories imported.`);
+      } else {
+        const arr = Array.isArray(parsed) ? parsed : (parsed.ideas || []);
+        if (!arr.length) throw new Error('Expected array or {ideas:[]} in content_ideas.json');
+        IDEAS = arr.map(idea => ({
+          idea_id: idea.idea_id,
+          story_id: idea.story_id,
+          video: {title: idea.formats?.youtube_video?.title || '', hook: idea.formats?.youtube_video?.hook || ''},
+          short: {hook_3sec: idea.formats?.youtube_short?.hook_3sec || '', caption: idea.formats?.youtube_short?.caption || ''},
+          image: {main_message: idea.formats?.image_post?.main_message || ''},
+          community: {question: idea.formats?.community_post?.question_or_poll || ''},
+          meme: {concept: idea.formats?.meme?.concept || '', risk_level: idea.formats?.meme?.risk_level || 'low', risk_note: idea.formats?.meme?.risk_note || null},
+          marked_as_used: idea.marked_as_used || false
+        }));
+        DATA_SOURCE = 'imported';
+        clearLoadWarning();
+        addLoadLog('import', 'imported', `content_ideas.json imported manually — ${IDEAS.length} ideas`);
+        renderAll();
+        setStatus(statusEl, 'ok', `content_ideas.json loaded — ${IDEAS.length} ideas imported.`);
+      }
+    } catch (err) {
+      setStatus(statusEl, 'err', `Import failed: ${err.message}`);
+    }
+  };
+  reader.onerror = () => setStatus(statusEl, 'err', 'File could not be read.');
+  reader.readAsText(file);
+}
+
+function setStatus(el, type, msg) {
+  el.className = 'import-status ' + (type === 'ok' ? 'import-ok' : 'import-err');
+  el.textContent = msg;
+}
+
+// ─── EXPORT ───────────────────────────────────────────────────────────────────
+
+function exportIdeas() {
+  const lines = [
+    'SUSPICIOUSLY INTELLIGENT — CONTENT IDEAS EXPORT',
+    'Generated: ' + new Date().toISOString(),
+    'Research window: ' + (DATA.meta?.research_window || ''),
+    ''
+  ];
+  DATA.stories.forEach((s, i) => {
+    const idea = IDEAS.find(id => id.idea_id === s.idea_id);
+    if (!idea) return;
+    const used = usedIdeas.has(idea.idea_id) ? ' [USED]' : '';
+    lines.push(`--- ${i+1}. Score ${s.score} | ${s.priority_tags.join(', ')}${used}`);
+    lines.push('Story: ' + s.headline);
+    lines.push('YouTube title: ' + idea.video.title + ' (' + idea.video.title.length + ' chars)');
+    lines.push('Hook: ' + idea.video.hook);
+    lines.push('Short hook: ' + idea.short.hook_3sec);
+    lines.push('Community: ' + idea.community.question);
+    lines.push('Source: ' + s.url);
+    lines.push('');
+  });
+  const blob = new Blob([lines.join('\n')], {type: 'text/plain'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'si-content-ideas-' + new Date().toISOString().slice(0, 10) + '.txt';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+// ─── UI ───────────────────────────────────────────────────────────────────────
+
+function toggleActiveView(checked) {
+  document.getElementById('mainContent').classList.toggle('dimmed', !checked);
+  localStorage.setItem('si_active_view', String(checked));
+}
+
+function toggleTheme() {
+  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('si_theme', next);
+}
+
+function toggleSection(id) {
+  document.getElementById(id).classList.toggle('closed');
+  const caret = document.getElementById(id + '-caret');
+  if (caret) caret.classList.toggle('open');
+}
+
+function tagClass(tag) {
+  return {URGENT:'b-urgent','CONTENT OPPORTUNITY':'b-oppty',WATCH:'b-watch',UNDERREPORTED:'b-under','HIGH RISK':'b-hi'}[tag] || '';
+}
+
+function esc(str) {
+  return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function escUrl(url) {
+  try { return new URL(url).href; } catch { return '#'; }
+}
+
+// ─── TOAST ────────────────────────────────────────────────────────────────────
+
+let toastTimer = null;
+function showToast(msg) {
+  const el = document.getElementById('toast');
+  if (!el) return;
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 3000);
+}
+
+function scanSources() {
+  showToast('Live scanning requires API keys. Offline mode active.');
+}
+
+// ─── SCAN METADATA HEADER ─────────────────────────────────────────────────────
+
+function renderScanMetadata() {
+  const el = document.getElementById('hdrScanMeta');
+  if (!el) return;
+  const iso = DATA.meta?.scan_date || DATA.meta?.generated_at || '';
+  let dateStr = '';
+  try {
+    if (iso) dateStr = new Date(iso).toLocaleDateString('en-GB', {day:'numeric', month:'short', year:'numeric'});
+  } catch {}
+  const srcClass = {latest:'src-latest', imported:'src-imported', embedded:'src-fallback'}[DATA_SOURCE] || 'src-fallback';
+  const srcLabel = {latest:'Latest scan', imported:'Imported snapshot', embedded:'Embedded fallback'}[DATA_SOURCE] || DATA_SOURCE;
+  const dateHtml = dateStr ? ` <span style="font-size:10px;color:var(--muted)">${esc(dateStr)}</span>` : '';
+  el.innerHTML = `<span class="src-badge ${srcClass}">${esc(srcLabel)}</span>${dateHtml}`;
+}
+
+// ─── FOOTER ───────────────────────────────────────────────────────────────────
+
+function renderFooter() {
+  const el = document.getElementById('dashFooter');
+  if (!el) return;
+  const s = DATA.stories;
+  const meta = DATA.meta || {};
+  const verified = s.filter(x => x.verified).length;
+  const single = s.filter(x => !x.verified).length;
+  const highRisk = s.filter(x => x.risk_level === 'high').length;
+  const iso = meta.scan_date || meta.generated_at || '';
+  let timeStr = '';
+  try { timeStr = iso ? new Date(iso).toLocaleString('en-GB', {day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'}) + ' UTC' : ''; } catch {}
+  el.innerHTML = `
+    <span class="dash-footer-stat">Sources scanned: <strong>${meta.sources_queried ?? '—'}</strong></span>
+    <span class="dash-footer-stat">Stories in plan: <strong>${s.length}</strong></span>
+    <span class="dash-footer-stat">Verified: <strong>${verified}</strong></span>
+    <span class="dash-footer-stat">Single-source: <strong>${single}</strong></span>
+    <span class="dash-footer-stat">High-risk: <strong>${highRisk}</strong></span>
+    <span class="dash-footer-stat">Published: <strong style="color:#4ade80">${s.filter(x => getWfState(x.id) === 'published').length}</strong></span>
+    <span class="dash-footer-stat">In production: <strong style="color:#a78bfa">${s.filter(x => ['scripting','recording','editing'].includes(getWfState(x.id))).length}</strong></span>
+    ${timeStr ? `<span class="dash-footer-time">Last scan: ${esc(timeStr)}</span>` : ''}`;
+}
+
+// ─── FUTURE OPTIONAL INTEGRATIONS — not active in this build ──────────────────
+// None of these are connected. Uncomment and configure individually when ready.
+// All require API keys or server-side proxies — cannot call directly from file://
+
+// async function fetchNewsAPI(query) {
+//   // Requires: NEWSAPI_KEY + CORS proxy (NewsAPI blocks browser-direct requests)
+//   // const r = await fetch(`https://proxy.example.com/newsapi?q=${query}`);
+//   // return r.json();
+// }
+
+// async function fetchRedditSignals(sub) {
+//   // Requires: Reddit OAuth2 (client_id + client_secret + token exchange)
+//   // const token = await getRedditToken();
+//   // const r = await fetch(`https://oauth.reddit.com/r/${sub}/hot`, {headers:{Authorization:`Bearer ${token}`}});
+//   // return r.json();
+// }
+
+// async function fetchYouTubeStats(channelId) {
+//   // Requires: YouTube Data API v3 key
+//   // const r = await fetch(`https://www.googleapis.com/youtube/v3/channels?id=${channelId}&key=KEY&part=statistics`);
+//   // return r.json();
+// }
+
+// async function fetchHuggingFaceModels(query) {
+//   // Public API, rate-limited, CORS-compatible via HF CORS headers
+//   // const r = await fetch(`https://huggingface.co/api/models?search=${query}&sort=lastModified&limit=10`);
+//   // return r.json();
+// }
+
+// async function fetchArXiv(query) {
+//   // Free, no key required — returns XML, needs a proxy for CORS in browser
+//   // const r = await fetch(`https://export.arxiv.org/api/query?search_query=${query}&max_results=10`);
+//   // return r.text();
+// }
+
+// async function callClaudeAPI(prompt) {
+//   // ANTHROPIC_API_KEY — must call via server-side proxy, not directly from browser
+//   // const r = await fetch('https://your-proxy.example.com/claude', {
+//   //   method:'POST', headers:{'Content-Type':'application/json'},
+//   //   body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:2000,messages:[{role:'user',content:prompt}]})
+//   // });
+//   // return r.json();
+// }
+</script>
+</body>
+</html>

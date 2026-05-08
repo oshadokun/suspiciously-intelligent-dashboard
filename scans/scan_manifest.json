@@ -1,0 +1,22 @@
+[
+  {
+    "scan_id": "scan-2026-05-08",
+    "date": "2026-05-06T12:00:00Z",
+    "folder": "2026-05-08",
+    "story_count": 22,
+    "verified_count": 11,
+    "high_risk_count": 5,
+    "top_cluster": "company_move",
+    "top_story": "Apple agrees to pay $250 million to settle lawsuit over Siri AI features it advertised but never delivered"
+  },
+  {
+    "scan_id": "scan-2026-05-08_01",
+    "date": "05/08/2026 10:00:00",
+    "folder": "2026-05-08_01",
+    "story_count": 15,
+    "verified_count": 13,
+    "high_risk_count": 1,
+    "top_cluster": "company_move",
+    "top_story": "The OpenAI trial is about safety, not Elon Musk"
+  }
+]

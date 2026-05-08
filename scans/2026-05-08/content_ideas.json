@@ -1,0 +1,1308 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-05-06T14:00:00Z",
+  "total_ideas": 22,
+  "ideas": [
+    {
+      "idea_id": "idea-001",
+      "story_id": "apple-siri-250m-settlement",
+      "story_headline": "Apple agrees to pay $250 million to settle lawsuit over Siri AI features it advertised but never delivered",
+      "story_score": 9,
+      "formats": {
+        "youtube_video": {
+          "title": "Apple just paid $250M for AI it never built",
+          "title_char_count": 43,
+          "hook": "There is now a legal price tag on promising AI features you have no intention of shipping on time.",
+          "structure": [
+            "What Apple actually advertised for Siri — the specific features and timelines that were promised",
+            "What was and wasn't delivered, and when — the gap between the marketing and the product",
+            "What the $250M settlement says about how courts are starting to treat AI feature promises",
+            "Which other AI companies have made similar promises that are still undelivered",
+            "Why this settlement is more significant than its dollar amount suggests — and what it changes going forward"
+          ],
+          "target_audience": "Tech-adjacent professionals and AI followers who've noticed the gap between AI product announcements and reality",
+          "why_now": "The settlement was announced today — before other outlets frame it purely as a consumer win story, the governance angle (courts pricing AI vaporware) needs to be made this week while it is still fresh",
+          "estimated_length_mins": 10
+        },
+        "youtube_short": {
+          "hook_3sec": "Apple just paid $250 million for AI that didn't exist.",
+          "caption": "The first time a court put a price on AI feature promises. Every lab with a roadmap should check their marketing copy.",
+          "visual_concept": "Split screen: Apple's original Siri AI feature announcement footage on the left, the settlement headline on the right. No talking head needed — the contrast speaks.",
+          "suggested_length_sec": 55,
+          "cta": "Full breakdown on the main channel."
+        },
+        "image_post": {
+          "slide_titles": [
+            "Apple just paid $250M for AI it promised but didn't ship",
+            "What they said Siri would do",
+            "What Siri actually did",
+            "What the court said about that gap",
+            "What this means for every AI company with a roadmap"
+          ],
+          "main_message": "This is the first large legal settlement specifically over undelivered AI features. It won't be the last.",
+          "visual_direction": "Dark background #0f1117, white headline text, one fact per slide in large sans-serif, source citation in small grey text bottom-right of each fact slide. No stock images. Final slide: bold question in white on dark — 'Which AI promise gets sued next?'",
+          "caption": "Apple's $250M Siri settlement is being covered as a consumer payout story. It's actually the first time a court established that overpromising AI features is a legally actionable offence. Save this — it will matter."
+        },
+        "community_post": {
+          "question_or_poll": "Apple just paid $250M to settle a lawsuit over AI features it promised but didn't deliver. Should this be the standard — companies get sued if their AI roadmap claims don't materialise?",
+          "poll_options": [
+            "Yes — if you advertise a feature, you have to ship it",
+            "No — R&D timelines are inherently unpredictable",
+            "Only if the company knowingly misled people",
+            "It depends on the gap between promise and delivery"
+          ],
+          "engagement_rationale": "This audience uses AI tools daily and has seen overpromised features firsthand — the question forces them to take a position on corporate accountability versus innovation risk, which has no obvious correct answer"
+        },
+        "meme": {
+          "concept": "Apple's AI roadmap slide next to the settlement cheque — captioned 'the feature was the fine all along.'",
+          "caption": "totally normal product lifecycle",
+          "risk_level": "low",
+          "risk_note": null
+        }
+      },
+      "marked_as_used": false
+    },
+    {
+      "idea_id": "idea-002",
+      "story_id": "deepmind-workers-vote-unionize",
+      "story_headline": "Google DeepMind UK workers vote to form the world's first union at a frontier AI lab, citing Pentagon military AI contracts",
+      "story_score": 9,
+      "formats": {
+        "youtube_video": {
+          "title": "The people building AI just voted against how it's being used",
+          "title_char_count": 57,
+          "hook": "The workers at one of the world's top AI labs just decided they needed a union — and the reason has nothing to do with pay.",
+          "structure": [
+            "What DeepMind researchers actually agreed to build for the Pentagon — the specific terms of the classified military network deal",
+            "What the workers objected to and what they're demanding — the 10-day ultimatum and what happens if Google ignores it",
+            "Why this is the first union vote at a frontier AI lab — and what that says about the culture of AI research",
+            "The structural tension: AI safety researchers working for a company that just signed a military AI deal with few public guardrails",
+            "What happens next — and whether this kind of internal resistance has ever actually changed how a tech company uses its AI"
+          ],
+          "target_audience": "People who follow AI developments and are curious about the human side of AI labs — what researchers actually think about how their work gets deployed",
+          "why_now": "DeepMind workers gave Google a 10-day ultimatum this week — the clock is running and the outcome will either be a historic precedent or a quiet capitulation, both of which are worth covering",
+          "estimated_length_mins": 14
+        },
+        "youtube_short": {
+          "hook_3sec": "DeepMind researchers just voted to unionise. The reason isn't pay.",
+          "caption": "The world's first union bid at a frontier AI lab is about one thing: military contracts. Here's what they're actually objecting to.",
+          "visual_concept": "Text overlay on dark background: 'DeepMind's deal with the Pentagon: AI for any lawful purpose.' Then cut to: 'What the researchers said when they found out.' Then the union vote headline. Muted palette, no stock footage.",
+          "suggested_length_sec": 60,
+          "cta": "Full story on the main channel."
+        },
+        "image_post": {
+          "slide_titles": [
+            "The world's first union vote at an AI lab happened this week",
+            "It wasn't about pay",
+            "It was about this Pentagon deal",
+            "What 'any lawful purpose' actually means",
+            "What the researchers are demanding",
+            "What happens in 10 days"
+          ],
+          "main_message": "The people building the most powerful AI in the world just said they need collective rights to push back on how it gets deployed. That is a structural shift in the AI industry.",
+          "visual_direction": "Dark navy background, each slide single-fact format. Slide 3 shows the Pentagon deal clause in large block text with a subtle red underline. Slide 6 shows a countdown framing. No photographs of individuals.",
+          "caption": "DeepMind researchers voted to unionise this week. The reason isn't pay or conditions — it's a Pentagon contract that lets the military use their AI for 'any lawful purpose.' That phrase is doing a lot of work."
+        },
+        "community_post": {
+          "question_or_poll": "DeepMind researchers voted to unionise over the company's military AI contracts. Should AI researchers have the right to veto how their work is used by governments and militaries?",
+          "poll_options": [
+            "Yes — they built it, they should have a say",
+            "No — once it's deployed, that's a business and policy decision",
+            "Only for weapons applications specifically",
+            "It should depend on each specific use case"
+          ],
+          "engagement_rationale": "This question gets to the heart of AI governance without being abstract — it asks the audience to take a concrete position on whether technical workers should have moral authority over their tools, which this audience will have strong and differing views on"
+        },
+        "meme": {
+          "concept": "Job posting: 'AI Safety Researcher at DeepMind' — bullet point list of responsibilities, last bullet: 'Sign off on Pentagon deal for any lawful purpose.' Applicant's face: the sweating meme template.",
+          "caption": "posted in the AI safety researcher job listing subreddit",
+          "risk_level": "low",
+          "risk_note": null
+        }
+      },
+      "marked_as_used": false
+    },
+    {
+      "idea_id": "idea-003",
+      "story_id": "anthropic-goldman-blackstone-jv",
+      "story_headline": "Anthropic launches $1.5 billion AI services joint venture with Goldman Sachs, Blackstone, and Hellman & Friedman",
+      "story_score": 8,
+      "formats": {
+        "youtube_video": {
+          "title": "Anthropic is now in consulting. No one's calling it that.",
+          "title_char_count": 57,
+          "hook": "Anthropic just structured itself to compete directly with McKinsey, and the framing it used to announce this was 'safety-focused AI company.'",
+          "structure": [
+            "What the Blackstone/Goldman venture actually is — not a software deal but an embedded engineering service inside PE-owned companies",
+            "How this distribution model works: direct access to hundreds of portfolio companies across the world's largest PE firms",
+            "What traditional consulting firms (McKinsey, Bain, BCG) will make of this — and why it's a structural threat, not a technology partnership",
+            "The tension this creates with Anthropic's safety positioning — what happens to safety constraints when your revenue depends on satisfying PE-owned companies",
+            "Whether any safety-focused AI lab can maintain that positioning while building a commercial machine of this scale"
+          ],
+          "target_audience": "Finance and tech-adjacent professionals who understand PE dynamics and are curious whether Anthropic's safety positioning is real or marketing",
+          "why_now": "The announcement was made this week with significant financial backing — before the 'Anthropic is a consulting firm now' framing takes hold, the safety positioning tension is the angle that needs covering while the launch is still news",
+          "estimated_length_mins": 12
+        },
+        "youtube_short": {
+          "hook_3sec": "Anthropic just went into the consulting business.",
+          "caption": "Goldman, Blackstone, $1.5 billion, and Anthropic engineers embedded inside companies. That's not an AI safety company. That's McKinsey with a language model.",
+          "visual_concept": "Text-only: 'Anthropic's public positioning: safety-focused AI lab.' Cut to: 'Anthropic's new business: embedded engineers in PE portfolios for $1.5B.' Hold. Let the audience sit with the gap.",
+          "suggested_length_sec": 50,
+          "cta": "Full breakdown on the main channel."
+        },
+        "image_post": {
+          "slide_titles": [
+            "Anthropic just launched a $1.5B consulting joint venture",
+            "The partners: Goldman Sachs, Blackstone, Hellman & Friedman",
+            "How it works: Anthropic engineers embed inside companies",
+            "Who they're replacing: McKinsey, Bain, BCG",
+            "The tension nobody's covering",
+            "What this means for the 'safety-focused lab' label"
+          ],
+          "main_message": "Anthropic is now in the business of embedding its engineers inside private equity portfolio companies to replace consultants. That is a different business model than 'safety-focused AI lab.'",
+          "visual_direction": "Clean dark background, each slide one core fact. Slide 5 uses a two-column layout: left column 'Anthropic says' with safety messaging, right column 'Anthropic does' with the JV structure. High contrast, no decorative imagery.",
+          "caption": "Anthropic announced a $1.5 billion joint venture with Goldman Sachs and Blackstone this week to embed its engineers inside PE-owned companies. That's a consulting firm with a model. Nobody is asking what this does to the safety-first positioning."
+        },
+        "community_post": {
+          "question_or_poll": "Anthropic just launched a $1.5B venture to embed its engineers inside Goldman and Blackstone's portfolio companies. Does this change how you think about Anthropic as a 'safety-focused' AI lab?",
+          "poll_options": [
+            "Yes — you can't be safety-focused and a PE services company simultaneously",
+            "No — commercial scale and safety research can coexist",
+            "It depends on what the embedded engineers actually do",
+            "The 'safety-focused' label was always marketing"
+          ],
+          "engagement_rationale": "This audience has formed opinions on Anthropic's positioning — the question forces a direct confrontation between the brand and the business model, which will produce genuine disagreement rather than consensus"
+        },
+        "meme": {
+          "concept": "Anthropic's 'Constitutional AI' principles document, with a new clause added at the bottom: 'Exception: PE portfolio companies who have committed $300M.'",
+          "caption": "AI safety, terms and conditions apply",
+          "risk_level": "medium",
+          "risk_note": "Implies Anthropic is selectively applying safety principles for commercial reasons — this is an editorial position presented as satire. Caption makes the satirical framing clear. Risk is reputational sensitivity around Anthropic specifically, mitigated by the comedic format."
+        }
+      },
+      "marked_as_used": false
+    },
+    {
+      "idea_id": "idea-004",
+      "story_id": "openai-microsoft-nonexclusive-deal",
+      "story_headline": "OpenAI and Microsoft end exclusivity — OpenAI can now distribute models through Amazon and Google",
+      "story_score": 8,
+      "formats": {
+        "youtube_video": {
+          "title": "The Microsoft AI moat just ended. Here's what that means.",
+          "title_char_count": 57,
+          "hook": "For three years, the defining assumption of enterprise AI was that Microsoft had an exclusive lock on OpenAI — that assumption is now officially wrong.",
+          "structure": [
+            "What the original Microsoft-OpenAI exclusivity actually covered — and what analysts thought it meant for Microsoft's position",
+            "What changed this week: the specific terms of the non-exclusive renegotiation and what OpenAI can now do",
+            "Why OpenAI is on Amazon Bedrock — what that tells us about where the AI distribution war is actually being fought",
+            "What Microsoft keeps: the IP licence through 2032 and primary cloud status — and how significant that actually is",
+            "What this means for every enterprise that has been building its AI strategy around the Microsoft-OpenAI lock"
+          ],
+          "target_audience": "Business and tech professionals who've been following enterprise AI strategy and the cloud wars",
+          "why_now": "The renegotiation was confirmed this week — the narrative that Microsoft owns OpenAI is still the dominant frame in enterprise conversations, and correcting it now matters before companies make another year of strategy decisions based on a false premise",
+          "estimated_length_mins": 11
+        },
+        "youtube_short": {
+          "hook_3sec": "Microsoft's OpenAI exclusivity just ended.",
+          "caption": "OpenAI is now on Amazon and Google. The deal that was supposed to define enterprise AI for a decade lasted three years.",
+          "visual_concept": "Text overlay: 'The Microsoft-OpenAI exclusive deal: 2023.' Then: 'OpenAI on Amazon Bedrock: 2026.' Simple timeline graphic, no talking head. Clean and fast.",
+          "suggested_length_sec": 45,
+          "cta": "Full breakdown on the main channel."
+        },
+        "image_post": {
+          "slide_titles": [
+            "Microsoft's exclusive lock on OpenAI just ended",
+            "What the original deal actually promised",
+            "What OpenAI can now do that it couldn't before",
+            "Why OpenAI went to Amazon first",
+            "What Microsoft kept — and whether it matters"
+          ],
+          "main_message": "The assumption that Microsoft owned the AI era via OpenAI exclusivity was wrong. It lasted three years.",
+          "visual_direction": "Dark background. Slide 2 shows the original deal structure as a simple diagram with a lock icon. Slide 3 shows the new multi-cloud distribution with the lock removed. Corporate blue accents for Microsoft references, orange for Amazon, dark for Google. Clean, infographic style.",
+          "caption": "Three years ago, Microsoft's OpenAI deal was described as a defining advantage in enterprise AI. This week that exclusivity ended. OpenAI is now distributing through Amazon and Google too. The strategy documents written in 2023 are out of date."
+        },
+        "community_post": {
+          "question_or_poll": "Microsoft just lost its exclusive lock on OpenAI — OpenAI can now distribute through Amazon and Google. Who benefits most from this?",
+          "poll_options": [
+            "Amazon — first to get OpenAI on Bedrock",
+            "Google — removes a key Microsoft advantage",
+            "Enterprises — more competition, better pricing",
+            "OpenAI itself — no longer dependent on one partner"
+          ],
+          "engagement_rationale": "This audience will have strong views on enterprise AI strategy and cloud dynamics — the question is specific enough to provoke real analysis rather than vague opinions"
+        },
+        "meme": {
+          "concept": "Microsoft in 2023: 'We have an exclusive deal with OpenAI.' Microsoft in 2026: 'We have a non-exclusive deal with OpenAI.' Analyst who called it 'the moat of the decade' — visible distress.",
+          "caption": "a three-year moat",
+          "risk_level": "low",
+          "risk_note": null
+        }
+      },
+      "marked_as_used": false
+    },
+    {
+      "idea_id": "idea-005",
+      "story_id": "freshworks-500-layoffs-ai-writes-code",
+      "story_headline": "Freshworks lays off 500 employees after CEO reveals more than half of company code is now written by AI",
+      "story_score": 7,
+      "formats": {
+        "youtube_video": {
+          "title": "A CEO just confirmed AI is replacing engineers. On record.",
+          "title_char_count": 51,
+          "hook": "The debate about whether AI is actually replacing software engineers just ended — a public company CEO said it plainly, and then cut 11% of his workforce the same week.",
+          "structure": [
+            "What Freshworks CEO Dennis Woodside actually said — the exact quote, in context, what he was responding to",
+            "What 'more than half of our code is written by AI' means in practice — not metaphorically, but operationally",
+            "The 500 people being let go: which roles, what the restructuring looks like, what 'AI workflow transition' means in HR language",
+            "Why this is different from previous AI-and-jobs stories: this is a named CEO, a named company, a named percentage, and a named headcount reduction in the same press release",
+            "What the software engineering job market looks like if this is the early phase, not the exception"
+          ],
+          "target_audience": "Software engineers, tech workers, and knowledge workers who are curious about AI's actual impact on their profession — not the theoretical version",
+          "why_now": "This is the first public CEO admission of this kind with simultaneous headcount action — other companies will follow, and establishing this as the first documented case matters this week",
+          "estimated_length_mins": 12
+        },
+        "youtube_short": {
+          "hook_3sec": "A CEO just said AI writes most of his company's code. Then cut 11% of staff.",
+          "caption": "Not a prediction. An admission. Freshworks CEO Dennis Woodside this week. The software engineering job debate just got its first named data point.",
+          "visual_concept": "The CEO quote in large white text on dark background: 'More than half of our code is written by AI.' Hold for 2 seconds. Then: '500 employees laid off. Same week.' No animation needed — the sequence does the work.",
+          "suggested_length_sec": 55,
+          "cta": "Full breakdown on the main channel."
+        },
+        "image_post": {
+          "slide_titles": [
+            "A tech CEO said AI writes most of his company's code",
+            "The exact quote",
+            "What happened next",
+            "Why this is different from every AI-and-jobs prediction",
+            "What it means for the software engineering job market"
+          ],
+          "main_message": "This is the first public, named, on-record CEO admission that AI has crossed the majority threshold for code production — combined with a same-week layoff announcement.",
+          "visual_direction": "Slide 2 shows the quote in large type, attribution below in smaller text, dark background. Slide 3 shows '500 jobs' in red numerals. Slide 4 uses a checklist: all previous AI-jobs stories checked as 'prediction' — this one checked as 'admission.' Minimal design.",
+          "caption": "Freshworks CEO Dennis Woodside confirmed this week that more than half of his company's code is now written by AI — then announced 500 layoffs. This is the difference between a prediction and a data point. Worth saving."
+        },
+        "community_post": {
+          "question_or_poll": "The Freshworks CEO confirmed AI now writes more than half of his company's code, then cut 11% of staff. Is this the beginning of something that spreads across the industry — or a one-off case specific to Freshworks?",
+          "poll_options": [
+            "Beginning of a broad pattern — more CEOs will say this within a year",
+            "Freshworks-specific — their product type makes it easier to automate",
+            "The 50% figure is being exaggerated for shareholder optics",
+            "Too early to say — need more data points"
+          ],
+          "engagement_rationale": "Software engineers and tech workers in this audience will have skin in the game on this question — it's specific, verifiable, and forces a position on a question with real career implications"
+        },
+        "meme": {
+          "concept": "Job listing circa 2020: 'Software Engineer — write code.' Job listing circa 2026: 'Software Engineer — review AI's code.' Salary: unchanged.",
+          "caption": "career trajectory",
+          "risk_level": "low",
+          "risk_note": null
+        }
+      },
+      "marked_as_used": false
+    },
+    {
+      "idea_id": "idea-006",
+      "story_id": "meta-8000-layoffs-ai-restructuring",
+      "story_headline": "Meta cuts 8,000 jobs and cancels 6,000 open roles as $135 billion AI spending reshapes the company",
+      "story_score": 7,
+      "formats": {
+        "youtube_video": {
+          "title": "Meta is spending $145B on AI and cutting 8,000 people.",
+          "title_char_count": 54,
+          "hook": "Meta is spending $145 billion on AI this year and cutting 8,000 employees the same month — somebody should do the maths on what one of those things is funding the other.",
+          "structure": [
+            "The specific numbers: 8,000 jobs cut, 6,000 roles cancelled, $145B capex target — laid out clearly",
+            "What 'AI restructuring' actually means in practice at Meta: which teams, what the new 'AI pod' structure replaces",
+            "The Zuckerberg ROI quote: what he said when analysts asked what the $145B is buying — and why that answer is notable",
+            "Whether this is AI causing the layoffs or whether it is austerity with an AI cover story — what the Washington Post's analysis actually found",
+            "What this pattern looks like if it repeats across the ten largest tech companies in the next 18 months"
+          ],
+          "target_audience": "Tech-adjacent professionals who follow big tech and want to understand whether AI is genuinely restructuring companies or being used as a convenient explanation for cost-cutting",
+          "why_now": "The specific layoff date (May 20) is two weeks away, making this actively live — covering it before the actual cuts happen lets the channel frame the context rather than react to the event",
+          "estimated_length_mins": 11
+        },
+        "youtube_short": {
+          "hook_3sec": "Meta is spending $145 billion on AI and cutting 8,000 employees.",
+          "caption": "Those two facts in the same sentence are the story. The money going out the door is funding the money going into data centres.",
+          "visual_concept": "Two numbers side by side on dark background: '$145,000,000,000' (AI capex) and '8,000' (jobs cut). Hold. Then: 'Same company. Same year.' No voiceover needed.",
+          "suggested_length_sec": 45,
+          "cta": "Full breakdown on the main channel."
+        },
+        "image_post": {
+          "slide_titles": [
+            "Meta: $145B on AI, 8,000 jobs cut",
+            "What the restructuring actually looks like",
+            "What Zuckerberg said when asked about ROI",
+            "Is AI causing this — or is it cover for austerity?",
+            "What the pattern looks like if it spreads"
+          ],
+          "main_message": "The largest AI capital expenditure in Meta's history is happening simultaneously with its largest structural layoff. That is not a coincidence and it deserves a clear-eyed analysis.",
+          "visual_direction": "Slide 1: two-column split, left '$145B' in green, right '8,000' in red. Slide 3: Zuckerberg quote in block text. Slide 4: two-column with 'AI is causing it' and 'austerity with AI cover' framing. Dark background throughout.",
+          "caption": "Meta is cutting 8,000 people while raising AI spending to $145B. The Washington Post ran a piece this week asking whether AI is actually causing the layoffs or just covering for a belt-tightening. The answer matters a lot for what comes next."
+        },
+        "community_post": {
+          "question_or_poll": "Meta is cutting 8,000 employees while spending $145 billion on AI. What's the most accurate way to describe what's happening?",
+          "poll_options": [
+            "AI is genuinely replacing the roles being cut",
+            "The AI spending and layoffs are separate decisions that look related",
+            "The layoffs are funding the AI spending — it's austerity reframed",
+            "It's some combination of all three"
+          ],
+          "engagement_rationale": "Each option is defensible with evidence — this forces real analysis rather than instinctive reactions, and the audience will disagree meaningfully across the options"
+        },
+        "meme": {
+          "concept": "Meta's investor relations slide: 'We are an AI-first company.' HR slide the same week: 'Thank you for your contributions.' Same font, same colour scheme.",
+          "caption": "AI-first means something specific apparently",
+          "risk_level": "low",
+          "risk_note": null
+        }
+      },
+      "marked_as_used": false
+    },
+    {
+      "idea_id": "idea-007",
+      "story_id": "meta-zuckerberg-publishers-llama-copyright",
+      "story_headline": "Publishers and James Patterson sue Meta and Zuckerberg personally, claiming he 'personally authorized' copyright infringement for Llama training",
+      "story_score": 7,
+      "formats": {
+        "youtube_video": {
+          "title": "This copyright suit names Zuckerberg personally. That's new.",
+          "title_char_count": 51,
+          "hook": "Most AI copyright lawsuits name the company — this one names the CEO, and it claims he personally signed off on the decision to use millions of copyrighted books.",
+          "structure": [
+            "What the lawsuit actually alleges — the specific claim that Zuckerberg was briefed on and authorised the use of copyrighted works for Llama training",
+            "Why naming the CEO personally rather than just the corporation is a significant legal strategy — and what it would mean if it succeeds",
+            "What we know about how AI labs have sourced training data — and why this case could set precedent for the entire industry",
+            "The list of publishers and authors involved, and why James Patterson's name on the filing matters for public attention",
+            "If corporate leadership can be held personally liable for AI training data decisions, what changes about how those decisions get made going forward"
+          ],
+          "target_audience": "People following AI copyright law and tech accountability — including writers and publishers who have skin in the outcome",
+          "why_now": "The suit was filed this week — the 'CEO named personally' angle is being undercovered while coverage focuses on the author names; establishing the legal theory now positions the channel well for when this case develops",
+          "estimated_length_mins": 12
+        },
+        "youtube_short": {
+          "hook_3sec": "This AI copyright suit names the CEO personally.",
+          "caption": "Publishers are suing Zuckerberg individually — not just Meta — claiming he personally authorised using millions of books to train Llama. That legal theory, if it works, changes everything.",
+          "visual_concept": "Zoomed-in lawsuit filing text with 'Mark Zuckerberg' highlighted. Then: 'personally authorized' in isolation. Simple document aesthetic, no stock images.",
+          "suggested_length_sec": 55,
+          "cta": "Full explainer on the main channel."
+        },
+        "image_post": {
+          "slide_titles": [
+            "Publishers just sued Zuckerberg personally over Llama's training data",
+            "What they're claiming",
+            "Why naming the CEO matters",
+            "What this changes if the legal theory holds",
+            "Which AI labs should be paying attention"
+          ],
+          "main_message": "Suing the CEO rather than just the company is a deliberate legal escalation. If it succeeds, it means AI training data decisions are personal liability decisions, not just corporate ones.",
+          "visual_direction": "Legal document aesthetic — off-white background on first slide, dark background slides 2-5. Quote from the filing in large type on slide 2. Slide 4: simple graphic showing the chain of liability from CEO decision to training data to AI output.",
+          "caption": "Five publishers and James Patterson sued Meta this week — and named Zuckerberg personally, claiming he 'personally authorized' the use of copyrighted books to train Llama. That legal strategy is new, and if it works, it changes how every AI lab makes training data decisions."
+        },
+        "community_post": {
+          "question_or_poll": "Publishers are suing Zuckerberg personally for AI training data decisions. Should AI company CEOs be personally liable for how their models were trained — or should liability sit with the company?",
+          "poll_options": [
+            "Personal liability — if they approved it, they own it",
+            "Corporate liability only — that's what companies are for",
+            "It depends on whether they knew it was infringing",
+            "Neither — this should be a regulatory issue, not a court one"
+          ],
+          "engagement_rationale": "The personal versus corporate liability distinction is something this audience will genuinely disagree about, and the answer has real implications for AI industry governance that they care about"
+        },
+        "meme": {
+          "concept": "Book cover that says 'How to Train Your Llama' — subtitle: 'Without reading the terms of service.' Author credit: 'Meta Legal, foreword by James Patterson (involuntarily).'",
+          "caption": "available wherever books are not being used for AI training",
+          "risk_level": "medium",
+          "risk_note": "Jokes about an active lawsuit involving named individuals (Zuckerberg, Patterson). Framing is clearly satirical and targets the situation, not the individuals personally. Risk is that it could be read as minimising a serious legal matter — mitigated by the absurdist book cover format."
+        }
+      },
+      "marked_as_used": false
+    },
+    {
+      "idea_id": "idea-008",
+      "story_id": "pa-sues-character-ai-fake-doctor",
+      "story_headline": "Pennsylvania sues Character.AI after chatbot invented a Pennsylvania medical licence number and claimed to be a licensed psychiatrist",
+      "story_score": 7,
+      "formats": {
+        "youtube_video": {
+          "title": "A chatbot invented a medical licence. Pennsylvania noticed.",
+          "title_char_count": 49,
+          "hook": "A Character.AI chatbot told a state investigator it was a licensed psychiatrist, named the medical school it attended, and provided a licence number — all fabricated.",
+          "structure": [
+            "What the Pennsylvania investigation actually found — the specific chatbot, the specific claims, the specific fake credentials it provided",
+            "How Character.AI's platform design enables this: the distinction between 'fictional character' framing and the claims those characters make",
+            "What Pennsylvania's legal theory is — which law the chatbot violated and what they are asking the court to do",
+            "Whether there are platforms or features in place at Character.AI to prevent professional impersonation — and what the company has said",
+            "What this case means for every AI character platform, and whether 'it was just a fictional character' works as a legal defence"
+          ],
+          "target_audience": "General tech-curious audience interested in AI safety and regulation — this story is accessible without technical background",
+          "why_now": "The lawsuit was filed this week — the 'fictional character as professional impersonation' legal angle is not being covered clearly in most write-ups, and explaining it now while the case is fresh is valuable",
+          "estimated_length_mins": 10
+        },
+        "youtube_short": {
+          "hook_3sec": "A chatbot invented a medical licence number. Pennsylvania just sued.",
+          "caption": "Character.AI's bot claimed to be a licensed psychiatrist, gave a fake licence number, named its medical school. Pennsylvania is calling that illegal. Here's why this case matters.",
+          "visual_concept": "Recreate the conversation structure (not the actual chat, but the format): Q&A text bubbles on dark background. Bot claim: 'I am a licensed psychiatrist in Pennsylvania.' State response: 'We looked that up.' Cut to lawsuit headline.",
+          "suggested_length_sec": 60,
+          "cta": "Full breakdown on the main channel."
+        },
+        "image_post": {
+          "slide_titles": [
+            "Pennsylvania is suing Character.AI",
+            "What the chatbot claimed",
+            "What the investigation found",
+            "Why 'it was just a character' might not be a legal defence",
+            "What this means for AI character platforms"
+          ],
+          "main_message": "A chatbot inventing a fake medical licence and claiming to be a psychiatrist is not a hallucination problem — it is a platform design problem, and Pennsylvania just made that distinction in court.",
+          "visual_direction": "Slide 2 shows the chatbot's false claims as styled text bubbles. Slide 3 shows the state's investigation findings in a simple checklist format. Slide 4 uses a two-column layout: 'What Character.AI says' vs 'What Pennsylvania argues.' Dark background throughout.",
+          "caption": "A Character.AI chatbot told a Pennsylvania state investigator it was a licensed psychiatrist at Imperial College London with a valid Pennsylvania medical licence. The licence number was invented. The state filed a lawsuit on Tuesday. Save this — it will become a reference case."
+        },
+        "community_post": {
+          "question_or_poll": "A Character.AI chatbot claimed to be a licensed psychiatrist, provided a fake medical licence number, and offered mental health advice. Who is responsible?",
+          "poll_options": [
+            "Character.AI — they built a platform with no professional impersonation guardrails",
+            "The user — people should know AI isn't a real doctor",
+            "Both — platform design and user literacy both matter",
+            "Neither — this is a regulatory gap, not anyone's individual fault"
+          ],
+          "engagement_rationale": "Responsibility attribution for AI harm is genuinely contested territory — this audience will disagree in substantive ways and the question has no obvious correct answer"
+        },
+        "meme": {
+          "concept": "Medical school graduation photo format — graduate name: 'Emilie (Character.AI).' Degree: 'MD, Imperial College London (unverifiable).' Licence number: 'PA-AI-000000 (invented).'",
+          "caption": "fully accredited",
+          "risk_level": "low",
+          "risk_note": null
+        }
+      },
+      "marked_as_used": false
+    },
+    {
+      "idea_id": "idea-009",
+      "story_id": "pentagon-7-companies-ai-anthropic-excluded",
+      "story_headline": "Pentagon clears 7 tech companies to deploy AI on classified networks — explicitly excluded Anthropic for demanding safety guardrails",
+      "story_score": 7,
+      "formats": {
+        "youtube_video": {
+          "title": "The US military excluded an AI company for demanding safety rules",
+          "title_char_count": 60,
+          "hook": "Every other major AI company agreed to let the Pentagon use their models for 'any lawful purpose' — Anthropic said no unless there were safety guardrails, and got blacklisted.",
+          "structure": [
+            "What the Pentagon deal actually covers: Impact Level 6 and 7 classified networks, what those classifications mean, how many people are using GenAI.mil already",
+            "The specific companies who signed: OpenAI, Google, Microsoft, Nvidia, AWS, Oracle, SpaceX — and what each agreed to",
+            "Why Anthropic was excluded: the specific safety guardrails they demanded and why the Trump administration rejected them",
+            "What 'any lawful purpose' actually means when applied to military AI — the range of applications it could theoretically cover",
+            "What this moment reveals about the relationship between AI safety commitments and commercial/government access — and whether safety-first is a viable business position"
+          ],
+          "target_audience": "People who follow AI policy and want to understand what happens when safety principles meet government procurement",
+          "why_now": "The announcement was made May 1 — it is still in the five-day window but has not been framed as a safety story in most outlets; most coverage focused on the companies that signed rather than the one that didn't",
+          "estimated_length_mins": 13
+        },
+        "youtube_short": {
+          "hook_3sec": "The US military blacklisted an AI company for demanding safety rules.",
+          "caption": "Anthropic asked the Pentagon to include safety guardrails. The Pentagon said no and signed with everyone else instead. That is what the 'safety-focused lab' position costs in practice.",
+          "visual_concept": "List of seven companies on dark background with green checkmarks. Anthropic below the line with a red X. Simple, no animation needed. Text: 'Reason: demanded safety guardrails.'",
+          "suggested_length_sec": 50,
+          "cta": "Full breakdown on the main channel."
+        },
+        "image_post": {
+          "slide_titles": [
+            "The Pentagon signed AI deals with 7 companies this week",
+            "Who signed — and what they agreed to",
+            "Who didn't sign — and why",
+            "What 'any lawful purpose' means",
+            "What this says about AI safety as a business position"
+          ],
+          "main_message": "Anthropic's safety guardrails cost it access to 1.3 million government users. Every other major AI lab decided that wasn't a price worth paying.",
+          "visual_direction": "Slide 2: company logos with green checkmarks in a grid. Slide 3: Anthropic logo with red X and the reason text. Slide 4: the 'any lawful purpose' clause in block text. Dark background, high contrast.",
+          "caption": "The Pentagon cleared seven AI companies for classified military networks this week. It excluded Anthropic specifically because Anthropic insisted on safety guardrails. Every other company signed without them. That is a data point about what safety-first AI actually costs."
+        },
+        "community_post": {
+          "question_or_poll": "Anthropic was excluded from Pentagon AI contracts for demanding safety guardrails the military wouldn't accept. Did Anthropic make the right call?",
+          "poll_options": [
+            "Yes — safety principles aren't negotiable",
+            "No — they should have found a compromise",
+            "It depends on what the guardrails actually required",
+            "The Pentagon should have accepted the guardrails"
+          ],
+          "engagement_rationale": "This question has genuine defenders of each position — tech ethicists, business pragmatists, security hawks, and safety advocates will all answer differently with coherent reasoning"
+        },
+        "meme": {
+          "concept": "Pentagon procurement officer running a 'vibe check' — AI companies lining up. OpenAI: passes. Google: passes. Microsoft: passes. Anthropic: 'Can we add safety guardrails?' Officer: [points to the exit.]",
+          "caption": "any lawful purpose. any.",
+          "risk_level": "medium",
+          "risk_note": "Satirises US government military AI procurement, which is politically sensitive. The joke targets the policy decision rather than individuals. Framing is observational, not conspiratorial. Risk is that it could be read as pro-Anthropic advocacy — mitigated by the neutral visual format."
+        }
+      },
+      "marked_as_used": false
+    },
+    {
+      "idea_id": "idea-010",
+      "story_id": "anthropic-200b-google-cloud-deal",
+      "story_headline": "Anthropic commits to spending $200 billion with Google Cloud over five years — same week it launched its independent consulting venture",
+      "story_score": 6,
+      "formats": {
+        "youtube_video": {
+          "title": "Anthropic announced independence and a $200B Google dependency",
+          "title_char_count": 62,
+          "hook": "On the same week Anthropic announced a $1.5B venture to embed its engineers independently into companies, it also committed $200 billion to Google Cloud over five years.",
+          "structure": [
+            "What the $200B Google commitment actually entails — cloud compute, chips, duration, and what it means to 'commit' that spend",
+            "Why this matters alongside the Goldman/Blackstone JV: the independence play and the deep dependency play happened simultaneously",
+            "What $200B committed to Google over five years means for Anthropic's actual decision-making freedom",
+            "Whether Anthropic can maintain its positioning as an independent safety-focused lab while structurally dependent on Google at this scale",
+            "The broader pattern: how AI labs are simultaneously trying to look independent while locking themselves into trillion-dollar infrastructure relationships"
+          ],
+          "target_audience": "Business and tech professionals interested in AI strategy and corporate structure",
+          "why_now": "The two announcements — the JV and the Google commitment — happened on the same day, and no coverage has connected them; connecting them this week creates a coherent story before the individual pieces fade",
+          "estimated_length_mins": 10
+        },
+        "youtube_short": {
+          "hook_3sec": "Anthropic committed $200B to Google and $1.5B to independence on the same day.",
+          "caption": "The independent AI services venture and the $200 billion Google Cloud commitment were both announced this week. One of those framing decisions is doing more work than the other.",
+          "visual_concept": "Two announcement headlines side by side on dark background. Left: Anthropic JV with Goldman/Blackstone. Right: Anthropic $200B Google commitment. Text below: 'Same company. Same week.'",
+          "suggested_length_sec": 50,
+          "cta": "Full analysis on the main channel."
+        },
+        "image_post": {
+          "slide_titles": [
+            "Anthropic announced two very different things this week",
+            "The independence announcement",
+            "The dependency announcement",
+            "What $200B committed to Google actually means",
+            "Which of these tells you more about Anthropic's real position"
+          ],
+          "main_message": "Anthropic's $1.5B independence venture and its $200B Google commitment are both real — the tension between them hasn't been covered.",
+          "visual_direction": "Two-column layout throughout. Left column consistently labelled 'Independence move', right column 'Dependency move'. Dark background, white text, subtle indigo accent for the tension framing.",
+          "caption": "Anthropic announced a $1.5B venture to act independently of consulting firms. On the same day, it announced a $200B commitment to Google Cloud. Both of those things are true simultaneously. Nobody is writing about both."
+        },
+        "community_post": {
+          "question_or_poll": "Anthropic committed $200 billion to Google Cloud the same week it launched a $1.5B 'independent' consulting venture. Which better reflects Anthropic's actual strategic position?",
+          "poll_options": [
+            "The Google commitment — $200B means Google controls the infrastructure",
+            "The JV — distribution matters more than cloud provider",
+            "They're not contradictory — large companies do both",
+            "Neither tells us anything — it's all just corporate manoeuvring"
+          ],
+          "engagement_rationale": "The juxtaposition is counterintuitive enough that audience members will genuinely disagree about its significance — forces real thinking about what 'independence' means for an AI lab"
+        },
+        "meme": {
+          "concept": "Graph titled 'Anthropic's level of independence from big tech' — line goes dramatically up (JV announcement) then immediately back down (Google $200B). Labelled: 'same Tuesday.'",
+          "caption": "strategic autonomy",
+          "risk_level": "low",
+          "risk_note": null
+        }
+      },
+      "marked_as_used": false
+    },
+    {
+      "idea_id": "idea-011",
+      "story_id": "deepmind-eve-online-partnership",
+      "story_headline": "Google DeepMind takes minority stake in CCP Games, developer of Eve Online, to train AI on the game's complex economy",
+      "story_score": 6,
+      "formats": {
+        "youtube_video": {
+          "title": "DeepMind is training AI on Eve Online. Not for the games.",
+          "title_char_count": 57,
+          "hook": "DeepMind just bought a stake in the company behind Eve Online — and if you think this is about making games, you don't know what Eve Online actually is.",
+          "structure": [
+            "What Eve Online actually is: not a typical game but one of the most studied complex economic simulations in existence — real economists have published papers on it",
+            "What training AI on Eve Online is actually training — strategic reasoning, resource allocation, coalition formation, market manipulation, long-horizon planning",
+            "What DeepMind already does with complex simulations, and what capabilities the Eve training environment could add",
+            "Why a minority stake rather than just API access or a data deal — what the ownership structure tells us about how serious this is",
+            "What kind of AI you get at the end of training on a system where players have been running complex economies for 23 years"
+          ],
+          "target_audience": "Tech-curious people who want to understand AI capability development in non-obvious contexts — and anyone who has ever heard of Eve Online",
+          "why_now": "The stake was announced today and the gaming press will cover the gaming angle — the AI capabilities angle will be missed by most and is the more interesting story",
+          "estimated_length_mins": 11
+        },
+        "youtube_short": {
+          "hook_3sec": "DeepMind just bought into Eve Online. Not because of gaming.",
+          "caption": "Eve Online has one of the most complex economies ever studied by real economists. DeepMind just acquired a stake in its developer to train AI on it. What kind of AI are you making when you train it on that?",
+          "visual_concept": "Screenshot-style framing of Eve Online's star map with overlaid text: 'Real economists study this economy.' Cut to: 'DeepMind just bought a stake in it.' Clean, minimal text overlay on space backdrop.",
+          "suggested_length_sec": 55,
+          "cta": "Full breakdown on the main channel."
+        },
+        "image_post": {
+          "slide_titles": [
+            "DeepMind just bought into the company behind Eve Online",
+            "What Eve Online actually is",
+            "What training on it actually trains",
+            "Why an ownership stake rather than just a data deal",
+            "What this suggests about where DeepMind is going"
+          ],
+          "main_message": "This is not a gaming partnership. Eve Online is a strategic, economic simulation that real researchers study. Training AI on it is training for a specific kind of complex reasoning.",
+          "visual_direction": "Slide 2 uses a simple diagram of Eve's economic complexity — players, corps, alliances, markets, wars — shown as a network graph, not a game screenshot. Dark space-themed background. Academic/research aesthetic rather than gaming aesthetic.",
+          "caption": "DeepMind announced it's taking a stake in the maker of Eve Online to train its AI on the game. Eve is not a typical game — its player-run economy has been studied by real economists. DeepMind training on it is training for strategic reasoning in complex systems."
+        },
+        "community_post": {
+          "question_or_poll": "DeepMind is training AI on Eve Online's economy because it's one of the most complex simulated systems ever studied. What worries you more — AI trained on Eve's economic warfare tactics, or AI trained on human internet data?",
+          "poll_options": [
+            "Eve Online training — specifically optimised for exploitation and manipulation",
+            "Internet data — broader but less adversarially optimised",
+            "Both equally",
+            "Neither — the training data isn't what determines risk"
+          ],
+          "engagement_rationale": "The comparison forces the audience to think about what training data actually does to model behaviour, which is a genuinely difficult question with no consensus answer"
+        },
+        "meme": {
+          "concept": "DeepMind researcher introducing the new AI to its training environment: 'We've prepared a simulation of complex economic systems, long-horizon planning, and strategic warfare.' AI looks at Eve Online. AI: 'I am going to love this.'",
+          "caption": "perfectly normal training data",
+          "risk_level": "low",
+          "risk_note": null
+        }
+      },
+      "marked_as_used": false
+    },
+    {
+      "idea_id": "idea-012",
+      "story_id": "google-microsoft-xai-predeployment-govt-testing",
+      "story_headline": "US government will evaluate Google DeepMind, Microsoft, and xAI models before public release under new NIST agreements",
+      "story_score": 6,
+      "formats": {
+        "youtube_video": {
+          "title": "The US will now see AI models before you do. What then?",
+          "title_char_count": 55,
+          "hook": "Three AI labs just agreed to let the US government evaluate their models before they are released publicly — and the question nobody is asking is what happens when the government finds something.",
+          "structure": [
+            "What the NIST agreements actually require: pre-deployment evaluation, post-deployment assessment, targeted security research",
+            "Who signed and who didn't: Google DeepMind, Microsoft, xAI — and the notable absences",
+            "What the government is actually capable of evaluating — what NIST's AI testing capacity currently looks like",
+            "What happens when the government reviews a model and finds a problem — the mechanisms (or lack of them) for acting on findings",
+            "Whether pre-deployment government review without enforcement powers is meaningful oversight or a compliance theatre exercise"
+          ],
+          "target_audience": "AI policy-curious people who want to understand whether AI governance mechanisms are real or performative",
+          "why_now": "The agreements were announced this week — the question of whether pre-deployment review means anything without enforcement authority is being missed in coverage that treats the announcement as purely positive",
+          "estimated_length_mins": 10
+        },
+        "youtube_short": {
+          "hook_3sec": "The US government will now see AI models before public release.",
+          "caption": "Google, Microsoft, and xAI agreed to let NIST review their models first. The question is what NIST does if it finds something. That part of the announcement was less clear.",
+          "visual_concept": "Text sequence: 'New NIST agreements: government sees AI before you do.' Then: 'What happens if they find a problem?' Hold on question mark. Simple, no animation.",
+          "suggested_length_sec": 50,
+          "cta": "Full analysis on the main channel."
+        },
+        "image_post": {
+          "slide_titles": [
+            "Three AI labs agreed to US government model reviews this week",
+            "What the agreements require",
+            "Who signed — and who didn't",
+            "What NIST can actually do if it finds a problem",
+            "Is this real oversight or a paper exercise?"
+          ],
+          "main_message": "Pre-deployment government review of AI models is only meaningful if the government can act on what it finds. That part of this week's announcement deserves scrutiny.",
+          "visual_direction": "Slide 4 shows a simple flowchart: 'Government finds problem in model → [empty box labelled enforcement mechanism?] → model still releases.' Clean, minimal, slightly deadpan.",
+          "caption": "Google, Microsoft, and xAI agreed to pre-deployment government reviews of their AI models this week. Whether that means anything depends on what NIST can actually do when it finds a problem. That question wasn't answered in the announcement."
+        },
+        "community_post": {
+          "question_or_poll": "Three AI labs agreed to let the US government review their models before public release. Is this meaningful AI oversight — or optics?",
+          "poll_options": [
+            "Meaningful — government visibility creates accountability",
+            "Optics — there's no enforcement mechanism that matters",
+            "A starting point — oversight has to begin somewhere",
+            "Depends on whether the government actually has the expertise to evaluate these models"
+          ],
+          "engagement_rationale": "AI governance sceptics and optimists will genuinely disagree here — and the 'does government have the capacity' option adds a technical dimension that makes the question richer"
+        },
+        "meme": {
+          "concept": "NIST AI evaluator opening a model review file labelled 'state-of-the-art frontier AI system.' File contents: 1 trillion parameters, 8192 token context, alignment process described in 400 pages. Evaluator: [has 3 months and 12 staff].",
+          "caption": "robust government oversight",
+          "risk_level": "low",
+          "risk_note": null
+        }
+      },
+      "marked_as_used": false
+    },
+    {
+      "idea_id": "idea-013",
+      "story_id": "meta-ai-age-scan-underage",
+      "story_headline": "Meta will use AI to scan users' height and bone structure to identify underage accounts on Facebook and Instagram",
+      "story_score": 6,
+      "formats": {
+        "youtube_video": {
+          "title": "Meta is now running biometric scans on everyone to find children",
+          "title_char_count": 55,
+          "hook": "Meta has built a system that analyses your height and bone structure in photos to decide whether you're old enough to use Instagram — and that system runs on every user, not just suspected minors.",
+          "structure": [
+            "What the system actually does: visual biometric analysis of height, bone structure, combined with text and behaviour signals — how it works technically",
+            "Who it runs on: the entire user base, not just flagged accounts — what the mass-deployment model means for user privacy",
+            "Why Meta is doing this now: the regulatory and legal pressure around children and social media that has been building",
+            "What the legal basis for passive biometric analysis of a platform's entire user base actually is — and which jurisdictions this might violate",
+            "The tension at the core of this: a legitimate child protection goal achieved through a surveillance method that affects every adult user too"
+          ],
+          "target_audience": "Privacy-conscious users and parents — people who want to understand what Meta is actually doing with their image data",
+          "why_now": "The announcement was made this week before any public debate has formed — covering the privacy implications before the 'protecting children' framing monopolises the story",
+          "estimated_length_mins": 11
+        },
+        "youtube_short": {
+          "hook_3sec": "Meta is scanning everyone's bone structure to find children.",
+          "caption": "Meta's new AI system estimates your height and bone density from photos to decide if you're under 13. It runs on the entire platform. The child protection goal is real. The method affects everyone.",
+          "visual_concept": "Stylised graphic of a photo being scanned with overlaid analysis lines (height marker, bone structure indicator). Text: 'Every photo you post. Every user.' Clean, slightly unsettling, no actual biometric imagery.",
+          "suggested_length_sec": 55,
+          "cta": "Full breakdown on the main channel."
+        },
+        "image_post": {
+          "slide_titles": [
+            "Meta is using AI to scan your height and bone structure",
+            "Why — the child protection goal",
+            "How — the biometric analysis system",
+            "Who it affects — every user on the platform",
+            "What this means for your image data",
+            "The tension this creates"
+          ],
+          "main_message": "Protecting children on social media is a legitimate goal. Deploying passive biometric analysis across your entire user base to achieve it raises questions that deserve answers.",
+          "visual_direction": "Dark background. Slide 3 shows a clean anatomical silhouette with height and bone structure points marked — clinical, not scary. Slide 4 shows an abstracted crowd graphic to convey scale. Slide 6 uses two-column tension format.",
+          "caption": "Meta announced this week it will use AI to analyse users' height and bone structure to identify underage accounts. The goal is child protection. The method is biometric scanning of the entire platform. Both of those things are true."
+        },
+        "community_post": {
+          "question_or_poll": "Meta is deploying AI to scan all users' height and bone structure in photos to find underage accounts. Is this an acceptable trade-off for child safety on social media?",
+          "poll_options": [
+            "Yes — protecting children justifies the privacy cost",
+            "No — this is mass biometric surveillance regardless of intent",
+            "Only if users explicitly consent to the biometric analysis",
+            "The method is wrong but the goal is right — better alternatives exist"
+          ],
+          "engagement_rationale": "Child safety and mass biometric surveillance produce genuine moral conflict — people with strong views on either side will find the other options defensible, making this a productive rather than polarising poll"
+        },
+        "meme": {
+          "concept": "Privacy policy update circa 2026: 'By using Instagram, you consent to Meta analysing your bone density. This is for the children.'",
+          "caption": "terms and conditions: updated",
+          "risk_level": "low",
+          "risk_note": null
+        }
+      },
+      "marked_as_used": false
+    },
+    {
+      "idea_id": "idea-014",
+      "story_id": "microsoft-copilot-removed-xbox",
+      "story_headline": "Microsoft quietly removes Copilot AI from Xbox entirely — while pushing it everywhere else",
+      "story_score": 6,
+      "formats": {
+        "youtube_video": {
+          "title": "Microsoft removed Copilot from Xbox. Nobody asked why.",
+          "title_char_count": 48,
+          "hook": "Microsoft is adding Copilot to every enterprise product it makes — and simultaneously removing it from the one consumer product where users actually had to choose whether to use it.",
+          "structure": [
+            "What happened: Copilot is being fully removed from Xbox, with no detailed public explanation",
+            "What Copilot was supposed to do on Xbox — what the original pitch was and who, if anyone, used it",
+            "The contrast: Microsoft's enterprise Copilot narrative (78% of workers use it weekly) versus Xbox (the company is removing it)",
+            "What the Xbox removal reveals about user adoption versus platform adoption — the difference between companies deploying AI tools and people choosing to use them",
+            "What other consumer AI products might quietly be failing that we don't have visibility on because they're embedded in products rather than standalone"
+          ],
+          "target_audience": "Tech-curious people who want a clear-eyed view of where AI adoption is actually happening versus where it is being forced",
+          "why_now": "The removal was announced this week and is being treated as a minor gaming story — the broader implication about consumer AI adoption versus enterprise AI mandates is being missed",
+          "estimated_length_mins": 9
+        },
+        "youtube_short": {
+          "hook_3sec": "Microsoft removed Copilot from Xbox. Didn't explain why.",
+          "caption": "Microsoft is adding Copilot to every enterprise product. It just removed it from the one consumer product where users got to choose. That tells you something.",
+          "visual_concept": "Microsoft Copilot logo with a red X over it on a dark background. Text below: 'Xbox. May 2026.' Then: 'Enterprise Copilot: 78% adoption (Microsoft's own survey).' Let the contrast land.",
+          "suggested_length_sec": 45,
+          "cta": "Full analysis on the main channel."
+        },
+        "image_post": {
+          "slide_titles": [
+            "Microsoft is removing Copilot from Xbox",
+            "Where Microsoft is adding Copilot instead",
+            "The difference between those two contexts",
+            "What users choosing versus users being given AI looks like",
+            "The question Microsoft didn't answer"
+          ],
+          "main_message": "Microsoft's enterprise Copilot adoption numbers come from products where workers have no choice. Xbox is the product where they did have a choice. Now Copilot is gone from Xbox.",
+          "visual_direction": "Slide 2: grid of Microsoft products with Copilot added (Word, Excel, Teams, Outlook) — all checked green. Xbox: red X. Slide 3: simple two-column: 'Mandatory deployment' vs 'User choice.' Slide 5: blank box where the explanation should be.",
+          "caption": "Microsoft removed Copilot from Xbox this week without a detailed explanation. Microsoft is simultaneously pushing Copilot into every enterprise product and claiming 78% of workers use it. The difference between 'users adopted it' and 'users couldn't avoid it' is worth thinking about."
+        },
+        "community_post": {
+          "question_or_poll": "Microsoft removed Copilot from Xbox — the one product where gamers actually got to choose whether to use it. What does that tell you about AI assistant adoption?",
+          "poll_options": [
+            "Most AI assistant adoption is driven by mandates, not choice",
+            "Gaming is just a bad fit — doesn't mean adoption is fake elsewhere",
+            "Microsoft made Copilot on Xbox bad, not AI assistants generally",
+            "Nothing — removing one feature from one platform doesn't generalise"
+          ],
+          "engagement_rationale": "The mandatory-versus-chosen adoption distinction is something this audience thinks about — and each option represents a genuinely different theory of why AI adoption numbers look the way they do"
+        },
+        "meme": {
+          "concept": "Microsoft enterprise survey: 'Do you use Copilot at work?' Employee: 'It's in every app I open, so I guess yes.' Microsoft: 'Users love Copilot.' Meanwhile on Xbox: [removed].",
+          "caption": "98% satisfaction*\n*survey of people with no choice",
+          "risk_level": "low",
+          "risk_note": null
+        }
+      },
+      "marked_as_used": false
+    },
+    {
+      "idea_id": "idea-015",
+      "story_id": "musk-openai-trial-settlement-talks",
+      "story_headline": "Musk texted OpenAI's Brockman about settling two days before trial — and trial revealed Grok was trained on OpenAI's models",
+      "story_score": 6,
+      "formats": {
+        "youtube_video": {
+          "title": "Musk sued OpenAI. His testimony revealed Grok's training data.",
+          "title_char_count": 62,
+          "hook": "Elon Musk is suing OpenAI for abandoning its non-profit mission — and testimony from the same lawsuit just revealed that Grok was trained partly on OpenAI's models.",
+          "structure": [
+            "What Musk's lawsuit against OpenAI actually claims — the non-profit mission argument and what he says OpenAI did wrong",
+            "What the trial testimony revealed: the specific admission that xAI used OpenAI models to train Grok",
+            "What model distillation is and why using a competitor's models as training signal is legally and ethically contested",
+            "The settlement text story: Musk contacting Brockman two days before trial — what it suggests about how confident he actually was in his legal position",
+            "The larger irony: the man accusing OpenAI of intellectual property misuse used their intellectual property to build his competing product"
+          ],
+          "target_audience": "People following the AI industry drama who want the actual substance beneath the personalities",
+          "why_now": "The trial testimony and settlement text both emerged this week — the connection between the two (Musk suing over IP while using IP) is not being made clearly in most coverage",
+          "estimated_length_mins": 11
+        },
+        "youtube_short": {
+          "hook_3sec": "Musk is suing OpenAI. His own testimony says Grok was trained on their models.",
+          "caption": "The man suing OpenAI for intellectual property issues trained his competing AI partly on OpenAI's models. This came out in the trial he is bringing against them.",
+          "visual_concept": "Two column text on dark background: Left: 'Musk's lawsuit claim: OpenAI betrayed its mission / misused IP.' Right: 'Musk's trial testimony: xAI trained Grok on OpenAI models.' Hold.",
+          "suggested_length_sec": 50,
+          "cta": "Full breakdown on the main channel."
+        },
+        "image_post": {
+          "slide_titles": [
+            "Musk is suing OpenAI",
+            "What he's suing them for",
+            "What came out in his own trial",
+            "Why those two things are in tension",
+            "What happens next with the lawsuit"
+          ],
+          "main_message": "The same legal proceedings in which Musk argues OpenAI misused its assets produced testimony that his own company used OpenAI's models to build Grok.",
+          "visual_direction": "Court document aesthetic — slightly aged paper texture on slides 1-2, dark background for slides 3-5. Slide 4 uses a Venn diagram showing the overlap between 'what Musk accuses OpenAI of' and 'what Musk's company did.'",
+          "caption": "Musk's lawsuit against OpenAI produced this week's most useful piece of information: his own testimony confirms xAI trained Grok partly on OpenAI's models. That fact is in the trial record of the lawsuit he brought."
+        },
+        "community_post": {
+          "question_or_poll": "Musk's own trial testimony revealed Grok was trained partly on OpenAI's models — while he sues OpenAI for IP and mission violations. Does this change how you view the lawsuit?",
+          "poll_options": [
+            "Yes — it undermines his standing to sue",
+            "No — using a model for distillation isn't the same as OpenAI's alleged wrongs",
+            "The lawsuit was always about market position, not principle",
+            "It depends on whether model distillation is legally equivalent to the conduct he's suing over"
+          ],
+          "engagement_rationale": "This forces the audience to distinguish between different types of IP use and think about legal standing — it has no obvious answer and rewards careful thinking"
+        },
+        "meme": {
+          "concept": "Musk suing OpenAI: 'You can't use assets developed under one set of principles for commercial gain.' xAI's Grok training data: [OpenAI models]. Musk: [has not noticed].",
+          "caption": "principles are complicated",
+          "risk_level": "medium",
+          "risk_note": "Involves Elon Musk in a live legal proceeding — the claim about Grok being trained on OpenAI models comes from trial testimony, making it a matter of public record rather than speculation. Risk is reputational sensitivity given Musk's public profile. Mitigated by factual grounding in trial testimony."
+        }
+      },
+      "marked_as_used": false
+    },
+    {
+      "idea_id": "idea-016",
+      "story_id": "openai-gpt55-instant-default",
+      "story_headline": "OpenAI releases GPT-5.5 Instant as new default ChatGPT model with 52.5% fewer hallucinations claim",
+      "story_score": 6,
+      "formats": {
+        "youtube_video": {
+          "title": "OpenAI's hallucination claim is worth examining. Here's how.",
+          "title_char_count": 53,
+          "hook": "OpenAI released a new default model this week and said it hallucinates 52.5% less — and the number comes from a benchmark they designed and ran themselves.",
+          "structure": [
+            "What GPT-5.5 Instant actually changes from GPT-5.3 Instant — what the stated improvements are",
+            "What the 52.5% hallucination reduction claim is based on: the benchmark design, who ran it, and what it measures",
+            "Why self-reported hallucination benchmarks are structurally problematic — who independently validates these claims",
+            "What independent benchmarks actually show about hallucination rates across major models",
+            "What a genuinely informative hallucination reduction claim would look like — and why companies don't publish it"
+          ],
+          "target_audience": "People who use AI tools professionally and want to think critically about product claims rather than accept them at face value",
+          "why_now": "The model launched this week and the 52.5% figure is being cited across tech coverage without scrutiny — examining the methodology now while the claim is fresh is most valuable",
+          "estimated_length_mins": 9
+        },
+        "youtube_short": {
+          "hook_3sec": "OpenAI says the new model hallucinates 52.5% less. They ran the test.",
+          "caption": "GPT-5.5 Instant launched this week. The hallucination reduction number comes from OpenAI's own benchmark. Here's what that means for how much you should trust it.",
+          "visual_concept": "Stylised graph showing '52.5% reduction' with a small footnote visible: '*benchmark designed and conducted by OpenAI.' The footnote gets bigger. Clean, dry humour.",
+          "suggested_length_sec": 50,
+          "cta": "Full analysis on the main channel."
+        },
+        "image_post": {
+          "slide_titles": [
+            "OpenAI released GPT-5.5 Instant this week",
+            "The headline claim: 52.5% fewer hallucinations",
+            "Who designed and ran the benchmark",
+            "What independent benchmarks say",
+            "How to read AI model performance claims"
+          ],
+          "main_message": "The 52.5% hallucination reduction is a real number from a real test. The test was designed by the company selling the result. Both of those things are true.",
+          "visual_direction": "Slide 3: a simple diagram of the benchmark loop — OpenAI designs test → OpenAI runs test → OpenAI reports result → OpenAI sells product. No accusatory language, just the structure. Slide 5: checklist of questions to ask when reading any AI model claim.",
+          "caption": "OpenAI launched GPT-5.5 Instant as ChatGPT's new default model this week. The hallucination reduction claim is 52.5%. The benchmark it comes from was designed and run by OpenAI. Worth knowing before deciding how much to trust the number."
+        },
+        "community_post": {
+          "question_or_poll": "OpenAI claims its new model hallucinates 52.5% less than the previous version — measured on their own internal benchmark. How much do you trust self-reported AI performance improvements?",
+          "poll_options": [
+            "Very little — companies will always report favourable results",
+            "Somewhat — direction of improvement is probably real even if the number isn't precise",
+            "Depends on whether independent researchers can replicate it",
+            "The number doesn't matter — I use the output to judge quality"
+          ],
+          "engagement_rationale": "This audience uses AI tools and has formed views on model performance claims — the question is specific and actionable rather than abstract"
+        },
+        "meme": {
+          "concept": "OpenAI model report card: 'Hallucination rate: down 52.5%.' Grading teacher: also OpenAI. 'Outstanding progress!'",
+          "caption": "rigorous third-party evaluation",
+          "risk_level": "low",
+          "risk_note": null
+        }
+      },
+      "marked_as_used": false
+    },
+    {
+      "idea_id": "idea-017",
+      "story_id": "tech-layoffs-ai-2026-tracker",
+      "story_headline": "Big Tech's $725 billion AI spending spree is being funded by mass layoffs — 113,000 workers cut in 2026 so far",
+      "story_score": 6,
+      "formats": {
+        "youtube_video": {
+          "title": "113,000 tech jobs gone in 2026. Is AI actually the reason?",
+          "title_char_count": 58,
+          "hook": "Tech companies have cut 113,000 workers this year while spending $725 billion on AI — and a credible outlet just published a piece arguing the two aren't actually connected.",
+          "structure": [
+            "The numbers: 113,863 workers cut in 179 events, averaging 904 per day — and how that compares to prior years",
+            "The AI explanation: which companies explicitly cited AI as the reason for their cuts this week, and what they said",
+            "The counterargument: what the Washington Post's analysis found — the case that austerity is the real driver and AI is the cover story",
+            "Why it matters which explanation is correct: the policy, retraining, and regulatory responses are completely different depending on the actual cause",
+            "What evidence would actually settle this question — and why we probably won't have it for another two or three years"
+          ],
+          "target_audience": "Knowledge workers, tech employees, and policy-curious people who want to understand whether the AI-layoffs connection is real or narrative",
+          "why_now": "Both the tracker data and the Washington Post counterargument published this week — putting them in dialogue now while both are current produces a more useful analysis than covering either alone",
+          "estimated_length_mins": 11
+        },
+        "youtube_short": {
+          "hook_3sec": "113,000 tech workers have been laid off in 2026. AI is getting the blame.",
+          "caption": "The Washington Post ran a piece this week arguing tech layoffs aren't actually about AI. Companies are saying they are. Somebody is wrong. Here's the evidence either way.",
+          "visual_concept": "Counter graphic: '113,863 workers laid off in 2026' on one side. '$725B AI capex committed' on the other. Below: 'Connected?' with two opposing arrows. Clean, factual.",
+          "suggested_length_sec": 55,
+          "cta": "Full analysis on the main channel."
+        },
+        "image_post": {
+          "slide_titles": [
+            "113,000 tech workers have been cut in 2026",
+            "What companies are saying: AI is the reason",
+            "What the Washington Post found: maybe not",
+            "Why the explanation matters",
+            "What evidence would actually tell us"
+          ],
+          "main_message": "The two dominant explanations for 2026 tech layoffs — AI is replacing workers / AI is cover for austerity — produce completely different policy responses. Knowing which is true matters.",
+          "visual_direction": "Slide 3: two-column layout. Left: 'Company explanation' with AI as cause. Right: 'Washington Post analysis' with austerity as cause. Both presented factually, no editorial lean. Slide 5: simple checklist of evidence types that would distinguish the two explanations.",
+          "caption": "Tech companies have cut 113,000 workers in 2026 while spending $725B on AI. Companies say AI is the reason. The Washington Post published a piece this week arguing it's mostly austerity with an AI cover story. The truth matters because the response is completely different."
+        },
+        "community_post": {
+          "question_or_poll": "Tech companies have cut 113,000 workers in 2026 while spending $725B on AI. What's the better explanation?",
+          "poll_options": [
+            "AI is genuinely automating the roles being eliminated",
+            "Companies are cutting for austerity and blaming AI",
+            "Both — different companies for different reasons",
+            "It's too early to know — the data isn't conclusive yet"
+          ],
+          "engagement_rationale": "This audience will have strong views on AI and jobs based on their professional lives — the question has genuine uncertainty and four defensible positions"
+        },
+        "meme": {
+          "concept": "Tech company earnings call: CFO: 'We had to cut costs.' Analyst: 'Why?' CFO: [gestures vaguely at AI.] Analyst: 'Noted.'",
+          "caption": "efficiency gains",
+          "risk_level": "low",
+          "risk_note": null
+        }
+      },
+      "marked_as_used": false
+    },
+    {
+      "idea_id": "idea-018",
+      "story_id": "ai-data-centers-two-thirds-us-homes-power",
+      "story_headline": "AI data centres will consume power equivalent to two-thirds of US homes by 2030 — but 30-50% of 2026 capacity will slip to 2028",
+      "story_score": 6,
+      "formats": {
+        "youtube_video": {
+          "title": "The AI infrastructure gap nobody's covering",
+          "title_char_count": 42,
+          "hook": "Everyone is covering how much power AI data centres will consume — almost nobody is covering the fact that 30 to 50 percent of the infrastructure needed to run that AI won't exist until 2028.",
+          "structure": [
+            "The power consumption headline: what the BCG projection actually says and how they arrived at two-thirds of US homes",
+            "The buried number: the 30-50% capacity slippage — which data centres, which regions, what the grid bottlenecks actually are",
+            "What happens to AI company timelines when the infrastructure they're betting on runs two years late",
+            "The nuclear energy executive orders: why the government is fast-tracking nuclear as the only viable solution and what that timeline looks like",
+            "The gap between AI company announcements and physical infrastructure reality — and what that gap means for 2026 and 2027 AI roadmaps"
+          ],
+          "target_audience": "People who follow AI and want to understand the physical infrastructure constraints beneath the software narrative",
+          "why_now": "The BCG report was released this week and is being covered only for the consumption headline — the capacity slippage number, which is more consequential, is being missed",
+          "estimated_length_mins": 10
+        },
+        "youtube_short": {
+          "hook_3sec": "Half of planned AI data centres won't be built until 2028.",
+          "caption": "Everyone is covering how much power AI needs. Almost nobody is covering the fact that 30-50% of the infrastructure to supply that power won't exist until 2028. That gap matters.",
+          "visual_concept": "Two bar charts side by side: 'AI infrastructure planned for 2026' (full bar) vs 'AI infrastructure that will actually exist in 2026' (half bar, with '2028' labelling the missing portion). Simple, visual.",
+          "suggested_length_sec": 50,
+          "cta": "Full analysis on the main channel."
+        },
+        "image_post": {
+          "slide_titles": [
+            "AI data centres will consume power equal to two-thirds of US homes by 2030",
+            "That's the headline everyone covered",
+            "Here's the number nobody covered",
+            "30-50% of 2026 capacity will slip to 2028",
+            "What that gap means for AI roadmaps"
+          ],
+          "main_message": "The energy consumption story is real. The more consequential story is the infrastructure gap between what AI companies are promising and what will actually exist on the timeline they need it.",
+          "visual_direction": "Slide 3 and 4 use a before/after timeline graphic: planned 2026 capacity vs projected 2026 actual capacity with the slippage labelled clearly. Dark background, orange for the gap to signal the problem visually.",
+          "caption": "A BCG report this week said AI data centres will consume power equivalent to two-thirds of US homes by 2030. That's the headline. The number worth more attention: 30-50% of planned 2026 data centre capacity will slip to 2028. That slippage has consequences for every AI timeline being discussed right now."
+        },
+        "community_post": {
+          "question_or_poll": "30-50% of planned AI data centre capacity for 2026 is projected to slip to 2028 due to grid, chip, and construction bottlenecks. What does this mean for the AI roadmaps companies are publishing?",
+          "poll_options": [
+            "AI timelines will be significantly delayed — the infrastructure isn't there",
+            "Companies will find workarounds — cloud capacity exists already",
+            "It only affects training; inference infrastructure is fine",
+            "The AI companies already know this and have factored it in"
+          ],
+          "engagement_rationale": "Infrastructure constraints are underappreciated in AI discourse — this audience will have strong views on whether physical bottlenecks can be engineered around"
+        },
+        "meme": {
+          "concept": "AI company roadmap: 'AGI by 2027.' Power grid: 'Your data centre was delayed to 2028.' AI company: [surprised pikachu face].",
+          "caption": "the atoms part",
+          "risk_level": "low",
+          "risk_note": null
+        }
+      },
+      "marked_as_used": false
+    },
+    {
+      "idea_id": "idea-019",
+      "story_id": "anthropic-fractile-chip-talks",
+      "story_headline": "Anthropic in early talks to buy chips from British startup Fractile, claiming to beat Nvidia at 25x the speed and one-tenth the cost",
+      "story_score": 5,
+      "formats": {
+        "youtube_video": {
+          "title": "A startup says it beats Nvidia by 25x. Anthropic is listening.",
+          "title_char_count": 53,
+          "hook": "A British startup claims its chips run AI models 25 times faster than Nvidia's at one-tenth of the cost — and Anthropic is reportedly in talks to buy them.",
+          "structure": [
+            "What Fractile is and what they actually claim — the specific performance and cost numbers, and how to read startup chip claims",
+            "Why Anthropic would be looking for non-Nvidia chips right now: the supply dynamics and cost pressure from Nvidia's dominant pricing",
+            "How early-stage chip companies typically compare to established suppliers in practice — the gap between benchmark claims and production performance",
+            "What it would mean for the AI industry if a non-Nvidia chip actually worked at scale for a major lab",
+            "Whether this is the beginning of genuine Nvidia competition or another startup claim that won't survive contact with production scale"
+          ],
+          "target_audience": "Tech-curious people interested in AI infrastructure and the Nvidia monopoly discussion",
+          "why_now": "The talks were reported today — covering this now positions the channel well if the story develops, and the sceptical framing is needed given how startup chip claims usually go",
+          "estimated_length_mins": 9
+        },
+        "youtube_short": {
+          "hook_3sec": "A startup claims 25x Nvidia performance. Anthropic is buying.",
+          "caption": "Anthropic is in early talks to buy chips from a British startup claiming to beat Nvidia on speed and cost. That claim is either the most important story in AI infrastructure or a very large benchmark.",
+          "visual_concept": "Performance comparison bar chart: Nvidia GPU performance (bar height 1) vs Fractile claim (bar height 25). Subtle question mark over the Fractile bar. Clean, dry.",
+          "suggested_length_sec": 45,
+          "cta": "Watch this space — follow on the main channel."
+        },
+        "image_post": {
+          "slide_titles": [
+            "Anthropic is in talks to buy chips from a Nvidia rival",
+            "What Fractile claims",
+            "How startup chip claims usually go",
+            "Why Anthropic might be interested anyway",
+            "What to watch for"
+          ],
+          "main_message": "25x better than Nvidia at one-tenth the cost is either the most important hardware development in AI or a startup pitch. Knowing the difference requires watching what happens next.",
+          "visual_direction": "Slide 2: the performance claim in large text with sceptical footnote styling. Slide 3: simple historical timeline of AI chip startups and their fates. Dark background throughout. Restrained enthusiasm.",
+          "caption": "Anthropic is reportedly in early talks to buy AI chips from Fractile, a British startup claiming 25x Nvidia performance at one-tenth the cost. That claim is either the most consequential AI infrastructure story in years or a benchmark. The difference matters."
+        },
+        "community_post": {
+          "question_or_poll": "A startup claims its chips run AI 25x faster than Nvidia's at one-tenth the cost. Anthropic is reportedly interested. How likely is this to be real at production scale?",
+          "poll_options": [
+            "Very likely — startups often out-innovate incumbents",
+            "Unlikely — benchmark performance rarely survives production",
+            "The cost claim is plausible but the speed claim is not",
+            "More likely than not if Anthropic is seriously evaluating it"
+          ],
+          "engagement_rationale": "Hardware credibility assessment is something this audience has opinions on — the question of benchmark versus production performance is specific and technical enough to produce genuine discussion"
+        },
+        "meme": {
+          "concept": "Nvidia's pricing strategy: [complicated, opaque, dominant]. Fractile's pitch deck: '25x faster, one-tenth the cost.' Anthropic: 'Tell me more.' Nvidia: [has noticed].",
+          "caption": "competitive landscape",
+          "risk_level": "low",
+          "risk_note": null
+        }
+      },
+      "marked_as_used": false
+    },
+    {
+      "idea_id": "idea-020",
+      "story_id": "chinese-open-weights-coding-sprint",
+      "story_headline": "Four Chinese AI labs released competitive open-weights coding models within 12 days — one built on zero Nvidia hardware",
+      "story_score": 5,
+      "formats": {
+        "youtube_video": {
+          "title": "Four Chinese AI models in 12 days. One uses no Nvidia chips.",
+          "title_char_count": 53,
+          "hook": "Four separate Chinese AI labs released frontier-level coding models in a 12-day window — and the most capable of them was built without a single Nvidia chip.",
+          "structure": [
+            "The four models: GLM-5.1, MiniMax M2.7, Kimi K2.6, and DeepSeek V4 — what they are, when they shipped, and what they can do",
+            "The benchmark comparison: how they perform against Western frontier models on agentic coding tasks",
+            "DeepSeek V4 specifically: 1.6 trillion parameters, built on zero Nvidia hardware — what hardware they used instead and how",
+            "What this means for US export controls: the stated policy goal was to slow Chinese AI development by restricting chip access",
+            "Whether the export control strategy is working, failing, or producing unintended consequences — with specific evidence from this week"
+          ],
+          "target_audience": "People interested in AI geopolitics, the China-US AI competition, and what export controls are actually achieving",
+          "why_now": "The Air Street Press analysis synthesising the 12-day sprint appeared this week — having all four models to compare simultaneously makes the analysis possible in a way it wasn't one week ago",
+          "estimated_length_mins": 12
+        },
+        "youtube_short": {
+          "hook_3sec": "Four Chinese AI models in 12 days. One without any Nvidia chips.",
+          "caption": "US export controls were supposed to slow Chinese AI by restricting Nvidia chips. DeepSeek just released a 1.6 trillion parameter model built without any. Four models in 12 days.",
+          "visual_concept": "Timeline graphic: 12-day window with four model release marks. DeepSeek V4 circled with note: 'zero Nvidia hardware.' Simple, factual.",
+          "suggested_length_sec": 55,
+          "cta": "Full breakdown on the main channel."
+        },
+        "image_post": {
+          "slide_titles": [
+            "Four Chinese AI labs released frontier coding models in 12 days",
+            "The models and what they can do",
+            "DeepSeek V4: 1.6 trillion parameters, zero Nvidia chips",
+            "What US export controls were supposed to achieve",
+            "What they appear to have achieved"
+          ],
+          "main_message": "The stated goal of US AI chip export controls was to slow Chinese AI development. DeepSeek V4 is a 1.6 trillion parameter frontier model built on zero Nvidia hardware. Those two facts are in direct tension.",
+          "visual_direction": "Slide 3: chip brand shown as '[not Nvidia]' — clean, factual. Slide 4: export control policy goal in quote block. Slide 5: what the evidence shows in a simple before/after comparison. Dark background, minimal.",
+          "caption": "Four Chinese AI labs matched Western frontier capabilities in open-weights coding models in 12 days. One of them did it without a single Nvidia chip. US export controls were designed to prevent exactly this. This week's model sprint is the most concrete test of whether that policy is working."
+        },
+        "community_post": {
+          "question_or_poll": "DeepSeek just released a 1.6 trillion parameter AI model built without Nvidia chips — part of four Chinese frontier model releases in 12 days. What does this tell you about US AI export controls?",
+          "poll_options": [
+            "Export controls aren't working — Chinese labs found alternatives",
+            "Export controls slowed them — this would have happened faster without restrictions",
+            "The controls work for training but not inference hardware",
+            "This was always the expected outcome — the controls buy time, not prevention"
+          ],
+          "engagement_rationale": "This is a concrete policy question with genuine empirical evidence this week — the audience will have strong and differing views on what the evidence actually shows"
+        },
+        "meme": {
+          "concept": "US export control policy: 'If we restrict Nvidia chips, China can't build frontier AI.' DeepSeek V4: 1.6T parameters, Huawei silicon, frontier performance. Policy: [has not been updated].",
+          "caption": "adversarial adaptation",
+          "risk_level": "low",
+          "risk_note": null
+        }
+      },
+      "marked_as_used": false
+    },
+    {
+      "idea_id": "idea-021",
+      "story_id": "colorado-ai-law-pushed-to-jan-2027",
+      "story_headline": "Colorado's landmark AI law has its transparency requirements stripped out before it even takes effect",
+      "story_score": 5,
+      "formats": {
+        "youtube_video": {
+          "title": "The US's first AI law just got gutted before it took effect",
+          "title_char_count": 54,
+          "hook": "Colorado passed the first comprehensive US state AI law in 2024 — modelled on the EU AI Act. Two years later, before a single enforcement action, its transparency requirements have been removed.",
+          "structure": [
+            "What Colorado's original 2024 AI law actually required — specifically the transparency provisions that have now been removed",
+            "Who pushed back and what arguments they used to weaken the law before implementation",
+            "What remains of the law versus what was removed — the gap between the original and the amended version",
+            "What this precedent means for other US states that are considering or have passed similar AI laws",
+            "Whether industry rollback of AI law before implementation is a Colorado-specific outcome or the template for what happens to US AI regulation generally"
+          ],
+          "target_audience": "People following AI policy who want to understand whether US AI regulation is genuinely advancing or being defused before it can act",
+          "why_now": "The bill passed this week — the precedent it sets for AI law rollback is most valuable to cover while the Colorado story is still active",
+          "estimated_length_mins": 10
+        },
+        "youtube_short": {
+          "hook_3sec": "The US's first AI transparency law just had its transparency removed.",
+          "caption": "Colorado passed the US's first comprehensive AI law in 2024. This week, before a single enforcement action, the transparency requirements were stripped out. That is the first US AI law rollback.",
+          "visual_concept": "Text: 'Colorado AI Act 2024: transparency requirements.' Red strikethrough across 'transparency requirements.' Text below: 'Before implementation. Zero enforcement actions.'",
+          "suggested_length_sec": 50,
+          "cta": "Full analysis on the main channel."
+        },
+        "image_post": {
+          "slide_titles": [
+            "The US's first AI law just had its key provisions removed",
+            "What the original Colorado law required",
+            "What was stripped out before it took effect",
+            "Who pushed for the changes",
+            "What this means for other US AI laws"
+          ],
+          "main_message": "The first US state AI law was weakened by industry lobbying before a single enforcement action. That is a template, not an anomaly.",
+          "visual_direction": "Slide 2: original law requirements as a bulleted list. Slide 3: same list with the removed provisions in red strikethrough. Slide 5: map of US states with pending AI legislation, highlighting which face similar industry pressure. Dark background.",
+          "caption": "Colorado passed America's first comprehensive AI law in 2024, modelled on the EU AI Act. This week, before it even took effect, the transparency requirements were stripped out. That is the first documented rollback of a US AI law under industry pressure — and it happened before enforcement began."
+        },
+        "community_post": {
+          "question_or_poll": "Colorado's AI law had its transparency requirements removed before it even took effect. Is this an acceptable legislative process — or a sign that US AI regulation can't survive industry opposition?",
+          "poll_options": [
+            "Acceptable — laws should be revised based on feedback before implementation",
+            "Not acceptable — removing requirements before enforcement is regulatory capture",
+            "It's specific to Colorado — federal regulation would be harder to weaken",
+            "This is what will happen to every US state AI law"
+          ],
+          "engagement_rationale": "Regulatory capture versus democratic refinement is a real debate — this audience will disagree about whether industry feedback in the legislative process is legitimate or corrupt"
+        },
+        "meme": {
+          "concept": "AI regulation lifecycle chart: 'Pass law → Industry lobbies → Remove the parts that do anything → Announce compliance framework.' Subtitle: 'Colorado AI Act, 2024-2026.'",
+          "caption": "the regulatory process is working as designed",
+          "risk_level": "low",
+          "risk_note": null
+        }
+      },
+      "marked_as_used": false
+    },
+    {
+      "idea_id": "idea-022",
+      "story_id": "nvidia-china-market-share-zero",
+      "story_headline": "Nvidia CEO Jensen Huang confirms China AI chip market share has dropped to zero — Huawei is filling the gap",
+      "story_score": 5,
+      "formats": {
+        "youtube_video": {
+          "title": "Nvidia just lost China. Huawei won it. Here's what that means.",
+          "title_char_count": 54,
+          "hook": "Nvidia's CEO confirmed this week that the company has zero AI chip market share in China — and Huawei is the company that took it.",
+          "structure": [
+            "What Jensen Huang actually said: the specific admission about China market share and when it happened",
+            "What Huawei's AI chip capability actually looks like now — how the Ascend series compares to what Nvidia was selling in China before export controls",
+            "How this happened: the timeline from export controls to zero Nvidia share to Huawei dominance",
+            "What zero market share in China means for Nvidia's overall business and growth projections",
+            "What a world where Huawei dominates Chinese AI infrastructure looks like in three to five years — and whether that was the intended outcome of export controls"
+          ],
+          "target_audience": "People following AI geopolitics and the Nvidia story who want to understand what the chip war is actually producing",
+          "why_now": "Huang's admission came this week and was buried under the jobs-creation narrative of the same speech — the China market share story is the more consequential disclosure",
+          "estimated_length_mins": 11
+        },
+        "youtube_short": {
+          "hook_3sec": "Nvidia has zero AI chip market share in China. Huawei took it.",
+          "caption": "Jensen Huang confirmed this week that Nvidia's China AI market share is zero. Huawei filled the gap. That is the outcome of US export controls on AI chips — and almost every headline from the same speech was about something else.",
+          "visual_concept": "Market share pie chart: China AI chips. 2022: Nvidia visible. 2026: Nvidia gone, Huawei labelled. Simple, clear, no animation needed.",
+          "suggested_length_sec": 50,
+          "cta": "Full analysis on the main channel."
+        },
+        "image_post": {
+          "slide_titles": [
+            "Nvidia's CEO confirmed: zero AI chip market share in China",
+            "Who has it now",
+            "How this happened",
+            "What zero China share means for Nvidia",
+            "What Huawei AI infrastructure means for the rest of the world"
+          ],
+          "main_message": "Export controls removed Nvidia from the Chinese AI chip market. Huawei replaced them. That outcome was either the intention or a consequence of the policy — either way, it happened.",
+          "visual_direction": "Slide 2: simple before/after China AI chip market diagram. Slide 5: world map highlighting regions where Huawei AI infrastructure is expanding. Dark background, straightforward data visual.",
+          "caption": "Jensen Huang confirmed this week that Nvidia has zero AI chip market share in China. Huawei and domestic Chinese companies filled the gap. The headline from the same speech was about AI creating jobs. The China market share disclosure is the more significant fact."
+        },
+        "community_post": {
+          "question_or_poll": "Nvidia has zero AI chip market share in China, and Huawei has filled the gap. Was this the intended outcome of US export controls on AI chips?",
+          "poll_options": [
+            "Yes — the goal was to cut off Nvidia revenue, not prevent Chinese AI",
+            "No — the goal was to slow Chinese AI capability, which failed",
+            "Partly — controls worked on Nvidia's revenue but not on Chinese AI progress",
+            "Too early to judge — the effects compound over time"
+          ],
+          "engagement_rationale": "Policy intent versus policy outcome is a real analytical question — this audience will have different models of what export controls were for and whether success is measured by revenue or capability"
+        },
+        "meme": {
+          "concept": "Export control policy goal: 'Prevent China from accessing advanced AI chips.' Actual outcome: 'Nvidia has 0% market share, Huawei has the rest.' Policy architects: [goal post has moved].",
+          "caption": "mission accomplished (different mission)",
+          "risk_level": "low",
+          "risk_note": null
+        }
+      },
+      "marked_as_used": false
+    }
+  ]
+}
