@@ -1,6 +1,6 @@
 # Suspiciously Intelligent Dashboard
 
-An offline editorial intelligence system for the *Suspiciously Intelligent* YouTube channel. Runs a full weekly research-to-content pipeline locally, stores results as versioned scan archives, and presents everything through a single self-contained HTML dashboard.
+An offline editorial intelligence system for the *Suspiciously Intelligent* YouTube channel. Runs a full daily research-to-content pipeline locally, stores results as versioned scan archives, and presents everything through a single self-contained HTML dashboard.
 
 No cloud services. No subscriptions. No data leaving your machine.
 
@@ -8,7 +8,7 @@ No cloud services. No subscriptions. No data leaving your machine.
 
 ## What it does
 
-Each week, the pipeline:
+Each day, the pipeline:
 
 1. Searches 20+ sources across six story categories (company moves, model releases, regulation, jobs, hardware, safety/scams)
 2. Scores every story on a 0-10 rubric (recency, source confirmation, public interest, content opportunity)
@@ -76,7 +76,30 @@ http://localhost:8765/scans/latest/content_ideas.json
 
 ## Workflow
 
-### Run the pipeline
+### Automated daily scan (recommended)
+
+The pipeline runs automatically every day at 6:00 AM via Windows Task Scheduler. To set it up once:
+
+```powershell
+.\install_daily_scan_task.ps1          # register the scheduled task
+.\install_daily_scan_task.ps1 -Time "07:30"  # custom time
+```
+
+The task runs `run_daily_scan.ps1`, which invokes the full Claude pipeline, validates outputs, archives the run, and updates `scans/latest/`. If Claude exits with a non-zero code but all output files are fresh and valid (e.g. a stream timeout after completion), the scan is still archived rather than discarded.
+
+To remove the task:
+
+```powershell
+.\uninstall_daily_scan_task.ps1
+```
+
+To test without waiting for 6 AM:
+
+```powershell
+.\test_daily_scan.ps1
+```
+
+### Run the pipeline manually
 
 The pipeline is five sequential phases, each with its own prompt file in the project root:
 
@@ -88,13 +111,17 @@ The pipeline is five sequential phases, each with its own prompt file in the pro
 | 4 | `04_DASHBOARD.md` | `data.json` |
 | 5 | `05_VALIDATE.md` | `run_report.md` |
 
-After all five phases complete:
+After all five phases complete, run `run_daily_scan.ps1 -SkipScan` to validate, archive, and update `scans/latest/` without re-invoking Claude:
+
+```powershell
+.\run_daily_scan.ps1 -SkipScan
+```
+
+Or archive directly with the lower-level script:
 
 ```powershell
 .\archive_scan.ps1
 ```
-
-This copies all outputs into a dated folder under `scans/`, updates `scans/latest/`, and appends archive metadata to `run_report.md`.
 
 ### Load a historical scan
 
@@ -167,7 +194,11 @@ Key compatibility decisions:
 | `start_dashboard.ps1` | One-click launcher — starts server, waits for HTTP 200, opens browser |
 | `stop_dashboard.ps1` | Stops server by finding and killing the process on port 8765 |
 | `serve.ps1` | Zero-dependency local HTTP server on port 8765 (configurable) |
-| `archive_scan.ps1` | Archives a completed pipeline run into a dated scan folder |
+| `run_daily_scan.ps1` | Full pipeline runner — invokes Claude, validates, archives, updates `scans/latest/` |
+| `install_daily_scan_task.ps1` | Registers the daily 6 AM scheduled task in Windows Task Scheduler |
+| `uninstall_daily_scan_task.ps1` | Removes the scheduled task |
+| `test_daily_scan.ps1` | Runs the pipeline immediately for manual testing |
+| `archive_scan.ps1` | Archives a completed pipeline run into a dated scan folder (lower-level) |
 | `load_latest_scan.ps1` | Copies a scan archive back into the working directory |
 
 ---
@@ -188,6 +219,8 @@ This snapshot can be shared with a collaborator or loaded on another machine via
 | File | Purpose |
 |---|---|
 | `dashboard.html` | The complete dashboard — single self-contained HTML file |
+| `daily_scan_prompt.txt` | Prompt passed to Claude by `run_daily_scan.ps1` |
+| `DAILY_SCAN_AUTOMATION.md` | Full reference for the automated daily scan system |
 | `CHANNEL_BRIEF.md` | Editorial voice, title rules, banned words, tone guidelines |
 | `DATA_SCHEMAS.md` | JSON schema definitions for all pipeline output files |
 | `AGENT_README.md` | Instructions for running the pipeline with an AI assistant |
