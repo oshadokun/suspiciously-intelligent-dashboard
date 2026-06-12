@@ -1,61 +1,61 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-05-08T11:00:00Z",
-  "total_ideas": 15,
+  "generated_at": "2026-06-09T11:30:00Z",
+  "total_ideas": 10,
   "ideas": [
     {
       "idea_id": "idea-001",
-      "story_id": "openai-musk-altman-trial-week2",
-      "story_headline": "Elon Musk v. Sam Altman trial enters second week as safety record goes under the microscope",
+      "story_id": "openai-ipo-filing-june2026",
+      "story_headline": "OpenAI files confidential S-1 with SEC, readying Wall Street debut one week after Anthropic",
       "story_score": 9,
       "formats": {
         "youtube_video": {
-          "title": "The OpenAI trial is about safety, not Elon Musk",
-          "title_char_count": 47,
-          "hook": "Most trial coverage focuses on who said what to whom — but tucked into the testimony this week is something more interesting: what OpenAI's safety process actually looks like under oath.",
+          "title": "Both AI safety labs just filed for IPO. Let's talk about that.",
+          "title_char_count": 62,
+          "hook": "This week, the two companies most publicly associated with keeping AI safe both filed paperwork to go public — and that timing is worth examining.",
           "structure": [
-            "What the trial is officially about versus what is actually coming out in testimony",
-            "The specific witness statement that product pressure compromised safety work — who said it and what it means",
-            "How OpenAI has publicly described its safety process versus the internal picture the trial is producing",
-            "Why this matters beyond Musk v. Altman: what precedent a verdict sets for how AI companies describe their own safety practices",
-            "The question nobody in the coverage has asked: if these safety concerns were real and internal, why didn't they surface before a lawsuit?"
+            "What OpenAI and Anthropic each claimed their mission was when they were founded, and how they distinguished themselves from profit-driven AI labs",
+            "What going public means structurally — fiduciary duty, shareholder primacy, and who gains meaningful control of strategic decisions",
+            "The specific financial details: $850B valuation, $2B monthly revenue, what investor expectations at that scale require of a company",
+            "What OpenAI's own governance documents say about the relationship between profit motive and mission — and whether those provisions survive a public listing",
+            "What changes, concretely, when a mission-driven AI lab answers to public shareholders — and whether the safety framing can coexist with quarterly earnings pressure"
           ],
-          "target_audience": "Tech-adjacent professionals who have followed OpenAI's safety commitments and want the substance of the trial, not the drama",
-          "why_now": "The trial is in its second week and the safety testimony is happening now — once the verdict is in, the moment for this analysis closes",
+          "target_audience": "Tech-adjacent professionals who understand corporate governance loosely and want the structural argument laid out clearly — not financial analysts, but people who follow AI and want to understand what the IPO actually means",
+          "why_now": "Both companies filed within the same week — the pattern only becomes visible if both are covered while both are fresh. Within two weeks, these will be separate financial stories. Right now, the simultaneity is the story.",
           "estimated_length_mins": 14
         },
         "youtube_short": {
-          "hook_3sec": "The OpenAI trial isn't about Musk. It's about safety.",
-          "caption": "Everyone's covering the Musk-Altman relationship. Almost nobody is covering what witnesses are saying about how safety decisions actually get made at OpenAI. Full breakdown on the main channel.",
-          "visual_concept": "Text on dark background: 'What Musk testified' on one side, 'What an employee testified about safety' on the other. The contrast does the work without any voiceover needed.",
+          "hook_3sec": "Two AI safety labs. One week. Both filing for IPO.",
+          "caption": "OpenAI and Anthropic spent years saying they were the responsible alternative to profit-driven AI. This week both filed for public listing. The question of what that changes isn't being asked loudly enough.",
+          "visual_concept": "Side-by-side: left panel shows key quotes from OpenAI and Anthropic founding documents about mission and profit; right panel shows IPO filing headlines with dates. Static graphic, dark background, high-contrast typography. No logos, no talking head — the contrast is the content.",
           "suggested_length_sec": 55,
           "cta": "Full breakdown on the main channel."
         },
         "image_post": {
           "slide_titles": [
-            "The OpenAI trial is producing two stories",
-            "Story 1: Who said what to whom (what everyone's covering)",
-            "Story 2: What the testimony reveals about safety (what almost nobody is covering)",
-            "The specific claim about product pressure and safety work",
-            "Why this matters more than the personal drama"
+            "Two AI safety labs filed for IPO this week",
+            "What OpenAI's founding documents said about profit motive",
+            "What Anthropic said about why it was structurally different",
+            "What public markets actually require of a company",
+            "What this changes for users, researchers, and the field"
           ],
-          "main_message": "The most important testimony this week isn't about the Musk-Altman relationship. It's about how OpenAI handles safety internally.",
-          "visual_direction": "Dark background, white primary text, amber accent for the 'Story 2' slide to signal it's the important one. No photos. Source citations in small text at bottom of each fact slide.",
-          "caption": "Two things are happening at the OpenAI trial. One is getting all the coverage. The other one matters more. Slides break it down."
+          "main_message": "Going public is not inherently bad. But it changes what these companies are legally required to care about.",
+          "visual_direction": "Dark background (#0f1117). Each slide has one bold headline in white (24px, weight 600) and 2-3 supporting lines in secondary text (#8b90a4). Slides 2-3 pull specific quotes from founding documents alongside IPO headlines — quote in italic, source cited below in small text. No images, no logos. Contrast between stated mission and financial action is the entire visual.",
+          "caption": "Two companies that positioned themselves as the responsible version of AI both filed IPO paperwork this week. Here's what that actually means — and why the framing matters more than the filing itself."
         },
         "community_post": {
-          "question_or_poll": "If an AI company's safety process turns out to look different under oath than in its public communications, should that have legal consequences?",
+          "question_or_poll": "Should AI safety companies be allowed to go public — or does shareholder accountability fundamentally change what they're for?",
           "poll_options": [
-            "Yes — AI safety claims should be legally binding",
-            "No — internal debates don't belong in court",
-            "Only if there's evidence of deliberate misrepresentation",
-            "The law isn't equipped to answer this yet"
+            "Public markets can coexist with a genuine safety mission",
+            "Going public makes the safety framing a structural liability",
+            "It depends entirely on how governance is designed",
+            "The safety framing was always partly positioning"
           ],
-          "engagement_rationale": "This question cuts across the trial itself into a genuine policy gap — there is currently no legal standard for how AI companies must represent their safety practices, and the trial is forcing that question into the open."
+          "engagement_rationale": "No safe answer — all four are defensible by someone with a coherent argument. Forces the audience to examine what 'AI safety company' actually means when it is a publicly traded entity, which is a question this community has real opinions on and genuine disagreements about."
         },
         "meme": {
-          "concept": "Split image: headlines about the trial (all Musk/Altman relationship drama) versus the actual testimony slide about safety processes. Caption: 'journalism in the age of spectacle'.",
-          "caption": "not saying the personal drama isn't real. just saying there's a second story in this trial that keeps getting buried.",
+          "concept": "The 'this is fine' dog sitting in a burning room, but the dog is reading an S-1 filing document. Caption references both companies doing it the same week.",
+          "caption": "both AI safety labs filed for IPO this week: this is fine",
           "risk_level": "low",
           "risk_note": null
         }
@@ -64,57 +64,57 @@
     },
     {
       "idea_id": "idea-002",
-      "story_id": "anthropic-mythos-cyber-danger",
-      "story_headline": "Anthropic CEO warns of cybersecurity 'moment of danger' as Mythos model finds tens of thousands of software vulnerabilities",
+      "story_id": "anthropic-when-ai-builds-itself-pause",
+      "story_headline": "Anthropic calls for global AI pause days after its own IPO filing — as Claude writes 80% of its own codebase",
       "story_score": 8,
       "formats": {
         "youtube_video": {
-          "title": "Anthropic's CEO just announced his model is dangerous",
-          "title_char_count": 53,
-          "hook": "There's an unusual move in this announcement: a CEO publicly stating that his own product has created a narrow window for catastrophe — and framing it as a reason to trust his company.",
+          "title": "Anthropic wants to pause AI. It filed for IPO three days earlier.",
+          "title_char_count": 65,
+          "hook": "There is a three-day gap between Anthropic filing to go public and Anthropic calling for a global AI pause — and that gap deserves a closer look than it's getting.",
           "structure": [
-            "What Mythos actually did: finding 300 Firefox vulnerabilities where a previous model found 20 — what that scale means in practice",
-            "The Project Glasswing access restriction: who gets in, what the criteria are, and what Anthropic isn't saying about the vetting process",
-            "The rhetorical move Amodei is making: announcing danger as a trust signal — how this differs from previous safety announcements",
-            "What 'tens of thousands of vulnerabilities across every major OS and browser' actually means for systems most people use daily",
-            "The question this raises about the other labs: if Mythos found this, what did OpenAI's GPT-5.5-Cyber find — and why are both models restricted?"
+            "What the 'When AI builds itself' report actually says — the 80% statistic, what recursive self-improvement means, and why Anthropic frames it as a governance threshold",
+            "The specific proposal: a conditional, verifiable, coordinated international pause — what each of those words means legally and practically, and who would enforce it",
+            "The IPO filing timeline and what Anthropic's financial documents imply about growth expectations — and whether a company preparing for a public offering can credibly slow down",
+            "Why the combination of self-accelerating AI development and public market pressure creates an inherent structural contradiction that the report does not address",
+            "Whether a conditional pause that requires every competitor to agree simultaneously is a governance proposal or a position that can never be acted on — and why that matters"
           ],
-          "target_audience": "Technically curious professionals who use major software platforms and want to understand what this announcement actually claims versus what it proves",
-          "why_now": "Amodei's public warning was issued this week and frames a specific, narrow remediation window — the urgency is embedded in the story itself",
-          "estimated_length_mins": 12
+          "target_audience": "People who follow AI governance debates and want the structural argument laid out without either panic or dismissal — they've heard of the report but want the contradiction examined clearly",
+          "why_now": "The three-day gap between IPO filing and pause proposal is what makes this specific — the pattern is not visible without both pieces of news being recent. Within two weeks, the pause report becomes a standalone policy story disconnected from the financial context that makes it complicated.",
+          "estimated_length_mins": 13
         },
         "youtube_short": {
-          "hook_3sec": "Anthropic's CEO says his own model is dangerous.",
-          "caption": "Dario Amodei announced this week that Mythos found tens of thousands of software vulnerabilities. The way he announced it is more interesting than the number.",
-          "visual_concept": "Screen recording of the CNBC article headline, then cut to the Project Glasswing access page showing restricted access. Text overlay: 'Found thousands of vulnerabilities. Access: invite only.' Static images, no talking head needed.",
-          "suggested_length_sec": 50,
-          "cta": "Full analysis on the main channel."
+          "hook_3sec": "Anthropic filed for IPO on Monday. Called for an AI pause on Thursday.",
+          "caption": "The same company. Three days apart. Both things happened this week. The combination tells you something.",
+          "visual_concept": "A simple timeline graphic on dark background — single horizontal line. Two labelled points: 'June 1: Anthropic files for IPO (confidential S-1)' and 'June 4: Anthropic calls for global AI pause.' No talking head. No voiceover needed. The timeline is the argument. Source citations at the bottom.",
+          "suggested_length_sec": 45,
+          "cta": "Full story on the main channel."
         },
         "image_post": {
           "slide_titles": [
-            "Anthropic's latest model found tens of thousands of software vulnerabilities",
-            "In Firefox alone: 300 found (previous model found 20)",
-            "Who can access it: vetted partners only (Project Glasswing)",
-            "What the CEO said: 'narrow window' to patch before bad actors find the same",
-            "The question nobody asked: if it's this dangerous, why announce it publicly at all?"
+            "Anthropic this week: two moves, three days apart",
+            "What the pause report actually says — the 80% statistic",
+            "What filing for an IPO actually requires of a company",
+            "What a 'conditional pause' means in practice",
+            "The question nobody's asking yet"
           ],
-          "main_message": "Anthropic announced a security 'moment of danger' this week. The announcement itself is as interesting as the vulnerability count.",
-          "visual_direction": "Dark background with red accent on the vulnerability numbers. Clean sans-serif font. Each slide should feel like a security briefing, not a news summary. Small source citation on each data slide.",
-          "caption": "When a CEO publicly announces that his own model is dangerous enough to require restricted access, that's worth reading carefully. The framing tells you something about how AI labs manage public trust. Slides break down what we know."
+          "main_message": "Anthropic published a report this week that deserves to be read alongside its IPO filing, not instead of it.",
+          "visual_direction": "Dark background. Slide 1 is a two-column split: left column shows 'June 1' with the IPO headline; right column shows 'June 4' with the pause report headline. Date labels in accent colour (#6366f1). Subsequent slides are single-column with one key quote per slide in italic, source cited below in secondary text. No stock imagery, no gradients.",
+          "caption": "Here are two things Anthropic did this week. I'm not saying one cancels the other out. I am saying they're worth reading together — and that most coverage only read them separately."
         },
         "community_post": {
-          "question_or_poll": "If an AI model finds a critical software vulnerability, who should it tell first?",
+          "question_or_poll": "Is it possible to genuinely pursue AI safety and go public in the same year — or does one structurally compromise the other?",
           "poll_options": [
-            "The software vendor, privately",
-            "The government, for national security triage",
-            "The public, for maximum pressure to patch",
-            "Whoever runs the AI model decides"
+            "Yes — mission and markets can coexist with the right governance",
+            "No — fiduciary duty always wins eventually",
+            "It depends on what the IPO structure actually looks like",
+            "The safety mission was always secondary to growth"
           ],
-          "engagement_rationale": "This is an active, unresolved debate in cybersecurity policy (responsible disclosure) that most people haven't encountered — applying it to AI-discovered vulnerabilities makes it immediately relevant to everyone who uses software."
+          "engagement_rationale": "Directly tests the audience's beliefs about corporate incentives versus stated values — a question without a safe answer that forces genuine reflection on whether public accountability changes what a company is for. This audience has thought about this; the question surfaces real disagreements."
         },
         "meme": {
-          "concept": "Anthropic announcement framed as a job listing: 'We found 300 vulnerabilities in Firefox. 20,000 across all software. Access restricted to trusted partners. Apply at Project Glasswing. Qualifications: unknown.'",
-          "caption": "normal tuesday at the frontier lab",
+          "concept": "Two-panel format. Left panel: 'Anthropic on Monday' — a calendar showing 'confidential S-1 filing.' Right panel: 'Anthropic on Thursday' — the headline 'global AI pause.' Caption beneath both panels.",
+          "caption": "we contain multitudes",
           "risk_level": "low",
           "risk_note": null
         }
@@ -123,117 +123,117 @@
     },
     {
       "idea_id": "idea-003",
-      "story_id": "anthropic-spacex-xai-colossus-deal",
-      "story_headline": "Anthropic signs deal to use all of xAI's Colossus 1 data center — months after Musk called Anthropic a civilization threat",
+      "story_id": "tech-layoffs-2026-ai-capex-transfer",
+      "story_headline": "142,000 tech layoffs in 2026 as profitable companies convert payroll directly into $700B AI infrastructure",
       "story_score": 8,
       "formats": {
         "youtube_video": {
-          "title": "Elon Musk is funding the company he called a threat",
-          "title_char_count": 51,
-          "hook": "In February, Elon Musk said Anthropic hates Western civilization. This week, his company signed a deal to provide Anthropic with 220,000 GPUs.",
+          "title": "The $700B trade: tech companies are firing people to buy GPUs",
+          "title_char_count": 61,
+          "hook": "The companies doing the most layoffs in 2026 are the same ones reporting record profits — and here is exactly what they are spending the money on instead.",
           "structure": [
-            "Timeline of Musk's public statements about Anthropic versus the actual business relationship that has been developing",
-            "What the Colossus 1 deal actually means — 300MW and 220,000 GPUs is a significant fraction of Anthropic's total compute capacity",
-            "The trial context: Musk is simultaneously suing OpenAI for betraying AI safety while his firm supplies compute to OpenAI's primary competitor",
-            "What this reveals about how AI ideology and AI economics actually interact at this scale",
-            "The question worth sitting with: do Musk's stated AI safety concerns guide his business decisions at all, or are they entirely separate?"
+            "The numbers: 142,000 layoffs, who is cutting, how profitable these companies actually are — not startups, not struggling businesses, but the most profitable tech companies in history",
+            "What the $700 billion is actually being spent on — GPU procurement, data centre construction, energy deals — and the specific commitments from Amazon ($200B), Microsoft, Alphabet, and Meta",
+            "The explicit connection: Oracle's 30,000 cuts announced alongside a $200B AI infrastructure pledge — and what the internal logic of that decision actually looks like",
+            "What this tells us about how AI investment decisions are being made inside large companies — and who in those organisations is making them versus who is affected",
+            "What the pattern implies for the next three years of the tech labour market — and whether regulators or workers are currently equipped to respond to profitable-company layoffs"
           ],
-          "target_audience": "Anyone who has followed Musk's AI narrative — from OpenAI co-founder to xAI founder to OpenAI critic — and wants the business reality explained clearly",
-          "why_now": "The deal was announced this week while the Musk-OpenAI trial is in progress — the juxtaposition is only available for the trial's duration",
-          "estimated_length_mins": 11
+          "target_audience": "Business-oriented professionals and knowledge workers who want to understand the structural decisions driving the tech labour market — not just the headline number, but what is actually being exchanged",
+          "why_now": "The 142,000 total crossed this week as hyperscaler capex pledges were simultaneously being published — the two data points becoming visible together makes the trade-off explicit. The story loses its pattern clarity if covered in isolation later.",
+          "estimated_length_mins": 12
         },
         "youtube_short": {
-          "hook_3sec": "Elon Musk called Anthropic a threat to civilization.",
-          "caption": "Then his company gave them 220,000 GPUs. This week. While he's in trial against OpenAI for AI safety concerns. The full story is on the main channel.",
-          "visual_concept": "Text overlay of Musk's February quote about Anthropic on one half, the CNBC Colossus deal headline on the other. Date stamps visible on both. No narration needed — the dates do the work.",
-          "suggested_length_sec": 45,
-          "cta": "Full context on the main channel."
+          "hook_3sec": "The most profitable tech companies are cutting the most jobs in 2026.",
+          "caption": "Oracle: record profits. 30,000 employees cut. Amazon, Meta, Microsoft: record profits. $700 billion committed to AI infrastructure this year. The layoffs aren't because the companies are struggling. That's the part that matters.",
+          "visual_concept": "Split-screen, dark background. Left column header: 'Company profits' — lists company names with profit figures. Right column header: 'Layoffs 2026' — same companies with layoff counts. No headshots, no logos. Numbers do the work. Source citations at bottom. Can be viewed muted — every data point is visible as text.",
+          "suggested_length_sec": 60,
+          "cta": "Full breakdown with the data on the main channel."
         },
         "image_post": {
           "slide_titles": [
-            "February 2026: Musk says Anthropic 'hates Western civilization'",
-            "May 6, 2026: Musk's company signs compute deal with Anthropic",
-            "Also May 2026: Musk is in trial against OpenAI over AI safety",
-            "The deal: 300MW, 220,000 Nvidia GPUs, all of Colossus 1",
-            "What to make of the gap between stated principles and business decisions"
+            "Tech layoffs 2026: 142,000 and rising",
+            "The companies cutting the most are the most profitable",
+            "$700 billion committed to AI infrastructure this year alone",
+            "What gets cut: software engineers, support, QA roles",
+            "What gets bought: GPUs, data centres, energy contracts",
+            "What this trade looks like from the outside"
           ],
-          "main_message": "Elon Musk's AI ideology and Elon Musk's business decisions are on different tracks — and this week made that very visible.",
-          "visual_direction": "Timeline format. Dark background. Each slide has a date stamp in amber and the fact in white. The visual contrast between the hostile quote slide and the business deal slide should be stark. No images of individuals.",
-          "caption": "Filed under: what people say about AI, and what they actually do. The dates are the story here."
+          "main_message": "This is not a story about companies in trouble. This is a story about companies making a specific choice.",
+          "visual_direction": "Dark background, six slides. Slide 2 is a two-column table: Company | 2026 Profit | Layoff Count. Slide 3 is a horizontal bar chart of capex pledges (text-only, not a graphic — use monospace numbers with bar-length padding). Slides 4-5 are bulleted lists. Slide 6 is a single question in large white text. No stock imagery. Source citation in small secondary text on every data slide.",
+          "caption": "142,000 tech layoffs in 2026. Mostly at profitable companies. Here's where the money went instead — and what the arithmetic says about where AI investment is actually landing and who is paying for it."
         },
         "community_post": {
-          "question_or_poll": "When a tech founder publicly criticises a competitor's ethics and then does business with them, how should we read that?",
+          "question_or_poll": "If a company is profitable and cuts jobs specifically to fund AI infrastructure, is that a legitimate business decision — or should that trigger a regulatory response?",
           "poll_options": [
-            "Business decisions are separate from public statements — this is normal",
-            "It suggests the ethical criticism wasn't genuine",
-            "It means the business need outweighed the stated concern",
-            "Both things can be true simultaneously"
+            "Legitimate — companies can allocate capital however they choose",
+            "A regulatory response is needed — profitable layoffs are a different category",
+            "Depends on scale and which sector the workers are in",
+            "I need more information before forming a view"
           ],
-          "engagement_rationale": "This is a question about the relationship between stated principles and actions in tech — the Musk-Anthropic case is specific enough to ground the discussion without being abstract."
+          "engagement_rationale": "Forces the audience to confront whether profitability changes the ethics or policy implications of headcount cuts — a genuine disagreement between people who hold different views on capital allocation, labour protections, and the appropriate scope of regulation."
         },
         "meme": {
-          "concept": "The 'they're the same picture' meme format: 'Anthropic hates Western civilization' (Musk, Feb 2026) / 'We are providing Anthropic with 220,000 GPUs' (SpaceX, May 2026). Pam from The Office in the middle saying 'They're the same picture.'",
-          "caption": "principles and revenues, walking hand in hand",
-          "risk_level": "medium",
-          "risk_note": "Involves Musk as a named individual in potentially critical framing. Kept factual — both statements are sourced. The meme satirises the gap between public statements and business actions, not a personal characteristic. Caption avoids commentary on motive."
+          "concept": "The 'two buttons' sweating meme format — one button labelled 'hire software engineers,' the other labelled 'buy 10,000 more H100s.' The sweating figure is labelled 'hyperscaler CFO, 2026.'",
+          "caption": "hyperscaler CFOs this quarter",
+          "risk_level": "low",
+          "risk_note": null
         }
       },
       "marked_as_used": false
     },
     {
       "idea_id": "idea-004",
-      "story_id": "deepmind-uk-workers-unionize-pentagon",
-      "story_headline": "Google DeepMind UK workers vote 98% to unionize over Pentagon AI deal that overrides eight years of company ethics pledges",
-      "story_score": 8,
+      "story_id": "microsoft-build-2026-mai-models",
+      "story_headline": "Microsoft launches seven in-house AI models at Build 2026, explicitly framing them as a move away from OpenAI",
+      "story_score": 7,
       "formats": {
         "youtube_video": {
-          "title": "What clause made 98% of DeepMind vote to unionize?",
-          "title_char_count": 50,
-          "hook": "A 98% vote is not a close call — it means something specific happened, not something vague.",
+          "title": "Microsoft is making OpenAI optional inside its own AI stack",
+          "title_char_count": 59,
+          "hook": "There is something unusual about a company announcing new AI models by pointing out they are designed to replace the company it paid $13 billion to partner with.",
           "structure": [
-            "DeepMind's history: eight years of publicly maintained ethics commitments, what they said and when they said it",
-            "The Pentagon deal clause: 'for any lawful purpose' — what those four words actually permit and why workers found them unacceptable",
-            "Who voted and why 98% is a remarkable number in a union vote context — what it tells us about the consensus among researchers",
-            "The workers' specific demands: restoring the weapons pledge, an independent ethics body, and a right to abstain — how realistic each is",
-            "What happens if Google declines: the ten-day deadline, the legal escalation path, and what precedent a DeepMind union would set for AI lab workers globally"
+            "What the MAI models actually are — capability claims, parameter counts, context windows — and what independent benchmark results say versus Microsoft's own reported numbers",
+            "The timeline of the Microsoft-OpenAI relationship: when the investment happened, what it bought, and what Azure's product roadmap looked like before this announcement",
+            "What Azure's competitive position looks like if Microsoft no longer routes traffic through OpenAI models — the revenue and margin implications for OpenAI specifically",
+            "What this means for OpenAI's IPO narrative, since its largest cloud partner is now building competing products and has explicitly said it wants to reduce dependency",
+            "The broader pattern playing out across cloud platforms: AWS, Google, and now Microsoft all building in-house AI to reduce dependency on AI startups they initially partnered with"
           ],
-          "target_audience": "People who work in or adjacent to tech who have wondered whether AI researchers can actually shape how their work is used",
-          "why_now": "The ten-day deadline for Google management to respond runs out this week — the story has an imminent resolution point",
-          "estimated_length_mins": 13
+          "target_audience": "Business and developer audience interested in AI industry dynamics and the economics of platform relationships — people who understand that Microsoft's investment in OpenAI was never just a product deal",
+          "why_now": "The Build 2026 announcement is this week, and the OpenAI IPO narrative is also this week — the two stories together reveal a tension in the Microsoft-OpenAI relationship that is only visible if both are covered simultaneously while both are fresh.",
+          "estimated_length_mins": 11
         },
         "youtube_short": {
-          "hook_3sec": "98% of DeepMind workers voted to unionize.",
-          "caption": "Not over wages. Not over hours. Over one clause in a government contract: 'for any lawful purpose.' Here's why that phrase crossed a line. Full breakdown linked.",
-          "visual_concept": "Text on screen: the specific contract clause in large text. Then: '98% voted against it.' Clean, no decoration. The contrast between legal boilerplate and a near-unanimous vote tells the story.",
-          "suggested_length_sec": 60,
-          "cta": "Full analysis on the main channel."
+          "hook_3sec": "Microsoft just launched seven AI models to replace OpenAI.",
+          "caption": "They called it 'reducing reliance.' OpenAI also filed for IPO this week. Connect the dots yourself.",
+          "visual_concept": "Static graphic on dark background. A directional arrow from 'Microsoft' pointing to 'OpenAI' labelled '$13 billion investment.' A second arrow from 'Microsoft' pointing to 'MAI Models (Build 2026)' with a label '10x cheaper.' Clean sans-serif, no logos required — the relationship is visible in the labels.",
+          "suggested_length_sec": 45,
+          "cta": "Full breakdown on the main channel."
         },
         "image_post": {
           "slide_titles": [
-            "DeepMind workers voted 98% to unionize this week",
-            "Not over pay. Over this clause: 'for any lawful purpose'",
-            "What that clause permits the US military to do with Gemini",
-            "What workers are demanding: the scrapped weapons pledge restored",
-            "What happens next: 10 days for Google to respond",
-            "Why this matters beyond DeepMind"
+            "Microsoft invested $13B in OpenAI. This week it launched 7 models to replace it.",
+            "What the MAI models claim to do — and what independent tests say",
+            "What Microsoft said about its OpenAI dependency, in its own words",
+            "Why this matters for OpenAI's IPO story",
+            "The pattern across cloud: everyone is building their own AI now"
           ],
-          "main_message": "The DeepMind union vote is about one specific clause in one specific government contract — and what that clause implies.",
-          "visual_direction": "Dark background. The contract clause 'for any lawful purpose' appears on its own slide in large amber text to emphasise that this specific language is the turning point. Clean sans-serif throughout. No stock images.",
-          "caption": "Most coverage of this story says 'workers unionize over military AI.' That's not wrong, but the specific mechanism is more interesting: four words in a government contract clause. The slides explain why those words matter."
+          "main_message": "Microsoft didn't leave OpenAI. It built an exit ramp.",
+          "visual_direction": "Dark background, five slides. Slide 2 includes a small inline comparison table: MAI-Thinking-1 vs. GPT-5.5 on SWE Bench Pro, with cost-per-token comparison. Monospace font for numbers. Slide 3 uses a direct quote from Microsoft's Build 2026 keynote with attribution. Each slide has a source citation in 12px secondary text at the bottom.",
+          "caption": "Microsoft is still invested in OpenAI. It also just announced models designed to replace OpenAI inside its own products. Those two things are both true — and the combination tells you something about where this relationship is heading."
         },
         "community_post": {
-          "question_or_poll": "Should AI researchers have the legal right to refuse work on military applications without losing their job?",
+          "question_or_poll": "If Microsoft's own models can match or beat OpenAI at a tenth of the cost, what is the $13 billion investment actually worth now?",
           "poll_options": [
-            "Yes — conscience rights should apply to AI work",
-            "No — employment contracts define scope",
-            "Only with case-by-case review",
-            "It depends on the application"
+            "Still worth it — ChatGPT's brand and user base are irreplaceable",
+            "Microsoft is systematically reducing its dependency and the deal will unwind",
+            "The relationship becomes a liability if OpenAI goes public",
+            "Too early to judge — the MAI models haven't been independently tested at scale"
           ],
-          "engagement_rationale": "This question doesn't have an obvious answer and sits at the intersection of labour rights, national security, and AI ethics — the DeepMind vote makes it immediately grounded rather than hypothetical."
+          "engagement_rationale": "Forces the audience to evaluate the economics of the Microsoft-OpenAI relationship using real numbers from this week — a genuine valuation question with no consensus answer and real stakes for how people think about AI industry consolidation."
         },
         "meme": {
-          "concept": "Timeline format: 'Google DeepMind, 2018: We will not build AI for weapons.' / 'Google DeepMind, 2026: We will provide AI to the DoD for any lawful purpose.' / 'DeepMind workers, 2026: We noticed.'",
-          "caption": "the workers did the reading",
+          "concept": "A contractor who taught their client everything they know, framed as a learning moment. Caption references the Microsoft-OpenAI dynamic without naming individuals.",
+          "caption": "microsoft after spending $13B on OpenAI: 'actually I think I've got it from here'",
           "risk_level": "low",
           "risk_note": null
         }
@@ -242,57 +242,57 @@
     },
     {
       "idea_id": "idea-005",
-      "story_id": "meta-layoffs-8000-ai-restructuring",
-      "story_headline": "Meta to cut 8,000 jobs on May 20 as $135 billion AI spend reshapes workforce into AI-focused 'pods'",
-      "story_score": 8,
+      "story_id": "openai-chatgpt-dreaming-memory",
+      "story_headline": "OpenAI rolls out ChatGPT 'Dreaming V3' — a memory system that rewrites itself without user review",
+      "story_score": 7,
       "formats": {
         "youtube_video": {
-          "title": "Meta is replacing workers with AI spend. Explicitly.",
-          "title_char_count": 52,
-          "hook": "Companies have spent three years saying AI will augment workers. Meta's announcement this week said something different, and the language they used is worth examining.",
+          "title": "ChatGPT's memory now updates itself. Here's what that removes.",
+          "title_char_count": 62,
+          "hook": "OpenAI upgraded ChatGPT's memory this week. The upgrade improved recall significantly. It also removed a feature that let users see exactly what the system was remembering about them.",
           "structure": [
-            "What Meta actually said — 'reallocation toward AI infrastructure' not 'cost reduction' — and why the word choice matters",
-            "The numbers: 8,000 cut May 20, 6,000 open roles cancelled, AI capex up from $72B to $125-145B this year alone",
-            "The 'pods' restructuring: what AI-focused pods are, what work they replace, and what Meta expects them to produce",
-            "How this compares to previous AI-driven layoff announcements — what's different about the explicit framing this time",
-            "What the pattern across OpenAI, Anthropic, Meta, and Microsoft announcements this week suggests about where the industry is heading"
+            "How the old memory system worked — what users could see, edit, and delete, and what made it auditable by the person being remembered",
+            "What Dreaming V3 does differently — the background synthesis process, what 'reading across years of conversations' means technically, and how memories are updated without user prompting",
+            "What the audit trail change means in practice: what users can no longer review, what still can be deleted, and how the opt-out works",
+            "OpenAI's own benchmark numbers — what they measure, who ran the evals, and what it means that the factual recall improvement was measured by OpenAI on OpenAI's own test",
+            "The broader question this raises: when an AI system updates its model of who you are without asking, what category of tool has it become"
           ],
-          "target_audience": "Professionals in knowledge work who have been told AI will augment their jobs and want an honest assessment of what the current data actually shows",
-          "why_now": "The cuts happen May 20 — two weeks from now — making this the window to understand what's happening before it happens",
-          "estimated_length_mins": 12
+          "target_audience": "Regular ChatGPT users who care about how the system is building a picture of them — not privacy experts, but people who use AI tools daily and want to understand what changed",
+          "why_now": "Dreaming V3 began rolling out this week — the audit trail concern is fresh and not yet widely discussed. The coverage so far has focused on the capability improvement, not the transparency trade-off. That gap closes quickly.",
+          "estimated_length_mins": 10
         },
         "youtube_short": {
-          "hook_3sec": "Meta just said explicitly: AI is replacing people.",
-          "caption": "Not 'augmenting.' Not 'reshaping.' The internal framing is reallocation of human roles toward AI infrastructure. 8,000 cuts on May 20. $135B in AI spend. Full breakdown on the main channel.",
-          "visual_concept": "Text overlay showing the Meta statement about 'reallocation toward AI infrastructure' versus the layoff number. Static, no talking head. The language contrast is the visual.",
+          "hook_3sec": "ChatGPT just changed how it remembers you.",
+          "caption": "Old system: you could see every memory, edit it, delete it. New system: it updates silently in the background. Both things are true. Here's why the difference matters.",
+          "visual_concept": "Side-by-side screen simulation. Left side labelled 'Old system': shows a mock ChatGPT memory list with user-editable named entries and edit/delete buttons visible. Right side labelled 'Dreaming V3': shows a grey panel with text 'Memory synthesised automatically — no manual list.' The contrast is the entire story. Can be watched muted — all information is in the visual.",
           "suggested_length_sec": 50,
-          "cta": "Full breakdown on the main channel."
+          "cta": "Full breakdown on the channel."
         },
         "image_post": {
           "slide_titles": [
-            "Meta's announcement this week used a specific phrase",
-            "'Reallocation toward AI infrastructure' — not cost-cutting",
-            "8,000 jobs cut May 20. 6,000 open roles cancelled.",
-            "AI capex: $72B in 2025 → up to $145B in 2026",
-            "The question this raises about the 'AI augments workers' narrative"
+            "ChatGPT just changed how it remembers you",
+            "Old system: you reviewed every memory manually",
+            "New system: it updates itself in the background",
+            "What you can still control — and what you can't",
+            "The question worth asking about a system that remembers for you"
           ],
-          "main_message": "The language Meta chose to explain its layoffs this week is different from what we've heard before — and worth paying attention to.",
-          "visual_direction": "Dark background. The phrase 'reallocation toward AI infrastructure' appears in large amber text on its own slide — it should feel like a quote being scrutinised, not a headline. Numbers in white. Minimal design.",
-          "caption": "Most AI job stories are about fear of future displacement. Meta's announcement this week was about present displacement framed as a design choice. The language in the slides is the story."
+          "main_message": "The upgrade is real. The trade-off is also real.",
+          "visual_direction": "Dark background. Slides 2-3 show a before/after using mock memory list interfaces — clean monospace font in bordered boxes, minimal accent colour on changed elements. Slide 4 uses a simple two-column 'Still controllable / No longer visible' layout. Slide 5 ends on a single large question in primary white text. No stock imagery.",
+          "caption": "ChatGPT's memory got better this week. It also got harder to audit. Here's what changed — and what it means for how you think about what it knows about you."
         },
         "community_post": {
-          "question_or_poll": "When a company cuts jobs and simultaneously increases AI spending, which framing is more accurate?",
+          "question_or_poll": "Would you rather have an AI that remembers more about you accurately, or one that remembers less but shows you exactly what it stores?",
           "poll_options": [
-            "Replacing workers with AI",
-            "Reallocating resources toward higher-value work",
-            "Both are true at the same time",
-            "It depends on whether those workers are offered retraining"
+            "Better accuracy — I trust it to learn me correctly",
+            "Full visibility — I want to see and control what it knows",
+            "Both should be possible — this is a product choice, not a real trade-off",
+            "I turn memory off entirely anyway"
           ],
-          "engagement_rationale": "This question cuts to the core of how AI-driven restructuring is understood — and both sides are defensible, which makes it genuinely engaging rather than a trap with an obvious answer."
+          "engagement_rationale": "Directly surfaces a values conflict between personalisation and control that will resonate with anyone who uses AI tools regularly. The question has no obviously correct answer and depends on how much the individual trusts the system — a real split in this audience."
         },
         "meme": {
-          "concept": "'AI will augment workers, not replace them' said at every AI conference 2022-2025 / Meta cutting 8,000 jobs and redirecting budget to AI infrastructure / 'Augment' as a word doing heavy lifting.",
-          "caption": "words are important",
+          "concept": "A user typing 'what does ChatGPT think I'm like?' then trying to find the memory list and discovering a notification that reads 'currently dreaming — check back later.'",
+          "caption": "the new memory system, as I understand it",
           "risk_level": "low",
           "risk_note": null
         }
@@ -301,118 +301,116 @@
     },
     {
       "idea_id": "idea-006",
-      "story_id": "meta-ai-bone-structure-age-detection",
-      "story_headline": "Meta deploys AI system that scans users' physical characteristics to detect underage accounts",
-      "story_score": 8,
+      "story_id": "xai-grok-training-leadership-change",
+      "story_headline": "xAI replaces college-aged Grok training lead with SpaceX Starlink veteran; staff asked to justify their work",
+      "story_score": 7,
       "formats": {
         "youtube_video": {
-          "title": "Meta is scanning everyone's body to find some kids",
-          "title_char_count": 50,
-          "hook": "There's a phrase doing a lot of work in Meta's announcement: 'this is not facial recognition.' That framing tells you what the real concern is.",
+          "title": "xAI is replacing its AI team with SpaceX veterans. Why?",
+          "title_char_count": 55,
+          "hook": "This week, xAI brought in an engineer from Starlink to run the team that trains Grok. That is an unusual choice for an AI company two months from a major model release — and here is what it might mean.",
           "structure": [
-            "What Meta's system actually does: analysing height, bone structure, and visual signals across every post, Reel, and live stream for all users",
-            "The 'not facial recognition' distinction: what it technically means, what it doesn't rule out, and why Meta chose that specific framing",
-            "The consent question: biometric profiling of all users to identify some users — the legal and ethical gap between the stated goal and the method",
-            "What we know about accuracy across demographic groups and why that matters for a system enforcing account access",
-            "The systemic question: if this works, it normalises continuous physical analysis of all social media users as a background process — what precedent that sets"
+            "What the human data team actually does inside an AI lab — what RLHF and human feedback mean for model behaviour, and why who runs this team is not a trivial leadership change",
+            "Who left: nine of xAI's twelve original co-founders, their roles, and what their departure timeline says about the state of the organisation",
+            "Who was replaced — Diego Pasini's background and age — and what that suggests about how xAI was originally structured compared to how it wants to operate now",
+            "Who replaced him: Jack Garabedian's Starlink background and what SpaceX-style accountability management looks like applied to an AI training environment",
+            "What the simultaneous accountability sweep — employees being asked to justify their own roles — suggests about xAI's internal state heading into the Grok V9 release expected in mid-June"
           ],
-          "target_audience": "People who use Meta's platforms and have a passing awareness of biometric privacy debates but haven't seen this specific story explained clearly",
-          "why_now": "The rollout is beginning now, starting in select markets — before it expands globally is the window to understand what's being deployed",
-          "estimated_length_mins": 13
+          "target_audience": "Tech-literate audience interested in the operational realities of AI labs — people who want to understand how these organisations actually function, not just what models they release",
+          "why_now": "Bloomberg published the story today, and the leadership change is happening two months before xAI's expected Grok V9 release. The timing of the accountability sweep and the model release date are directly connected — that window closes as the story ages.",
+          "estimated_length_mins": 10
         },
         "youtube_short": {
-          "hook_3sec": "Meta is scanning your body to find underage users.",
-          "caption": "Not facial recognition, they say. They're scanning height, bone structure, and physical signals across every post and video. For everyone. To find some kids. Full breakdown on the main channel.",
-          "visual_concept": "Text on screen showing Meta's official statement ('not facial recognition') then the description of what it actually does (height, bone structure analysis). Let the contrast speak. No voiceover required.",
-          "suggested_length_sec": 55,
-          "cta": "Full breakdown on the main channel."
+          "hook_3sec": "xAI just replaced its Grok training lead with a Starlink engineer.",
+          "caption": "9 of 12 co-founders have left. Staff are being asked to justify their work. The next Grok model is weeks away. Something is happening at xAI that isn't being covered.",
+          "visual_concept": "Org chart graphic on dark background. Left panel: original xAI co-founder list — 9 names in grey (departed), 3 in white (remaining). Right panel: text-only — 'Grok training lead: Diego Pasini → Jack Garabedian (Starlink, SpaceX).' Clean typography, no photographs, no headshots.",
+          "suggested_length_sec": 50,
+          "cta": "Full analysis on the main channel."
         },
         "image_post": {
           "slide_titles": [
-            "Meta announced AI-powered age detection this week",
-            "How it works: height, bone structure, visual signals",
-            "Applied to: posts, comments, Reels, live streams — all users",
-            "Meta's framing: 'This is not facial recognition'",
-            "The question that framing doesn't answer",
-            "What this normalises if it becomes standard across platforms"
+            "9 of 12 xAI co-founders have left the company",
+            "The team that trains Grok just got a new leader",
+            "Who he is — and where he came from",
+            "What the staff accountability review suggests",
+            "What this means for the Grok V9 release timeline"
           ],
-          "main_message": "Meta is biometrically profiling all users to identify some. The 'not facial recognition' framing is worth examining closely.",
-          "visual_direction": "Dark background. Amber accent on the 'not facial recognition' quote — position it as a claim being examined, not accepted. Clean layout, one idea per slide, small source citations. No photos of people.",
-          "caption": "The child safety goal is real. The method — scanning everyone's physical characteristics as a background process — is what needs examining. Slides break down what we know and what's still unclear."
+          "main_message": "When 75% of a company's founders leave, the remaining structure tells you something about what the company has become.",
+          "visual_direction": "Dark background. Slide 1 shows a numbered list: 9 names in grey (#8b90a4) with 'departed' in small italic, 3 names in white. Slides 2-4 use bold single-line headlines with 2-3 lines of supporting text. Slide 5 uses a minimal two-point timeline (current → mid-June). All citations in small secondary text. No photographs.",
+          "caption": "xAI is building one of the most-watched AI models of 2026. The team doing it looks very different from six months ago — and that change happened quietly while everyone was focused on the benchmarks."
         },
         "community_post": {
-          "question_or_poll": "Is scanning all users' physical characteristics to identify some underage users an acceptable trade-off?",
+          "question_or_poll": "Should we be concerned when AI lab leadership turns over at the rate xAI's has — or is rapid internal change normal for a company building at this pace?",
           "poll_options": [
-            "Yes — child safety justifies broad biometric screening",
-            "No — this is mass biometric surveillance regardless of stated purpose",
-            "It depends on accuracy and how the data is stored",
-            "The goal is right but this approach needs independent oversight"
+            "Turnover at this level is a warning sign for model quality",
+            "Normal for a high-pressure startup — it doesn't change the output",
+            "Depends entirely on who left and why",
+            "I don't have enough information to form a view"
           ],
-          "engagement_rationale": "Both sides have legitimate arguments — child safety is a real concern, and biometric profiling of all users is a real privacy issue. The question doesn't have an obvious correct answer and the trade-off is genuinely difficult."
+          "engagement_rationale": "Asks the audience to assess institutional stability against pace of development — a genuine tension in evaluating AI labs. Surfaces whether people think leadership continuity matters for model quality or whether AI development is process-independent enough that it doesn't."
         },
         "meme": {
-          "concept": "A 'fine print' meme: 'Meta Terms of Service, May 2026: We will analyse your height, bone structure and physical appearance across all content. This is not facial recognition.'",
-          "caption": "technically true",
-          "risk_level": "low",
-          "risk_note": null
+          "concept": "A management diagram showing a large box labelled 'Grok training team (AI experts)' being relabelled as 'Grok training team (SpaceX logistics)' by a figure with a Starlink badge.",
+          "caption": "xAI: we have AI expertise at home",
+          "risk_level": "medium",
+          "risk_note": "Meme lightly mocks the decision to bring in a satellite internet engineer to lead AI model training. The framing targets the company's decision rather than the individual — but could be interpreted as dismissive of Garabedian's qualifications. Recommend ensuring any caption makes clear the critique is of the institutional choice, not the person. Consider confirming the appointment details from a second source before publishing."
         }
       },
       "marked_as_used": false
     },
     {
       "idea_id": "idea-007",
-      "story_id": "openai-deployment-company-pe-jv",
-      "story_headline": "OpenAI finalizes $10 billion joint venture with 18 PE firms — embedding engineers inside businesses Palantir-style",
-      "story_score": 7,
+      "story_id": "google-android-fake-call-detection",
+      "story_headline": "Google launches Android fake call detection using RCS handshake to counter AI deepfake voice scams",
+      "story_score": 5,
       "formats": {
         "youtube_video": {
-          "title": "OpenAI just became a professional services company",
-          "title_char_count": 50,
-          "hook": "The $10 billion deal announced this week is not about AI research — it's about embedding OpenAI engineers inside businesses the way Palantir does, and it changes what OpenAI actually is.",
+          "title": "Google can now detect deepfake phone calls. A question remains.",
+          "title_char_count": 63,
+          "hook": "Google announced this week that Android can now detect AI-cloned voice calls in real time. That is genuinely useful. The question I want to ask is: whose tools are being used to make those calls in the first place.",
           "structure": [
-            "What The Deployment Company actually is: a PE vehicle that routes OpenAI engineers into client businesses in four specific sectors",
-            "The Palantir comparison: how forward-deployed engineers work, why PE firms pay for it, and what OpenAI is copying",
-            "The financial structure: guaranteed 17.5% return for five years — who bears that risk and why it matters",
-            "The Anthropic parallel: the near-simultaneous announcement of a $1.5B rival JV — what it tells us about where both labs think revenue is coming from",
-            "What this means for OpenAI's identity: a research organisation turned consumer product turned enterprise services firm"
+            "How the fake call detection actually works — the RCS handshake explained in plain terms, what it requires of both parties, and what the current limitations are",
+            "The scale of the problem it is responding to: INTERPOL's $400 billion fraud figure, FTC data, and what AI voice-cloning scams look like in practice for real victims",
+            "Who makes the AI voice-cloning tools being weaponised for these scams — what tools are available, where they are hosted, and what cloud infrastructure they run on",
+            "The pattern of major tech platforms building consumer defences against harms enabled by tools available in their own developer ecosystems",
+            "Whether detection is a sustainable long-term response or a reactive one — and what proactive alternatives would require to work at scale"
           ],
-          "target_audience": "Business and finance-adjacent professionals who follow enterprise software and want to understand where AI revenue models are heading",
-          "why_now": "The deal closed this week and the Anthropic parallel announcement the same day makes this a pattern story, not just a single deal",
-          "estimated_length_mins": 11
+          "target_audience": "Curious general audience who wants to understand the full shape of the deepfake scam problem — not security professionals, but people who have heard about these scams and want a clear-headed explanation of what is happening and who is responsible",
+          "why_now": "The Android announcement is this week — it's a concrete hook for a larger story about the ecosystem tension that most coverage of the announcement missed entirely.",
+          "estimated_length_mins": 9
         },
         "youtube_short": {
-          "hook_3sec": "OpenAI just became a consulting firm.",
-          "caption": "The $10B deal closed this week embeds OpenAI engineers inside client businesses — healthcare, finance, manufacturing. Anthropic announced an almost identical deal on the same day. Full breakdown on the main channel.",
-          "visual_concept": "Text split: 'OpenAI research lab (2015)' on one side, 'OpenAI Deployment Company (2026)' on the other. Timeline in the middle showing the transformation. Static graphic, no talking head needed.",
-          "suggested_length_sec": 50,
-          "cta": "Full breakdown on the main channel."
+          "hook_3sec": "Android can now detect AI fake calls in real time.",
+          "caption": "Here is how the detection works — and the question nobody asked at the announcement.",
+          "visual_concept": "Diagram graphic on dark background. Two phone silhouettes with an encrypted signal between them (represented as a dotted line with a lock icon). Green checkmark appears on the left phone when the handshake confirms the call is real; red warning badge when it does not. Text labels explain each state. Clean, can be understood without audio.",
+          "suggested_length_sec": 55,
+          "cta": "Full breakdown on the channel."
         },
         "image_post": {
           "slide_titles": [
-            "OpenAI closed a $10B private equity joint venture this week",
-            "What it does: embeds OpenAI engineers inside client businesses",
-            "Target sectors: healthcare, shipping, factories, finance",
-            "The financial structure: 17.5% guaranteed annual return to PE investors",
-            "The comparison: this is how Palantir operates",
-            "The same day: Anthropic announced an identical structure"
+            "Android can now detect AI deepfake voice scams in real time",
+            "How the RCS verification actually works",
+            "$400 billion in global fraud losses linked to impersonation scams",
+            "Who makes the voice-cloning tools behind the calls",
+            "The question Google's announcement didn't answer"
           ],
-          "main_message": "OpenAI is no longer just a product company — it's also a professional services firm, and the structure of the deal tells you who's actually in control.",
-          "visual_direction": "Dark background. Clean table layout for the financial structure slide. The Palantir comparison should be on its own slide with a brief explanation — many readers won't know the Palantir model. Source citations on each data slide.",
-          "caption": "Most AI coverage treats The Deployment Company as a funding story. It's more interesting as a business model story. The Anthropic parallel the same day suggests both labs arrived at the same conclusion about where enterprise AI revenue actually comes from."
+          "main_message": "The technology to detect these calls now exists. The technology to make them has existed for longer — and it's not hard to find.",
+          "visual_direction": "Dark background. Slide 2 uses a simple two-phone diagram with labelled verification signal (monochrome graphic, no external image needed). Slide 4 is a plain text list of AI voice tool providers — company names only, no logos, with a note about where they're hosted. Slide 5 is a single bold question. Citations on every fact-bearing slide.",
+          "caption": "Google built a tool to detect AI deepfake calls. Worth understanding how it works. Also worth asking: where do the voice-cloning tools come from, and whose infrastructure are they running on?"
         },
         "community_post": {
-          "question_or_poll": "Would you trust AI services more or less if the AI company had engineers embedded inside your organisation?",
+          "question_or_poll": "Should AI voice-cloning tools require user authentication before generating a voice based on a specific person — or is enforcement impossible at that level?",
           "poll_options": [
-            "More — direct expertise is better than remote support",
-            "Less — too much access to internal data and systems",
-            "Depends on the contractual protections",
-            "This model concerns me for reasons I hadn't considered before"
+            "Yes — identity verification should be mandatory at the tool level",
+            "No — enforcement is impossible, focus resources on detection instead",
+            "The platform hosting the tool should bear liability for misuse",
+            "Regulation here would just push the tools underground"
           ],
-          "engagement_rationale": "The Palantir model is controversial precisely because of the access it requires — applying that framing to AI companies makes the question concrete and relevant to anyone who works at a business that might buy AI services."
+          "engagement_rationale": "A regulatory design question with no simple answer — each option requires the audience to reason about enforcement feasibility, liability assignment, and the practical limits of technology governance. Real disagreements exist here that go beyond standard 'tech should be regulated' vs. 'regulation stifles innovation' positions."
         },
         "meme": {
-          "concept": "Job posting parody: 'OpenAI is hiring Forward Deployed Engineers. Responsibilities: embed inside client organisations. Requirements: comfortable working where you have access to everything. Salary: guaranteed 17.5% return (for investors, not you).'",
-          "caption": "definitely a research organisation",
+          "concept": "A shop owner selling both 'AI voice cloning tools' and 'AI deepfake call detection' from the same counter. Caption points to the absurdity without naming specific companies.",
+          "caption": "big tech on AI safety: the full-service approach",
           "risk_level": "low",
           "risk_note": null
         }
@@ -421,57 +419,57 @@
     },
     {
       "idea_id": "idea-008",
-      "story_id": "microsoft-clean-energy-target-at-risk",
-      "story_headline": "Microsoft weighing abandonment of 2030 carbon-free energy pledge as AI data centers add a gigawatt every three months",
-      "story_score": 7,
+      "story_id": "white-house-ai-innovation-security-eo",
+      "story_headline": "White House AI executive order framed as deregulation moves to preempt state-level AI laws",
+      "story_score": 5,
       "formats": {
         "youtube_video": {
-          "title": "Microsoft may drop its green pledge because of AI",
-          "title_char_count": 49,
-          "hook": "Before AI became a capital infrastructure race, Microsoft had one of the most ambitious clean energy targets in tech. This week, Bloomberg reported they may not keep it.",
+          "title": "The new AI executive order is framed as deregulation. It isn't.",
+          "title_char_count": 63,
+          "hook": "The White House issued an executive order on AI this week. The headline says deregulation. The actual text does something different.",
           "structure": [
-            "What Microsoft's 2030 clean energy commitment actually was and when they made it — context for why it was considered a serious pledge",
-            "The math that no longer works: one gigawatt of data center capacity every three months versus the pace of renewable energy procurement",
-            "Microsoft's public response versus the Bloomberg report — what the company says, what the reporting says, and what the gap tells us",
-            "How this fits a broader pattern: Google, Amazon, and Microsoft all made pre-AI climate pledges that AI economics are now straining",
-            "The question this poses about corporate sustainability commitments in general: were these pledges made to be kept, or made before the cost was known?"
+            "What the executive order specifically says — the language around national security, industry collaboration, and the federal role in AI governance",
+            "What 'preempting state-level AI regulation' means legally — what it prevents individual states from doing, and what the practical effect is for laws already passed or in progress",
+            "Which state AI laws are currently in the crosshairs — Colorado, California, New York, Illinois — and what enforcement mechanisms are affected",
+            "The Science journal argument: why calling federal preemption 'deregulation' misframes what is actually happening — who gains authority and who loses it",
+            "What the net effect is for AI governance in the US — whether centralising AI authority at the federal level is better or worse for accountability, and who decides"
           ],
-          "target_audience": "People who followed tech sustainability commitments and want to understand whether the AI boom has made them structurally impossible",
-          "why_now": "The Bloomberg report broke this week and Microsoft's 2030 deadline is close enough that the decision is imminent — the window to understand it before the pledge is quietly shelved",
+          "target_audience": "Policy-aware audience who follows AI governance and wants the legal substance parsed accurately — people who know the headline but want the mechanism explained",
+          "why_now": "The executive order was issued this week, and the Colorado AI Act story is happening simultaneously — together they show a coordinated pattern of federal AI governance that is clearer viewed together than separately.",
           "estimated_length_mins": 11
         },
         "youtube_short": {
-          "hook_3sec": "Microsoft may abandon its clean energy pledge.",
-          "caption": "They're adding a gigawatt of AI data center capacity every three months. The renewable energy supply can't keep up. Bloomberg says the 2030 pledge may be dropped. Full context on the main channel.",
-          "visual_concept": "Two lines on a graph: AI data center capacity growth vs. renewable energy procurement growth. The gap between them widens. Text overlay: 'Microsoft's 2030 clean energy pledge.' Static graphic. No narration needed.",
-          "suggested_length_sec": 50,
-          "cta": "Full context on the main channel."
+          "hook_3sec": "The White House called this AI order 'deregulation.' It isn't.",
+          "caption": "What it actually does: preempts states from passing their own AI laws. That is not less regulation. It is different regulation — centralised federally. Worth knowing the difference.",
+          "visual_concept": "Split text graphic on dark background. Left panel header: 'White House framing' — quote: 'removing bureaucratic obstacles to AI innovation.' Right panel header: 'Legal analysis' — quote: 'federal preemption of state authority over AI.' Same size panels, same font size, high contrast. Can be read muted in full.",
+          "suggested_length_sec": 45,
+          "cta": "Full policy breakdown on the main channel."
         },
         "image_post": {
           "slide_titles": [
-            "Microsoft made an ambitious 2030 clean energy pledge",
-            "The AI data center problem: one new gigawatt every 3 months",
-            "The energy supply problem: renewables aren't keeping pace",
-            "What Bloomberg reported vs. what Microsoft said publicly",
-            "The broader pattern: every major AI company has the same conflict"
+            "The White House issued an AI executive order this week",
+            "It was framed as deregulation",
+            "Here is what it actually does — in legal terms",
+            "Which state AI laws are now at risk",
+            "Why the labelling matters for how people evaluate policy"
           ],
-          "main_message": "Microsoft's clean energy pledge and Microsoft's AI spending are on a collision course — and the AI spending is winning.",
-          "visual_direction": "Dark background. The 'one gigawatt every three months' figure should be visualised as a growing bar — something that conveys scale without requiring technical knowledge. Clean sans-serif font. Source citations at the bottom of each data slide.",
-          "caption": "The story isn't just about Microsoft. Every major AI company made sustainability commitments before the AI infrastructure build-out began. The question now is whether any of them will survive the capital spending required to stay competitive."
+          "main_message": "Calling something deregulation is a choice. So is accepting the label without checking what the text does.",
+          "visual_direction": "Dark background. Slide 3 uses a bulleted list of specific legal mechanisms in plain English with the relevant legal term in brackets after each. Slide 4 lists state laws by name with a one-word status: Challenged / Delayed / At risk. Each slide cites the source law or analysis document in secondary small text. No imagery.",
+          "caption": "Federal preemption of state AI law is not the same as less regulation. It's centralisation described with a different word. Here's what the order actually does — and why the framing is part of the story."
         },
         "community_post": {
-          "question_or_poll": "If a company's AI ambitions conflict with its sustainability pledges, which should take priority?",
+          "question_or_poll": "Should AI regulation in the US be set at the federal level or by individual states — and does your answer change if the federal approach is less restrictive than what states would pass?",
           "poll_options": [
-            "Sustainability — pledges should be binding",
-            "AI — the economic and national interest stakes are too high",
-            "Neither should be an excuse to abandon the other",
-            "Sustainability commitments made before AI weren't realistic to begin with"
+            "Federal — consistent rules across all states is better regardless",
+            "States — more responsive to local needs and faster to adapt",
+            "Both should coexist within a clear federal-state framework",
+            "Neither has shown it can govern AI effectively yet"
           ],
-          "engagement_rationale": "Both positions are defensible and the tension is real — it's not a values question with an obvious answer, it's a prioritisation question where reasonable people disagree about the relative stakes."
+          "engagement_rationale": "A federalism question applied to AI that scrambles the usual political alignments — people who normally prefer federal standards may prefer state action here, and vice versa. The 'does your answer change if federal is weaker' clause makes it a genuine thinking question, not a values-signalling question."
         },
         "meme": {
-          "concept": "Microsoft in 2020: 'We will be carbon negative by 2030.' Microsoft in 2026 (building a new gigawatt of data centers every quarter): 'The situation has changed somewhat.'",
-          "caption": "not a U-turn, just a 'refinement of our approach'",
+          "concept": "A bureaucratic memo with 'REGULATION' printed at the top, crossed out in red, with 'AI INNOVATION FRAMEWORK' written over it in the same bureaucratic font. Same length, same format, different name.",
+          "caption": "same thing, different fonts",
           "risk_level": "low",
           "risk_note": null
         }
@@ -480,57 +478,57 @@
     },
     {
       "idea_id": "idea-009",
-      "story_id": "openai-gpt55-instant-default",
-      "story_headline": "OpenAI releases GPT-5.5 Instant as new default ChatGPT model and claims 52% fewer hallucinations",
-      "story_score": 6,
+      "story_id": "colorado-ai-act-neutered-xai-injunction",
+      "story_headline": "Colorado's AI Act gutted before enforcement: xAI wins federal court stay, Governor signs scaled-back replacement",
+      "story_score": 5,
       "formats": {
         "youtube_video": {
-          "title": "OpenAI says 52% fewer hallucinations. Who ran the test?",
-          "title_char_count": 55,
-          "hook": "GPT-5.5 Instant is now the default ChatGPT model. OpenAI says it hallucinates 52.5% less. OpenAI measured that number. On prompts OpenAI selected.",
+          "title": "xAI went to court to block a state AI law — and it worked.",
+          "title_char_count": 58,
+          "hook": "Before this week, no AI company had successfully used federal courts to block a state AI law. That changed in Colorado — and almost nobody covered it.",
           "structure": [
-            "What GPT-5.5 Instant is and what changed from the previous default model",
-            "The hallucination claim: what 52.5% fewer means, what prompts were tested, and who designed the evaluation",
-            "The self-evaluation problem in AI benchmarks: a brief history of labs claiming results measured by themselves",
-            "What independent evaluation of model hallucination actually shows and where the gaps are",
-            "What this means practically: should users actually trust GPT-5.5 Instant more on medical, legal, or financial questions?"
+            "What Colorado's AI Act was — what it required of companies, why it was considered the most comprehensive state AI law in the US, and what the June 30 enforcement date meant",
+            "What xAI filed, when, and the specific legal argument used — what constitutional grounds an AI company uses to challenge a state consumer protection law in federal court",
+            "What the federal judge ruled: what a 'stay' means, what it prevents, and what happens to the law while the injunction is pending",
+            "The Governor's SB 189 and the political decision to replace the original law with a scaled-back version before the court ruling was even finalised — what that sequencing reveals",
+            "What the Colorado precedent means for every other state currently drafting or considering AI legislation — and whether this case changes what is realistically passable"
           ],
-          "target_audience": "ChatGPT users who rely on the model for information and want to know whether the new default is actually more reliable or just claims to be",
-          "why_now": "The model is now the default — every ChatGPT user is using it right now, which makes this the moment to understand the claim",
-          "estimated_length_mins": 9
+          "target_audience": "Policy-aware professionals who want to understand how AI companies are actively shaping their regulatory environment — and how that process works in legal filings rather than lobbying offices",
+          "why_now": "The June 30 enforcement deadline is approaching this week, which is why legal analysis is being published now — but the story peaked in May and is already fading from the news cycle. Covering it now, while the deadline is live, catches it before it becomes historical context.",
+          "estimated_length_mins": 12
         },
         "youtube_short": {
-          "hook_3sec": "OpenAI says 52% fewer hallucinations. They measured it.",
-          "caption": "The new ChatGPT default claims 52.5% fewer hallucinated claims on medical and legal prompts. OpenAI ran the benchmark. On prompts OpenAI selected. Worth knowing before you rely on it.",
-          "visual_concept": "Text: 'OpenAI: 52% fewer hallucinations.' Then: 'Who measured it? OpenAI.' Then: 'On whose prompts? OpenAI's.' Simple white text on black. No graphics needed.",
-          "suggested_length_sec": 40,
-          "cta": "Full analysis on the main channel."
+          "hook_3sec": "Colorado tried to regulate AI. An AI company went to court. They won.",
+          "caption": "Colorado's AI Act was supposed to take effect June 30. It won't. Here is the three-move sequence that dismantled it — and what it means for every other state trying to do the same thing.",
+          "visual_concept": "Three-panel sequential graphic on dark background. Panel 1: 'Colorado passes comprehensive AI Act (2024).' Panel 2: 'xAI files for federal injunction — court grants stay (April 2026).' Panel 3: 'Governor signs scaled-back replacement, SB 189 (May 2026).' Clean bold text, sequential layout. Source citations at the bottom of each panel.",
+          "suggested_length_sec": 55,
+          "cta": "Full breakdown on the main channel."
         },
         "image_post": {
           "slide_titles": [
-            "OpenAI replaced ChatGPT's default model this week",
-            "The claim: 52.5% fewer hallucinations",
-            "Who ran the evaluation: OpenAI",
-            "What independent AI benchmarks show about self-evaluation",
-            "What this means for users who rely on it for medical/legal questions"
+            "Colorado's AI Act was the most comprehensive in the US",
+            "Then xAI filed a federal injunction",
+            "Then the Governor signed a scaled-back replacement",
+            "Original Act vs. SB 189: what was removed",
+            "What this precedent means for AI regulation in every other state"
           ],
-          "main_message": "A new ChatGPT default is live. The hallucination reduction claim deserves a closer look before you start trusting it with high-stakes queries.",
-          "visual_direction": "Dark background. The '52.5% fewer hallucinations' number appears large on its own slide in white, then the next slide adds 'measured by OpenAI' in smaller amber text beneath it — the visual should feel like a claim being contextualised.",
-          "caption": "New ChatGPT default is live. The company says 52% fewer hallucinations. The benchmark was run by the company. The prompts were chosen by the company. That context matters if you're using it for anything important."
+          "main_message": "The first meaningful state AI law was dismantled before it was ever enforced. That is a precedent worth understanding.",
+          "visual_direction": "Dark background. Slide 4 uses a two-column comparison table: 'Original Colorado AI Act' vs. 'SB 189 replacement.' Each row is a specific provision. 'Removed' entries in red (#ef4444), 'retained' in green (#10b981), 'scaled back' in amber (#f59e0b). Plain language translation of each provision. Source cited at bottom. Other slides are single-column text with bold headlines.",
+          "caption": "Colorado's AI Act was three weeks from taking effect. Here is the exact sequence of legal and political moves that prevented it — and what it implies for every other state currently trying to regulate AI."
         },
         "community_post": {
-          "question_or_poll": "Should AI companies be allowed to publish their own safety and accuracy benchmarks without independent verification?",
+          "question_or_poll": "Should AI companies have the right to challenge state AI regulations in federal court — or does that create a power imbalance that makes meaningful state-level regulation impossible?",
           "poll_options": [
-            "No — independent verification should be required before public claims",
-            "Yes — companies know their own models best",
-            "Self-published results are fine as long as methodology is disclosed",
-            "It depends on how the results are used in marketing"
+            "Yes — unconstitutional laws should be challenged, regardless of subject matter",
+            "No — it creates an uneven playing field only well-resourced companies can use",
+            "It depends on the specific legal grounds of the challenge",
+            "States shouldn't be regulating AI independently — that should be a federal job"
           ],
-          "engagement_rationale": "This question connects a specific news item to a genuine policy gap — there is currently no standard requiring independent verification of AI performance claims, and this matters to anyone who relies on AI outputs."
+          "engagement_rationale": "Tests the audience's beliefs about corporate power in the regulatory process using a concrete, documented case — forces a choice between rule-of-law principles (anyone can challenge unconstitutional law) and structural power concerns (not everyone can afford to file a federal injunction). Real tension, no safe default answer."
         },
         "meme": {
-          "concept": "Homework marked by the student: the teacher asked 'how many mistakes did you make?' and the student writes 'fewer than last time.' Teacher: 'who checked?' Student: 'I did.'",
-          "caption": "52.5% fewer hallucinations (source: us)",
+          "concept": "State AI regulation labelled as a freshly built sandcastle on a beach. xAI's federal court filing labelled as the incoming tide. Caption is dry observation, no explicit condemnation.",
+          "caption": "state AI law, end of run time",
           "risk_level": "low",
           "risk_note": null
         }
@@ -539,356 +537,60 @@
     },
     {
       "idea_id": "idea-010",
-      "story_id": "anthropic-pe-jv-goldman-blackstone",
-      "story_headline": "Anthropic launches $1.5 billion PE venture with Goldman Sachs and Blackstone — announced within minutes of OpenAI's parallel JV",
-      "story_score": 6,
+      "story_id": "farage-bailey-deepfake-x-scam",
+      "story_headline": "AI deepfake videos of UK politicians Farage and Bailey spread on X as investment fraud linked to Russian networks",
+      "story_score": 5,
       "formats": {
         "youtube_video": {
-          "title": "Two AI labs announced the same deal on the same day",
-          "title_char_count": 51,
-          "hook": "OpenAI and Anthropic both announced private equity joint ventures within minutes of each other this week. Both target the same industries. Both involve the same financial structure. That is not random.",
+          "title": "How AI deepfakes are being used to run investment scams.",
+          "title_char_count": 56,
+          "hook": "Deepfake videos are no longer just impersonating people saying things — they're now staging fake confrontations between authority figures specifically to manufacture credibility for financial fraud.",
           "structure": [
-            "The timeline of the two announcements and what we know about whether they were coordinated",
-            "What both deals have in common: PE capital, enterprise deployment, the same target sectors",
-            "What the difference in scale ($10B vs $1.5B) tells us about each company's current negotiating position",
-            "Why PE firms are the buyers here: the guaranteed return structure, the enterprise access, the AI adoption thesis",
-            "What it means for how the AI market is developing: not consumer, not developer tools — enterprise professional services"
+            "The specific mechanism: why fabricating a violent confrontation between authority figures is more effective for scam credibility than a simple endorsement, and the psychology of urgency it creates",
+            "The Farage-Bailey case specifically: what the videos showed, where they circulated, how long they remained on X, and what the investment scam they were attached to looked like",
+            "What is known and what is alleged about the link to Russian-language cybercriminal networks — what 'linked to' means in this context and what evidence investigators cited",
+            "How this compares to previous AI deepfake scam formats — celebrity endorsements, audio-only voice cloning — and why violence is a new and more alarming category",
+            "What individuals and platforms can practically do to identify this category of content before being taken in by it — specific signals, not generic 'be sceptical' advice"
           ],
-          "target_audience": "People who follow AI business strategy and want to understand where the revenue models are landing",
-          "why_now": "Both deals closed this week and the pattern only makes sense viewed together — covering them separately misses the real story",
-          "estimated_length_mins": 10
-        },
-        "youtube_short": {
-          "hook_3sec": "OpenAI and Anthropic announced PE deals the same day.",
-          "caption": "OpenAI: $10B JV. Anthropic: $1.5B JV. Both announced within minutes of each other on May 4. Both targeting the same sectors. That timing is the story. Full context on the main channel.",
-          "visual_concept": "Timeline showing both announcements — time stamps side by side, deal size shown. Clean, minimal graphic. The proximity of the times is the visual point.",
-          "suggested_length_sec": 45,
-          "cta": "Full context on the main channel."
-        },
-        "image_post": {
-          "slide_titles": [
-            "Two rival AI labs announced PE deals this week",
-            "OpenAI's Deployment Company: $10 billion, 18 PE firms",
-            "Anthropic's venture: $1.5 billion, Goldman + Blackstone",
-            "Both targeting: healthcare, finance, industrial businesses",
-            "Both announced: May 4, 2026, within minutes of each other"
-          ],
-          "main_message": "When two competing AI labs announce structurally identical deals within minutes of each other, that's a signal about where the industry thinks enterprise AI revenue is coming from.",
-          "visual_direction": "Side-by-side comparison layout. Dark background. OpenAI details on left, Anthropic on right. Identical structure to show how similar the deals are. Time stamps on the announcement slide to emphasise the simultaneity.",
-          "caption": "The deals themselves are interesting. The timing is more interesting. When did both companies decide to go to private equity, and why on the same day?"
-        },
-        "community_post": {
-          "question_or_poll": "What best explains two rival AI companies announcing near-identical deals within minutes of each other?",
-          "poll_options": [
-            "Competitive intelligence — one company knew and moved to match",
-            "Industry convergence — both arrived at the same conclusion independently",
-            "Coordination — the PE firms involved have overlapping networks",
-            "Coincidence — sometimes things happen at the same time"
-          ],
-          "engagement_rationale": "The question has no obvious answer and invites genuine speculation about how competitive dynamics work in AI — all four options are plausible, which makes the discussion interesting."
-        },
-        "meme": {
-          "concept": "The Drake meme: Not approved (top) — 'AI research'. Approved (bottom) — 'Forward-deployed engineers inside PE-owned businesses with guaranteed 17% annual returns.'",
-          "caption": "the mission evolved",
-          "risk_level": "low",
-          "risk_note": null
-        }
-      },
-      "marked_as_used": false
-    },
-    {
-      "idea_id": "idea-011",
-      "story_id": "us-gov-ai-model-testing-agreement",
-      "story_headline": "US government signs deals to pre-test unreleased AI models from Google, Microsoft, and xAI — with no enforcement mechanism",
-      "story_score": 6,
-      "formats": {
-        "youtube_video": {
-          "title": "The government will test AI models. There's a catch.",
-          "title_char_count": 52,
-          "hook": "Three major AI companies agreed to let the government test their models before deployment. The agreement doesn't say what happens if the models fail.",
-          "structure": [
-            "What NIST's testing agreements actually require the companies to do and what they don't require",
-            "What 'security testing' means in this context — the scope, methodology, and who defines what a pass looks like",
-            "The enforcement gap: voluntary agreements with no published consequence for non-compliance",
-            "How this compares to previous AI governance frameworks that also relied on voluntary commitments — the 2023 White House AI safety commitments, for example",
-            "What meaningful AI testing governance would actually need to look like, and why this falls short"
-          ],
-          "target_audience": "Anyone who wants to understand what AI regulation in the US actually looks like versus what it is announced to look like",
-          "why_now": "The agreements were signed this week and will likely be cited in upcoming AI policy debates as evidence of governance — the moment to understand what they actually contain",
+          "target_audience": "General audience who wants to understand a specific, documented threat clearly — not security specialists, but people who consume news on social platforms and want to recognise this pattern when they see it",
+          "why_now": "The story broke today, establishing a documented case of this specific tactic — the educational window is highest immediately after a documented incident, before it becomes a generalised 'AI deepfakes are dangerous' story without a specific case to anchor it.",
           "estimated_length_mins": 9
         },
         "youtube_short": {
-          "hook_3sec": "The government will now test AI before release.",
-          "caption": "Google, Microsoft, and xAI signed deals this week. The agreements don't say what happens if a model fails. Full breakdown on the main channel.",
-          "visual_concept": "Text: 'New: Government will pre-test AI models.' Then: 'What happens if they fail?' Then: 'The agreement doesn't say.' Clean, white on black, three beats.",
-          "suggested_length_sec": 40,
-          "cta": "Full breakdown on the main channel."
-        },
-        "image_post": {
-          "slide_titles": [
-            "The US government signed AI testing deals this week",
-            "What the deals require: share unreleased models with NIST",
-            "What they don't specify: what failure looks like",
-            "What they don't specify: what happens if a model fails",
-            "A brief history of voluntary AI safety commitments"
-          ],
-          "main_message": "Government AI testing agreements that lack enforcement mechanisms are a governance announcement, not governance.",
-          "visual_direction": "Dark background. Clean checklist format — 'INCLUDED' in green, 'NOT INCLUDED' in amber. The visual should make the gap between what's in the deal and what's missing immediately legible.",
-          "caption": "The framing around these deals is 'government oversight of AI.' The substance is 'companies volunteered to share models with a standards body, with no published consequence if the models don't pass.' The slides show what's actually in the agreements."
-        },
-        "community_post": {
-          "question_or_poll": "Should AI companies be required to pass government safety tests before deploying new models?",
-          "poll_options": [
-            "Yes — mandatory testing before deployment",
-            "No — voluntary industry standards are sufficient",
-            "Mandatory testing, but conducted by independent third parties",
-            "Testing is fine but enforcement is what matters"
-          ],
-          "engagement_rationale": "This question is live in policy debates right now, the DeepMind union and Colorado AI Act stories add context, and there's no obvious majority position among the channel's audience."
-        },
-        "meme": {
-          "concept": "Government AI testing agreement as a school permission slip: 'I agree to let my AI model be tested. (No signature required if model doesn't feel like it.)'",
-          "caption": "enforceable by: vibes",
-          "risk_level": "low",
-          "risk_note": null
-        }
-      },
-      "marked_as_used": false
-    },
-    {
-      "idea_id": "idea-012",
-      "story_id": "microsoft-voluntary-retirement-program",
-      "story_headline": "Microsoft launches its first voluntary retirement program in 51 years as AI infrastructure spending tightens other budgets",
-      "story_score": 6,
-      "formats": {
-        "youtube_video": {
-          "title": "Microsoft's first buyout offer in 51 years, explained",
-          "title_char_count": 53,
-          "hook": "Microsoft has existed for 51 years and never offered employees a voluntary buyout before now. The timing is worth examining.",
-          "structure": [
-            "What the programme offers and who is eligible — the specifics of the severance, healthcare, and stock terms",
-            "Why 51 years matters: what this says about Microsoft's historical approach to workforce management versus where it is now",
-            "The AI spending context: $190 billion in data center capex through December — what that leaves for the rest of the company",
-            "How this fits with the broader pattern this week: Meta's explicit AI restructuring, DeepMind's unionisation, OpenAI's PE deployment model",
-            "What voluntary programmes typically precede: reading the incentive structure of buyouts in tech"
-          ],
-          "target_audience": "Tech industry workers and business professionals who want to understand what AI investment is doing to the internal economics of major tech companies",
-          "why_now": "The June 8 decision deadline is four weeks away — the moment to understand the offer before the window closes",
-          "estimated_length_mins": 10
-        },
-        "youtube_short": {
-          "hook_3sec": "Microsoft's first buyout offer. In 51 years.",
-          "caption": "7% of the US workforce. Cash, healthcare, stock. June 8 deadline. Never done this before. The AI data center spend is the context. Full breakdown on the main channel.",
-          "visual_concept": "Text: 'Microsoft, founded 1975. First voluntary buyout: 2026.' Static, clean, dark background. The number does the work.",
-          "suggested_length_sec": 40,
-          "cta": "Full breakdown on the main channel."
-        },
-        "image_post": {
-          "slide_titles": [
-            "Microsoft's first voluntary retirement offer in 51 years",
-            "Who's eligible: ~8,750 US employees (7% of US workforce)",
-            "What's offered: cash, healthcare, vested stock",
-            "Decision deadline: June 8, 2026",
-            "The context: $190B in AI data center spend this year"
-          ],
-          "main_message": "When a 51-year-old company offers a buyout for the first time, it's worth asking what changed. The answer is the same as everywhere else this week.",
-          "visual_direction": "Dark background. The '51 years' number should be prominent and large. Timeline format on one slide showing Microsoft's founding year to now. Clean, factual presentation.",
-          "caption": "The buyout details are straightforward. The 51-year context is what makes this interesting. This is part of a pattern across major tech companies this week — several slides of context."
-        },
-        "community_post": {
-          "question_or_poll": "Is a voluntary buyout a responsible way for a company to manage AI-driven workforce changes?",
-          "poll_options": [
-            "Yes — voluntary is better than forced layoffs",
-            "No — it's still displacement, just with softer optics",
-            "It depends on whether retraining is offered alongside it",
-            "The question should be whether the restructuring itself is justified"
-          ],
-          "engagement_rationale": "The voluntary versus involuntary distinction is one people have strong intuitions about, but those intuitions don't always hold under examination — this question invites that reconsideration."
-        },
-        "meme": {
-          "concept": "Vintage Microsoft logo (1975) next to modern logo (2026). Caption format: '1975: We're building software for everyone. 2026: We're building gigawatts. Anyone want to leave voluntarily?'",
-          "caption": "51 years of not doing this",
-          "risk_level": "low",
-          "risk_note": null
-        }
-      },
-      "marked_as_used": false
-    },
-    {
-      "idea_id": "idea-013",
-      "story_id": "colorado-ai-act-paused-federal-court",
-      "story_headline": "Federal court pauses Colorado's AI Act weeks before effective date; DOJ argues the law compels AI to adopt state viewpoints",
-      "story_score": 6,
-      "formats": {
-        "youtube_video": {
-          "title": "The DOJ just found a way to stop all state AI laws",
-          "title_char_count": 50,
-          "hook": "The Department of Justice argued this week that Colorado's AI law is unconstitutional because it forces AI systems to adopt state-defined viewpoints. If that argument holds, it could be used against almost any AI regulation.",
-          "structure": [
-            "What Colorado's AI Act actually requires — the specific provisions that triggered the constitutional challenge",
-            "The DOJ's 'compelled speech' argument: what it means in First Amendment law and why applying it to AI is novel and consequential",
-            "How this argument could be applied to other state AI regulations — and whether the federal government's intervention here is unusual",
-            "The xAI challenge: why Elon Musk's company filed the suit and what strategic interest xAI has in blocking state AI regulation",
-            "What this means for the future of AI governance: if federal courts accept this argument, who can regulate AI and how?"
-          ],
-          "target_audience": "People who follow AI policy and want to understand a legal argument that could significantly limit how AI is regulated at the state level",
-          "why_now": "The court stay was issued this week and the argument is new — before it becomes normalised in policy discussion is the moment to explain what it actually claims",
-          "estimated_length_mins": 12
-        },
-        "youtube_short": {
-          "hook_3sec": "The DOJ says state AI laws are compelled speech.",
-          "caption": "Colorado's AI Act was paused this week. The DOJ argued regulating what AI outputs says is unconstitutional compelled speech. If that argument holds, almost no state can regulate AI. Full breakdown on the main channel.",
-          "visual_concept": "Text: 'Colorado AI Act' with a red PAUSED stamp. Then: 'Why? DOJ: AI regulation = compelled speech.' Clean, legal brief aesthetic. No images needed.",
-          "suggested_length_sec": 50,
-          "cta": "Full breakdown on the main channel."
-        },
-        "image_post": {
-          "slide_titles": [
-            "Colorado's AI Act was paused by a federal court this week",
-            "Who challenged it: xAI (Elon Musk's company)",
-            "Who joined: the US Department of Justice",
-            "The DOJ's argument: regulating AI outputs is 'compelled speech'",
-            "Why that argument is significant beyond Colorado",
-            "What state-level AI regulation looks like if this holds"
-          ],
-          "main_message": "The DOJ's legal argument against Colorado's AI Act is more significant than the Colorado law itself — it's a weapon that could be deployed against almost any state AI regulation.",
-          "visual_direction": "Dark background. Legal document aesthetic — clean serif font for the quoted legal argument, sans-serif for explanatory text. The 'compelled speech' argument should be quoted verbatim on its own slide. Source citations at the bottom of each slide.",
-          "caption": "Most coverage of this story focuses on Colorado. The more significant part is the DOJ's legal theory, which was filed this week and hasn't been widely explained. Slides break down what it claims and what it could mean."
-        },
-        "community_post": {
-          "question_or_poll": "Should states be able to regulate what AI systems can and can't say?",
-          "poll_options": [
-            "Yes — states should be able to set standards for AI outputs",
-            "No — federal standards only; state-by-state rules create chaos",
-            "Yes, but only for specific high-risk applications",
-            "The First Amendment question here is genuinely complex"
-          ],
-          "engagement_rationale": "This question sits at the intersection of federalism, free speech, and AI — the DOJ's argument makes it concrete and current rather than hypothetical."
-        },
-        "meme": {
-          "concept": "Colorado: 'We passed an AI regulation law.' DOJ: 'That's a very nice law you have there. First Amendment.' xAI: 'We filed the suit.' Colorado Governor: 'I was also somewhat concerned about the law, actually.'",
-          "caption": "everyone's opposed to this law for different reasons",
-          "risk_level": "low",
-          "risk_note": null
-        }
-      },
-      "marked_as_used": false
-    },
-    {
-      "idea_id": "idea-014",
-      "story_id": "ai-investment-scam-15500-domains",
-      "story_headline": "Researchers expose 15,500-domain AI-themed deepfake investment fraud network using ad trackers to evade detection",
-      "story_score": 6,
-      "formats": {
-        "youtube_video": {
-          "title": "How a 15,000-site AI scam hid from security tools",
-          "title_char_count": 49,
-          "hook": "There's a 15,000-domain AI investment scam network that security scanners consistently can't see — and the mechanism it uses to stay invisible is genuinely clever and worth understanding.",
-          "structure": [
-            "What the scam is: AI-themed investment fraud sites using deepfake celebrity endorsements and fake trading returns",
-            "The cloaking mechanism: how the Keitaro ad-tracking platform is used to show victims the scam content while showing security tools harmless pages",
-            "How generative AI changed the economics: programmatic multilingual campaign material that previously required human teams",
-            "Why domain takedowns don't work: the infrastructure rotation speed versus the speed of removal",
-            "What this tells us about the current state of AI-enabled fraud: not smarter individual scams, but industrialised fraud at a scale that wasn't previously possible"
-          ],
-          "target_audience": "People who use the internet and want to understand how AI has changed the economics and scale of online fraud — specifically those who might be targeted by investment scams",
-          "why_now": "Malwarebytes published the research this week and the operation is ongoing — the information is useful now, before more people are targeted",
-          "estimated_length_mins": 11
-        },
-        "youtube_short": {
-          "hook_3sec": "A 15,000-site scam that security tools can't see.",
-          "caption": "AI investment fraud network using ad trackers as cloaking infrastructure. Security scanners see a normal page. Victims see a deepfake celebrity pitch. Researchers just mapped how it works. Full breakdown on the main channel.",
-          "visual_concept": "Split screen: what a security scanner sees (harmless page) versus what a victim sees (deepfake pitch). Simple graphic illustrating the cloaking mechanism. No real people shown.",
+          "hook_3sec": "Deepfake videos are now staging fake violence between real politicians.",
+          "caption": "Not to spread misinformation. To run investment fraud. Here is why staging violence specifically is the tactic — and what it tells you about how these scams work.",
+          "visual_concept": "Step-by-step text explainer on dark background. Four sequential labelled steps: 1. 'Generate fake violent confrontation between named authority figures.' 2. 'Spread on X with urgent investment framing.' 3. 'Viewer shock bypasses critical evaluation.' 4. 'Scam link converts confused viewers.' No images of the individuals. Text-only, white on dark, legible muted.",
           "suggested_length_sec": 55,
           "cta": "Full breakdown on the main channel."
         },
         "image_post": {
           "slide_titles": [
-            "Researchers found a 15,500-domain AI fraud network",
-            "The scam: AI-themed investment sites with deepfake celebrity endorsements",
-            "The mechanism: show victims the scam, show security scanners a normal page",
-            "How they hide: the Keitaro ad-tracker as a cloaking layer",
-            "Why it persists: domain rotation is faster than takedowns",
-            "What to watch for if you see AI investment promotions online"
+            "A new AI scam format appeared this week",
+            "The mechanism: fake violence between authority figures",
+            "Why violence — not speech — is the tactic",
+            "What the Farage-Bailey case shows about how it spreads",
+            "How to recognise this class of content before it lands",
+            "Who is building defences against this — and whether it is enough"
           ],
-          "main_message": "This isn't a story about a clever scam — it's a story about AI making fraud industrial, at a scale that security tools weren't built for.",
-          "visual_direction": "Dark background with red accent for the scam elements. Diagram showing the cloaking flow on one slide — victim path vs security scanner path. Clean and technical without being jargon-heavy. Safety tip on the last slide.",
-          "caption": "The fraud itself is simple. The infrastructure is what's interesting — and the infrastructure is what's making it hard to shut down. Slides explain the mechanism and what to watch for."
+          "main_message": "Understanding how a new scam mechanism works is not paranoia. It is useful knowledge.",
+          "visual_direction": "Dark background, six slides. NO images of Farage or Bailey on any slide. Each slide is text-only with a bold factual headline and 2-3 supporting sentences in secondary text. Slide 5 uses a numbered checklist of recognition signals (e.g. 'violent content involving normally calm public figures,' 'urgent financial CTA below or linked'). Source citation on every factual claim. High-contrast, clean.",
+          "caption": "AI investment scams have a documented new format. Instead of faking endorsements, this one stages fake violence between authority figures to create shock that bypasses scepticism. Here's the mechanism — and how to spot it."
         },
         "community_post": {
-          "question_or_poll": "Have you or someone you know been targeted by an AI-themed investment pitch online?",
+          "question_or_poll": "Platforms like X allowed these deepfake videos to circulate for hours before removal. Who bears primary responsibility for stopping this kind of AI-enabled fraud?",
           "poll_options": [
-            "Yes, directly",
-            "Yes, someone I know",
-            "No, but I've seen them",
-            "No, I haven't encountered them"
+            "The platform — it controls distribution and can detect at scale",
+            "AI tool makers — they should build identity safeguards into voice and video generation",
+            "Law enforcement — this is financial fraud and should be prosecuted as such",
+            "All three together — no single actor can address this alone"
           ],
-          "engagement_rationale": "This question gauges the actual reach of the problem among the audience and produces a useful data point for the channel — while also raising awareness of the threat."
+          "engagement_rationale": "A liability assignment question with no clean answer that forces the audience to reason about platform responsibility, AI accountability, and law enforcement capacity simultaneously. Each option has a coherent argument behind it, and the audience's answer will reveal their underlying assumptions about where power and responsibility should sit."
         },
         "meme": {
-          "concept": "'AI is democratising...' format: AI is democratising investment fraud. 15,500 domains, multilingual, self-updating, security-invisible, celebrity deepfakes included. Available to any motivated criminal. Starting at: the cost of a hosting plan.",
-          "caption": "democratisation cuts both ways",
-          "risk_level": "medium",
-          "risk_note": "Could be taken as instructional if the mechanism description is too detailed. Caption and framing emphasise this as a warning and an analysis of scale, not a how-to. No specific tool names or hosting providers mentioned in the meme itself."
-        }
-      },
-      "marked_as_used": false
-    },
-    {
-      "idea_id": "idea-015",
-      "story_id": "openai-gpt55-cyber-preview",
-      "story_headline": "OpenAI rolls out GPT-5.5-Cyber to restricted security teams days after Anthropic warned about AI-enabled vulnerability discovery",
-      "story_score": 5,
-      "formats": {
-        "youtube_video": {
-          "title": "Both Anthropic and OpenAI have cyber models they won't share",
-          "title_char_count": 60,
-          "hook": "Two leading AI labs both announced specialised cybersecurity models this week. Both are restricting access. That's a pattern that deserves an explanation.",
-          "structure": [
-            "What Anthropic's Mythos-Glasswing and OpenAI's GPT-5.5-Cyber actually are and what distinguishes them from their general models",
-            "The restriction pattern: why both labs chose vetted-only access simultaneously rather than broader release",
-            "What 'vetted access' means in practice: what the vetting criteria are, who qualifies, and who decides",
-            "The dual-use problem in AI security tools: the same model that finds vulnerabilities to patch can find vulnerabilities to exploit",
-            "What the emergence of restricted AI security models means for the future of cybersecurity — will this be standard, or is the restriction temporary?"
-          ],
-          "target_audience": "Security professionals and tech-curious professionals who want to understand where AI is heading in the cybersecurity space",
-          "why_now": "Both models were announced within days of each other this week, making the pattern visible for the first time",
-          "estimated_length_mins": 10
-        },
-        "youtube_short": {
-          "hook_3sec": "Two AI labs. Two restricted cyber models. One week.",
-          "caption": "Anthropic's Mythos-Glasswing and OpenAI's GPT-5.5-Cyber were both announced this week. Both require vetting to access. Both find software vulnerabilities. The dual-use problem is why they're restricted. Full context on the main channel.",
-          "visual_concept": "Side-by-side: Anthropic + 'Project Glasswing: vetted access only' / OpenAI + 'GPT-5.5-Cyber: vetted access only'. The symmetry is the point. Static graphic.",
-          "suggested_length_sec": 45,
-          "cta": "Full context on the main channel."
-        },
-        "image_post": {
-          "slide_titles": [
-            "Two AI labs announced restricted cyber models this week",
-            "Anthropic: Mythos (Project Glasswing) — vetted partners only",
-            "OpenAI: GPT-5.5-Cyber — vetted security teams only",
-            "Why restricted: same model finds and exploits vulnerabilities",
-            "The question this raises about AI in security"
-          ],
-          "main_message": "When two competing labs independently decide to restrict their most security-capable models, that's a signal worth paying attention to.",
-          "visual_direction": "Side-by-side comparison layout. Dark background. Symmetrical design to emphasise that both labs made the same call independently. Clean and minimal.",
-          "caption": "This is better understood as a pattern than two separate product stories. Both labs built security-capable models. Both decided not to release them openly. That shared decision tells you something."
-        },
-        "community_post": {
-          "question_or_poll": "Should AI-powered vulnerability discovery tools be restricted to vetted security professionals — or made broadly available?",
-          "poll_options": [
-            "Restricted — the dual-use risk is too high",
-            "Broadly available — security through obscurity doesn't work",
-            "Restricted initially, then released as defences mature",
-            "The decision shouldn't be left to the AI labs"
-          ],
-          "engagement_rationale": "The dual-use debate in cybersecurity is live and unresolved — applying it to AI models makes it current and relevant to people who aren't security professionals."
-        },
-        "meme": {
-          "concept": "AI lab press release: 'We built a model that can find any software vulnerability. Access is restricted to vetted professionals. This is for your safety. Please do not ask how we vet professionals.'",
-          "caption": "trust the process",
-          "risk_level": "low",
-          "risk_note": null
+          "concept": "An abstract flowchart showing the scam pipeline using generic placeholders: 'Step 1: Generate fake confrontation between Authority Figure A and Authority Figure B. Step 2: Post with investment link. Step 3: Profit.' Caption treats it as a dry technical explainer.",
+          "caption": "the AI investment scam pipeline: a technical overview (do not do this)",
+          "risk_level": "high",
+          "risk_note": "Even using abstract placeholders, a flowchart depicting the mechanism of a real ongoing scam campaign risks being screenshotted and reused as actual instructions. The story involves named real public figures in a violent context, and any meme format risks trivialising political violence or appearing to endorse the method. Recommend against publishing any meme for this story. If humour is desired, redirect it to the platforms' failure to detect the content quickly rather than the scam mechanism itself."
         }
       },
       "marked_as_used": false

@@ -38,3 +38,15 @@ ConsoleHost_history.txt
 # Browser local data
 LocalStorage/
 IndexedDB/
+
+# Daily scan archives (generated data, grows with every run)
+scans/20*/
+
+# Failure diagnostics (runtime data)
+scans_failed/20*/
+
+# Failed scan manifest (runtime log)
+logs/failed_scan_manifest.json
+
+# Build / transfer artifacts
+*.zip

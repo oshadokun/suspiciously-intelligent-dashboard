@@ -1,0 +1,24 @@
+You are running inside this project directory:
+C:\Users\dayoo\OneDrive\Documents\projects\suspiciously intelligent
+
+This is a non-interactive daily scan job. Do not ask clarifying questions.
+
+Open and read this exact file first:
+C:\Users\dayoo\OneDrive\Documents\projects\suspiciously intelligent\AGENT_README.md
+
+Then execute the complete 5-phase Suspiciously Intelligent pipeline described there:
+1. Research
+2. Analyze
+3. Content
+4. Dashboard
+5. Validate
+
+Actually create or overwrite these output files in the current working directory:
+raw_research.json
+analyzed_stories.json
+content_ideas.json
+ideas.md
+data.json
+run_report.md
+
+Start immediately with Phase 1. Do not stop after reading instructions. Do not pause between phases. When run_report.md has been written, print RUN COMPLETE.
